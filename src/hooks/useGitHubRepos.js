@@ -1,0 +1,143 @@
+import { useState, useEffect, useCallback } from 'react';
+import {
+  fetchUserRepos,
+  fetchRepoLanguages,
+  fetchRepoReadme,
+  detectScreenshots,
+  aggregateLanguages,
+} from '../services/githubApi';
+import { GITHUB_CONFIG } from '../config/github';
+
+/**
+ * Hook: useGitHubRepos
+ * Fetches, filters, enriches, and returns public repos for the configured username.
+ *
+ * Returns:
+ *   repos       - enriched repo objects
+ *   loading     - initial load state
+ *   error       - error object or null
+ *   rateLimited - true if GitHub rate limit was hit
+ *   refetch     - function to force a fresh fetch
+ *   langStats   - aggregated language percentages across all repos
+ */
+const useGitHubRepos = () => {
+  const [repos, setRepos] = useState([]);
+  const [langStats, setLangStats] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [rateLimited, setRateLimited] = useState(false);
+
+  const { username, featuredRepos, excludeRepos, maxRepos, cacheTimeout } = GITHUB_CONFIG;
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    setRateLimited(false);
+
+    try {
+      // 1. Fetch all public repos
+      const allRepos = await fetchUserRepos(username, cacheTimeout);
+
+      // 2. Filter: remove archived, excluded, and forks
+      const filtered = allRepos.filter(
+        (r) =>
+          !r.archived &&
+          !r.fork &&
+          !excludeRepos.includes(r.name)
+      );
+
+      // 3. Sort: featured first, then by stars desc
+      filtered.sort((a, b) => {
+        const aFeatured = featuredRepos.indexOf(a.name);
+        const bFeatured = featuredRepos.indexOf(b.name);
+        if (aFeatured !== -1 && bFeatured !== -1) return aFeatured - bFeatured;
+        if (aFeatured !== -1) return -1;
+        if (bFeatured !== -1) return 1;
+        return b.stargazers_count - a.stargazers_count;
+      });
+
+      // 4. Limit to maxRepos
+      const limited = filtered.slice(0, maxRepos);
+
+      // 5. Enrich: fetch languages for each repo (parallel)
+      const enriched = await Promise.all(
+        limited.map(async (repo) => {
+          let languages = {};
+          try {
+            languages = await fetchRepoLanguages(username, repo.name, cacheTimeout);
+          } catch {
+            // language fetch failed — use topics as fallback
+          }
+
+          return {
+            ...repo,
+            languages: Object.keys(languages || {}),
+            languageBytes: languages || {},
+            isFeatured: featuredRepos.includes(repo.name),
+            isPinned: featuredRepos.indexOf(repo.name) !== -1,
+          };
+        })
+      );
+
+      // 6. Aggregate language stats
+      const allLangMaps = enriched.map((r) => r.languageBytes);
+      const stats = aggregateLanguages(allLangMaps);
+
+      setRepos(enriched);
+      setLangStats(stats);
+    } catch (err) {
+      if (err.code === 'RATE_LIMIT') {
+        setRateLimited(true);
+        setError(`GitHub rate limit hit. ${err.message}`);
+      } else {
+        setError(err.message || 'Failed to load repositories.');
+      }
+    } finally {
+      setLoading(false);
+    }
+  }, [username, featuredRepos, excludeRepos, maxRepos, cacheTimeout]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  return { repos, langStats, loading, error, rateLimited, refetch: load };
+};
+
+/**
+ * Hook: useRepoDetail
+ * Fetches README + screenshots for a single repo on-demand.
+ */
+export const useRepoDetail = (repo) => {
+  const [readme, setReadme] = useState(null);
+  const [screenshots, setScreenshots] = useState([]);
+  const [detailLoading, setDetailLoading] = useState(false);
+
+  const { username, cacheTimeout } = GITHUB_CONFIG;
+
+  useEffect(() => {
+    if (!repo) return;
+
+    const load = async () => {
+      setDetailLoading(true);
+      try {
+        const readmeText = await fetchRepoReadme(username, repo.name, cacheTimeout);
+        setReadme(readmeText);
+
+        const shots = await detectScreenshots(username, repo.name, readmeText, cacheTimeout);
+        setScreenshots(shots);
+      } catch {
+        setReadme(null);
+        setScreenshots([]);
+      } finally {
+        setDetailLoading(false);
+      }
+    };
+
+    load();
+  }, [repo, username, cacheTimeout]);
+
+  return { readme, screenshots, detailLoading };
+};
+
+export default useGitHubRepos;
