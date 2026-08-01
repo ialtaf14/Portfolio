@@ -13,20 +13,20 @@
 
 ## 📸 Screenshots
 
+### ⚡ Hero Landing Section
+![Hero Section](public/images/screenshots/01-hero.png)
+
 ### 🎯 Recruiter View — 30-Second Executive Deck
-![Recruiter View](public/images/screenshots/01-recruiter-view.png)
+![Recruiter View](public/images/screenshots/02-recruiter-view.png)
 
 ### 📊 GitHub Stats + Core Skill Level Pivot Chart
-![GitHub Stats & Skill Chart](public/images/screenshots/02-github-stats.png)
+![GitHub Stats & Skill Chart](public/images/screenshots/03-github-stats.png)
 
 ### 🎓 Education & Academic Institutions
-![Education Section](public/images/screenshots/03-education.png)
+![Education Section](public/images/screenshots/04-education.png)
 
 ### 🏆 NPTEL & Cisco Accredited Certifications
-![Certifications Section](public/images/screenshots/04-certifications.png)
-
-### ✉️ Contact Section
-![Contact Section](public/images/screenshots/05-contact.png)
+![Certifications Section](public/images/screenshots/05-certifications.png)
 
 ---
 

@@ -11,18 +11,18 @@ import { GITHUB_CONFIG } from '../config/github';
 // Known screenshots mapping for candidate projects
 const LOCAL_REPO_SCREENSHOTS = {
   Portfolio: [
-    '/images/screenshots/01-recruiter-view.png',
-    '/images/screenshots/02-github-stats.png',
-    '/images/screenshots/03-education.png',
-    '/images/screenshots/04-certifications.png',
-    '/images/screenshots/05-contact.png',
+    '/images/screenshots/01-hero.png',
+    '/images/screenshots/02-recruiter-view.png',
+    '/images/screenshots/03-github-stats.png',
+    '/images/screenshots/04-education.png',
+    '/images/screenshots/05-certifications.png',
   ],
   portfolio: [
-    '/images/screenshots/01-recruiter-view.png',
-    '/images/screenshots/02-github-stats.png',
-    '/images/screenshots/03-education.png',
-    '/images/screenshots/04-certifications.png',
-    '/images/screenshots/05-contact.png',
+    '/images/screenshots/01-hero.png',
+    '/images/screenshots/02-recruiter-view.png',
+    '/images/screenshots/03-github-stats.png',
+    '/images/screenshots/04-education.png',
+    '/images/screenshots/05-certifications.png',
   ],
   RealityML: ['/images/RealityML.jpg'],
   realityml: ['/images/RealityML.jpg'],
