@@ -8,17 +8,32 @@ import {
 } from '../services/githubApi';
 import { GITHUB_CONFIG } from '../config/github';
 
+// Known screenshots mapping for candidate projects
+const LOCAL_REPO_SCREENSHOTS = {
+  Portfolio: [
+    '/images/screenshots/01-recruiter-view.png',
+    '/images/screenshots/02-github-stats.png',
+    '/images/screenshots/03-education.png',
+    '/images/screenshots/04-certifications.png',
+    '/images/screenshots/05-contact.png',
+  ],
+  portfolio: [
+    '/images/screenshots/01-recruiter-view.png',
+    '/images/screenshots/02-github-stats.png',
+    '/images/screenshots/03-education.png',
+    '/images/screenshots/04-certifications.png',
+    '/images/screenshots/05-contact.png',
+  ],
+  RealityML: ['/images/RealityML.jpg'],
+  realityml: ['/images/RealityML.jpg'],
+  'Nova-AI': ['/images/Nova-AI.jpg'],
+  'nova-ai': ['/images/Nova-AI.jpg'],
+  nova: ['/images/Nova-AI.jpg'],
+};
+
 /**
  * Hook: useGitHubRepos
  * Fetches, filters, enriches, and returns public repos for the configured username.
- *
- * Returns:
- *   repos       - enriched repo objects
- *   loading     - initial load state
- *   error       - error object or null
- *   rateLimited - true if GitHub rate limit was hit
- *   refetch     - function to force a fresh fetch
- *   langStats   - aggregated language percentages across all repos
  */
 const useGitHubRepos = () => {
   const [repos, setRepos] = useState([]);
@@ -59,20 +74,38 @@ const useGitHubRepos = () => {
       // 4. Limit to maxRepos
       const limited = filtered.slice(0, maxRepos);
 
-      // 5. Enrich: fetch languages for each repo (parallel)
+      // 5. Enrich: fetch languages + screenshots for each repo (parallel)
       const enriched = await Promise.all(
         limited.map(async (repo) => {
           let languages = {};
           try {
             languages = await fetchRepoLanguages(username, repo.name, cacheTimeout);
           } catch {
-            // language fetch failed — use topics as fallback
+            // language fetch failed
+          }
+
+          let screenshots =
+            LOCAL_REPO_SCREENSHOTS[repo.name] ||
+            LOCAL_REPO_SCREENSHOTS[repo.name.toLowerCase()] ||
+            [];
+
+          // If no local screenshots, detect from GitHub README dynamically
+          if (screenshots.length === 0) {
+            try {
+              const readmeText = await fetchRepoReadme(username, repo.name, cacheTimeout);
+              const detected = await detectScreenshots(username, repo.name, readmeText, cacheTimeout);
+              if (detected && detected.length > 0) {
+                screenshots = detected;
+              }
+            } catch {}
           }
 
           return {
             ...repo,
             languages: Object.keys(languages || {}),
             languageBytes: languages || {},
+            screenshots: screenshots,
+            image: screenshots[0] || null,
             isFeatured: featuredRepos.includes(repo.name),
             isPinned: featuredRepos.indexOf(repo.name) !== -1,
           };
@@ -124,7 +157,16 @@ export const useRepoDetail = (repo) => {
         const readmeText = await fetchRepoReadme(username, repo.name, cacheTimeout);
         setReadme(readmeText);
 
-        const shots = await detectScreenshots(username, repo.name, readmeText, cacheTimeout);
+        let shots =
+          LOCAL_REPO_SCREENSHOTS[repo.name] ||
+          LOCAL_REPO_SCREENSHOTS[repo.name.toLowerCase()] ||
+          [];
+
+        if (shots.length === 0) {
+          const detected = await detectScreenshots(username, repo.name, readmeText, cacheTimeout);
+          if (detected && detected.length > 0) shots = detected;
+        }
+
         setScreenshots(shots);
       } catch {
         setReadme(null);
