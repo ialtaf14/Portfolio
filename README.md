@@ -28,6 +28,9 @@
 ### 🏆 NPTEL & Cisco Accredited Certifications
 ![Certifications Section](public/images/screenshots/05-certifications.png)
 
+### ✉️ Contact Section
+![Contact Section](public/images/screenshots/06-contact.png)
+
 ---
 
 

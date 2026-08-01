@@ -16,6 +16,7 @@ const LOCAL_REPO_SCREENSHOTS = {
     '/images/screenshots/03-github-stats.png',
     '/images/screenshots/04-education.png',
     '/images/screenshots/05-certifications.png',
+    '/images/screenshots/06-contact.png',
   ],
   portfolio: [
     '/images/screenshots/01-hero.png',
@@ -23,6 +24,7 @@ const LOCAL_REPO_SCREENSHOTS = {
     '/images/screenshots/03-github-stats.png',
     '/images/screenshots/04-education.png',
     '/images/screenshots/05-certifications.png',
+    '/images/screenshots/06-contact.png',
   ],
   RealityML: ['/images/RealityML.jpg'],
   realityml: ['/images/RealityML.jpg'],
