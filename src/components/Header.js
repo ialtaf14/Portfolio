@@ -69,15 +69,22 @@ const Header = ({ onOpenCommandPalette }) => {
     const doScroll = () => {
       const element = document.querySelector(href);
       if (element) {
+        // Temporarily disable pointer events so mouse movement/hover does not cancel smooth scroll
+        document.body.style.pointerEvents = 'none';
+
         const headerOffset = 90;
-        const top = element.getBoundingClientRect().top + window.scrollY - headerOffset;
+        const top = Math.max(0, element.getBoundingClientRect().top + window.scrollY - headerOffset);
         window.scrollTo({ top, behavior: 'smooth' });
+
+        // Restore pointer events after smooth scroll animation completes
+        setTimeout(() => {
+          document.body.style.pointerEvents = '';
+        }, 850);
       }
     };
 
     if (isMenuOpen) {
       setIsMenuOpen(false);
-      // Wait for mobile drawer close animation before scrolling
       setTimeout(doScroll, 150);
     } else {
       doScroll();
