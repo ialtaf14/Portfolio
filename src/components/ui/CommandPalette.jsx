@@ -21,6 +21,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
     { id: 'nav-projects', title: 'Go to Featured Projects', category: 'Navigation', icon: FolderGit2, action: () => scrollTo('#projects') },
     { id: 'nav-github', title: 'Go to Live GitHub Repos', category: 'Navigation', icon: Github, action: () => scrollTo('#github-projects') },
     { id: 'nav-edu', title: 'Go to Education', category: 'Navigation', icon: GraduationCap, action: () => scrollTo('#education') },
+    { id: 'nav-training', title: 'Go to Professional Training (QSpiders)', category: 'Navigation', icon: Award, action: () => scrollTo('#training') },
     { id: 'nav-cert', title: 'Go to Certifications', category: 'Navigation', icon: Award, action: () => scrollTo('#certifications') },
     { id: 'nav-contact', title: 'Go to Contact Form', category: 'Navigation', icon: Mail, action: () => scrollTo('#contact') },
 

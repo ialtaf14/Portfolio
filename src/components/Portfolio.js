@@ -7,15 +7,16 @@ import AIChatbot from './ui/AIChatbot';
 import FloatingContactButton from './ui/FloatingContactButton';
 
 // Lazy load sections
-const Hero           = lazy(() => import('./Hero'));
-const About          = lazy(() => import('./About'));
-const Skills         = lazy(() => import('./Skills'));
-const GitHubProjects = lazy(() => import('./GitHubProjects'));
-const GitHubStats    = lazy(() => import('./GitHubStats'));
-const Education      = lazy(() => import('./Education'));
+const Hero             = lazy(() => import('./Hero'));
+const About            = lazy(() => import('./About'));
+const Skills           = lazy(() => import('./Skills'));
+const GitHubProjects   = lazy(() => import('./GitHubProjects'));
+const GitHubStats      = lazy(() => import('./GitHubStats'));
+const Education        = lazy(() => import('./Education'));
+const Training         = lazy(() => import('./Training'));
 const LearningTimeline = lazy(() => import('./LearningTimeline'));
-const Certifications = lazy(() => import('./Certifications'));
-const Contact        = lazy(() => import('./Contact'));
+const Certifications   = lazy(() => import('./Certifications'));
+const Contact          = lazy(() => import('./Contact'));
 
 const SectionLoader = () => (
   <div className="py-20 flex items-center justify-center">
@@ -53,6 +54,10 @@ const Portfolio = ({ onOpenCommandPalette }) => {
 
           <ErrorBoundary>
             <Education data={mockData.education} />
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <Training data={mockData.training} />
           </ErrorBoundary>
 
           <ErrorBoundary>

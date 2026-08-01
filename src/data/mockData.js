@@ -267,5 +267,40 @@ export const mockData = {
         description: 'Foundational data science techniques, Python data analysis tools, machine learning basics, and data ethics.'
       }
     ]
+  },
+
+  training: {
+    title: 'Professional Training',
+    program: 'Data Analytics & Python Training',
+    institute: 'QSpiders Gurugram',
+    duration: '01 Aug 2025 – Present',
+    mode: 'On-site',
+    status: 'In Progress / Active',
+    location: 'Sector 16, Gurugram, Haryana, India',
+    website: 'https://qspiders.com/branches/gurugram-jspiders?branchId=58-branchId',
+    image: '/images/qspiders.jpg',
+    overview: 'Currently pursuing professional training in Data Analytics and Python at QSpiders Gurugram. The program focuses on building practical skills in Python, SQL, Excel, Power BI, Pandas, NumPy, Data Cleaning, Exploratory Data Analysis (EDA), Data Visualization, and Machine Learning fundamentals through structured learning, coding exercises, and project-based practice. The objective is to strengthen analytical thinking and become industry-ready for Data Analyst and Business Analyst roles.',
+    keyLearnings: [
+      'Python Programming',
+      'SQL & Database Management',
+      'Advanced Excel',
+      'Power BI Dashboard Development',
+      'Pandas & NumPy',
+      'Data Cleaning & Preprocessing',
+      'Exploratory Data Analysis (EDA)',
+      'Data Visualization',
+      'Machine Learning Fundamentals',
+      'Industry-Oriented Project Development'
+    ],
+    techStack: [
+      'Python',
+      'SQL',
+      'Excel',
+      'Power BI',
+      'Pandas',
+      'NumPy',
+      'Scikit-learn',
+      'Git'
+    ]
   }
 };
