@@ -102,12 +102,11 @@ const useGitHubRepos = () => {
             } catch {}
           }
 
+          // Use GitHub homepage URL if set, otherwise null (no demo button shown)
           const demoUrl =
             repo.homepage && repo.homepage.trim() !== ''
               ? repo.homepage
-              : LOCAL_REPO_SCREENSHOTS[repo.name] || LOCAL_REPO_SCREENSHOTS[repo.name.toLowerCase()]
-              ? `https://portfolio-ialtaf14.vercel.app`
-              : repo.html_url;
+              : null;
 
           return {
             ...repo,
