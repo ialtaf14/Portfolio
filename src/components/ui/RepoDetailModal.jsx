@@ -409,15 +409,17 @@ const RepoDetailModal = ({ repo, isOpen, onClose }) => {
                 <Github className="w-3.5 h-3.5" />
                 View on GitHub
               </a>
-              <a
-                href={repo.homepage || repo.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-sm"
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                Live Demo
-              </a>
+              {repo.homepage && (
+                <a
+                  href={repo.homepage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-sm"
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  Live Demo
+                </a>
+              )}
             </div>
           </div>
         </motion.div>
