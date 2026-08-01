@@ -208,19 +208,17 @@ const RepoCard = ({ repo, onOpenDetail }) => {
               <Github className="w-3.5 h-3.5" />
               <span>GitHub</span>
             </a>
-            {repo.homepage && (
-              <a
-                href={repo.homepage}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-500/10 rounded-lg border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
-                aria-label={`Live demo for ${repo.name}`}
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-                <span>Live Demo</span>
-              </a>
-            )}
+            <a
+              href={repo.homepage || repo.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-500/10 rounded-lg border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
+              aria-label={`Live demo for ${repo.name}`}
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Live Demo</span>
+            </a>
           </div>
         </div>
       </div>

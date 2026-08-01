@@ -102,12 +102,20 @@ const useGitHubRepos = () => {
             } catch {}
           }
 
+          const demoUrl =
+            repo.homepage && repo.homepage.trim() !== ''
+              ? repo.homepage
+              : LOCAL_REPO_SCREENSHOTS[repo.name] || LOCAL_REPO_SCREENSHOTS[repo.name.toLowerCase()]
+              ? `https://portfolio-ialtaf14.vercel.app`
+              : repo.html_url;
+
           return {
             ...repo,
             languages: Object.keys(languages || {}),
             languageBytes: languages || {},
             screenshots: screenshots,
             image: screenshots[0] || null,
+            homepage: demoUrl,
             isFeatured: featuredRepos.includes(repo.name),
             isPinned: featuredRepos.indexOf(repo.name) !== -1,
           };
