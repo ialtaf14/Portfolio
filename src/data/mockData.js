@@ -125,19 +125,61 @@ export const mockData = {
 
   projects: [
     {
-      id: 'reality-ml',
-      title: 'RealityML – AI Feasibility Suite',
-      subtitle: 'ML Problem Viability & Data Risk Assessor',
-      description: 'A Python-based project that evaluates whether a business problem is suitable for machine learning by analyzing available data and potential risks.',
-      longDescription: 'RealityML provides automated machine learning feasibility assessment, synthetic dataset generation, and data quality analysis to identify sample bias and data leakage before building models.',
+      id: 'novaflix',
+      title: 'Novaflix',
+      subtitle: 'AI-Powered Movie Recommendation Platform',
+      description: 'A content-based movie recommendation platform with mood curation, real-time messaging between movie fans, streaming availability badges, and interactive Movie DNA profiles.',
+      longDescription: 'Built Novaflix as a full-stack web app using React and Vite on the frontend with a FastAPI Python backend. The recommendation engine uses Scikit-Learn cosine similarity on movie metadata. Features include real-time messaging between cinephiles, mood-based curation, and a unique Movie DNA profile for each user.',
       features: [
-        'Machine Learning feasibility assessment',
-        'Synthetic dataset generation',
-        'Data quality analysis',
-        'Bias and leakage detection',
-        'Interactive Streamlit dashboard'
+        'Content-based ML recommendation engine (Scikit-Learn cosine similarity)',
+        'Real-time cinephile messaging system',
+        'Streaming availability badges per movie',
+        'Interactive Movie DNA user profiles',
+        'React + Vite frontend with FastAPI Python backend'
       ],
-      impact: 'Helps evaluate data readiness before spending time building machine learning models.',
+      impact: 'Demonstrates end-to-end ML deployment with a React frontend, REST API backend, and real-time features.',
+      technologies: ['React', 'Vite', 'FastAPI', 'Python', 'Scikit-learn', 'JavaScript'],
+      githubUrl: 'https://github.com/ialtaf14/Novaflix',
+      liveUrl: 'https://novaflix-bice.vercel.app',
+      image: '/images/Nova-AI.jpg',
+      featured: true,
+      category: 'Full-Stack & ML'
+    },
+    {
+      id: 'novarecon',
+      title: 'NovaRecon',
+      subtitle: 'OSINT & Cyber Threat Intelligence Platform',
+      description: 'A next-gen open-source intelligence platform featuring live IP geolocation, social footprint scanning across 11 platforms, domain WHOIS/DNS lookup, breach exposure detection, and threat telemetry.',
+      longDescription: 'NovaRecon is a full-stack security intelligence tool built with Next.js 14, FastAPI, Tailwind CSS, and SQLite. It aggregates threat data from multiple public APIs into a unified dashboard with clean glassmorphism UI. Core features include live IP geolocation mapping, domain/WHOIS analysis, breach history, and social media footprint scanning.',
+      features: [
+        'Live IP Geolocation with map visualization',
+        '11-platform Social Footprint Scanner',
+        'Domain WHOIS & DNS analysis',
+        'Breach exposure history lookup',
+        'Threat Telemetry dashboard (Next.js 14 + FastAPI)'
+      ],
+      impact: 'Shows TypeScript, Next.js, FastAPI, and security API integration skills in a production-grade tool.',
+      technologies: ['Next.js 14', 'TypeScript', 'FastAPI', 'Python', 'Tailwind CSS', 'SQLite'],
+      githubUrl: 'https://github.com/ialtaf14/NovaRecon',
+      liveUrl: 'https://novarecon-frontend.onrender.com/',
+      image: '/images/RealityML.jpg',
+      featured: true,
+      category: 'Security & Full-Stack'
+    },
+    {
+      id: 'reality-ml',
+      title: 'RealityML',
+      subtitle: 'AI Feasibility Suite & ML Validator',
+      description: 'A Python tool that evaluates whether a business problem is actually suitable for machine learning — checking data quality, sample bias, and leakage risks before any model is built.',
+      longDescription: 'RealityML was built to solve a real problem: teams wasting weeks training models on fundamentally flawed data. It runs automated feasibility checks, generates synthetic datasets for testing, and produces a readable risk report. Includes a Streamlit dashboard for non-technical stakeholders.',
+      features: [
+        'Automated ML feasibility assessment engine',
+        'Synthetic dataset generator (100+ feature support)',
+        'Data quality analysis with bias & leakage detection',
+        'Streamlit dashboard for results visualization',
+        'CLI and API modes for integration'
+      ],
+      impact: 'Prevents wasted compute and time by validating data viability before model training begins.',
       technologies: ['Python', 'Pandas', 'Scikit-learn', 'FastAPI', 'Streamlit'],
       githubUrl: 'https://github.com/ialtaf14/RealityML',
       liveUrl: null,
@@ -148,23 +190,23 @@ export const mockData = {
     {
       id: 'nova-ai',
       title: 'Nova AI',
-      subtitle: 'AI Assistant Application',
-      description: 'An AI-powered assistant built using the Google Gemini API to answer user queries through a clean Python backend.',
-      longDescription: 'Nova AI integrates the Google Gemini API with a Python backend, supporting multi-turn conversations, prompt management, and API error handling.',
+      subtitle: 'Smart AI Learning Assistant',
+      description: 'An AI assistant built on the Google Gemini API, designed specifically to help students and developers learn AI, ML, Python, and data science through clear, practical guidance.',
+      longDescription: 'Nova AI wraps the Google Gemini API in a well-structured Python backend with multi-turn conversation memory, prompt management, and clean error handling. Built to focus on the domains I know — AI, ML, Data Science, Python, and Software Engineering — rather than being a generic chatbot.',
       features: [
-        'Multi-turn conversations',
-        'Prompt management',
-        'Error handling',
-        'REST API integration',
-        'Modular backend architecture'
+        'Google Gemini API integration with multi-turn memory',
+        'Domain-focused: AI, ML, Python, Data Science',
+        'Modular FastAPI backend architecture',
+        'Prompt management and response formatting',
+        'Clean JSON API for frontend integration'
       ],
-      impact: 'Demonstrates API integration, prompt handling, and Python web backend structure.',
+      impact: 'Practical demonstration of LLM API integration, Python backend design, and prompt engineering.',
       technologies: ['Python', 'Gemini API', 'FastAPI', 'JSON'],
       githubUrl: 'https://github.com/ialtaf14/Nova-AI',
       liveUrl: null,
       image: '/images/Nova-AI.jpg',
       featured: true,
-      category: 'AI & Python Projects'
+      category: 'AI & Python'
     }
   ],
 

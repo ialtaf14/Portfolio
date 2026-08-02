@@ -31,6 +31,10 @@ const LOCAL_REPO_SCREENSHOTS = {
   'Nova-AI': ['/images/Nova-AI.jpg'],
   'nova-ai': ['/images/Nova-AI.jpg'],
   nova: ['/images/Nova-AI.jpg'],
+  Novaflix: ['/images/Nova-AI.jpg'],
+  novaflix: ['/images/Nova-AI.jpg'],
+  NovaRecon: ['/images/RealityML.jpg'],
+  novarecon: ['/images/RealityML.jpg'],
 };
 
 /**
