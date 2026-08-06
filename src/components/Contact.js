@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Check, Copy, Github, Linkedin, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, Check, Copy } from 'lucide-react';
+import { BrandSocialButton, GithubLogo, LinkedinLogo, GmailLogo, VercelLogo, XLogo, InstagramLogo } from './ui/BrandLogos';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -24,13 +25,11 @@ const Contact = () => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Build mailto fallback link to ensure message reaches Altaf
     const mailtoSubject = encodeURIComponent(formData.subject || `Inquiry from ${formData.name}`);
     const mailtoBody = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
     
-    // Open user's email client with pre-filled content
     window.open(`mailto:${emailAddress}?subject=${mailtoSubject}&body=${mailtoBody}`, '_blank');
 
     setSubmitted(true);
@@ -41,8 +40,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-white dark:bg-neutral-950">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+    <section id="contact" className="py-24 relative bg-white dark:bg-neutral-950 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
@@ -51,7 +50,7 @@ const Contact = () => {
             <span>GET IN TOUCH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
-            Let's Discuss Data Analyst & Science Opportunities
+            Let's Discuss Data Analyst &amp; Science Opportunities
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 leading-relaxed">
             Whether you have an internship or full-time role opening, an analytical problem, or want to discuss machine learning projects, feel free to reach out.
@@ -63,29 +62,34 @@ const Contact = () => {
           {/* Left Direct Info Card */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="p-8 rounded-2xl glass-card border border-neutral-200 dark:border-neutral-800 space-y-6">
+            <div className="p-8 rounded-3xl glass-card border border-white/20 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-2xl space-y-6 shadow-xl">
               <div>
                 <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
-                  Direct Contact Information
+                  Direct Contact &amp; Profiles
                 </h3>
                 <p className="text-xs text-neutral-500 mt-1">
-                  Prompt response within 24 hours guaranteed.
+                  Click any official brand logo to connect directly.
                 </p>
               </div>
 
-              {/* Email Copy Card */}
-              <div className="p-4 rounded-xl bg-neutral-100/70 dark:bg-neutral-900/80 border border-neutral-200/60 dark:border-neutral-800/60 flex items-center justify-between">
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="p-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-white">
-                    <Mail className="w-4 h-4" />
+              {/* Email Card (Clickable Gmail Mailto & Copy) */}
+              <div className="p-4 rounded-2xl bg-neutral-100/70 dark:bg-neutral-900/80 border border-neutral-200/60 dark:border-neutral-800/60 flex items-center justify-between">
+                <a
+                  href={`mailto:${emailAddress}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 overflow-hidden group hover:opacity-80 transition-opacity"
+                >
+                  <div className="p-2.5 rounded-xl bg-[#EA4335] text-white shadow-md shadow-red-500/20">
+                    <GmailLogo className="w-4 h-4" />
                   </div>
                   <div className="truncate">
-                    <div className="text-[10px] font-mono text-neutral-500 uppercase">Primary Email</div>
-                    <div className="text-xs font-mono font-medium text-neutral-900 dark:text-white truncate">
+                    <div className="text-[10px] font-mono text-neutral-500 uppercase">Primary Gmail</div>
+                    <div className="text-xs font-mono font-medium text-neutral-900 dark:text-white truncate group-hover:text-red-500 transition-colors">
                       {emailAddress}
                     </div>
                   </div>
-                </div>
+                </a>
                 <button
                   onClick={handleCopyEmail}
                   aria-label="Copy email address"
@@ -94,28 +98,6 @@ const Contact = () => {
                   {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
-
-              {/* Phone — opens dialer on click */}
-              <motion.a
-                href="tel:+918053821088"
-                aria-label="Call Altaf Khan"
-                whileHover={{ x: 4, scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                className="group flex items-center gap-3 text-xs font-medium text-neutral-700 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer rounded-xl px-3 py-2.5 -mx-3 hover:bg-blue-50 dark:hover:bg-blue-950/30 border border-transparent hover:border-blue-200/60 dark:hover:border-blue-800/40"
-              >
-                <motion.span
-                  whileHover={{ rotate: [0, -15, 15, -10, 0] }}
-                  transition={{ duration: 0.5 }}
-                  className="flex-shrink-0"
-                >
-                  <Phone className="w-4 h-4 text-blue-500 group-hover:text-blue-600 transition-colors" />
-                </motion.span>
-                <span>+91 8053821088</span>
-                <span className="ml-auto text-[10px] font-mono text-blue-400 dark:text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  Tap to call →
-                </span>
-              </motion.a>
 
               {/* Location — opens Google Maps on click */}
               <motion.a
@@ -141,115 +123,106 @@ const Contact = () => {
                 </span>
               </motion.a>
 
-              {/* Social Links */}
-              <div className="pt-4 border-t border-neutral-200/60 dark:border-neutral-800/60 flex gap-3">
-                <a
-                  href="https://github.com/ialtaf14"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-medium bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white transition-colors"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub</span>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/altaf-khan-7a544b256/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-medium bg-neutral-100 dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white transition-colors"
-                >
-                  <Linkedin className="w-4 h-4 text-blue-500" />
-                  <span>LinkedIn</span>
-                </a>
+              {/* Official Brand Logo Links Grid */}
+              <div className="pt-4 border-t border-neutral-200/60 dark:border-neutral-800/60 space-y-3">
+                <div className="text-[11px] font-mono text-neutral-500">Official Clickable Profiles</div>
+                <div className="grid grid-cols-2 gap-2.5">
+                  <BrandSocialButton type="github" url="https://github.com/ialtaf14" label="GitHub" />
+                  <BrandSocialButton type="linkedin" url="https://www.linkedin.com/in/altaf-khan-7a544b256/" label="LinkedIn" />
+                  <BrandSocialButton type="portfolio" url="https://ialtaf14.vercel.app" label="Portfolio" />
+                  <BrandSocialButton type="gmail" url={`mailto:${emailAddress}`} label="Gmail" />
+                  <BrandSocialButton type="x" url="https://x.com/ialtaf14" label="X (Twitter)" />
+                  <BrandSocialButton type="instagram" url="https://www.instagram.com/ialtaf.14" label="Instagram" />
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
 
-          {/* Right Contact Form */}
+          {/* Right Message Form */}
           <div className="lg:col-span-7">
-            <form
-              onSubmit={handleSubmit}
-              className="p-8 rounded-2xl glass-card border border-neutral-200 dark:border-neutral-800 space-y-6 shadow-sm"
-            >
-              <div className="flex items-center gap-2">
-                <MessageSquare className="w-4 h-4 text-blue-500" />
-                <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
-                  Send a Direct Message
-                </h3>
-              </div>
+            <div className="p-8 rounded-3xl glass-card border border-white/20 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-2xl shadow-xl">
+              <h3 className="text-lg font-bold text-neutral-900 dark:text-white mb-6">
+                Send a Direct Message
+              </h3>
 
-              {submitted && (
-                <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-medium flex items-center gap-2">
-                  <Check className="w-4 h-4 flex-shrink-0" />
-                  <span>Thank you! Your message client was opened. I will respond to your email shortly.</span>
-                </div>
+              {submitted ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-center space-y-2"
+                >
+                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto text-emerald-500">
+                    <Check className="w-5 h-5" />
+                  </div>
+                  <div className="text-base font-bold">Message Drafted &amp; Mailto Triggered!</div>
+                  <div className="text-xs text-neutral-600 dark:text-neutral-400">
+                    Your default email client opened with the pre-filled inquiry. Thanks for reaching out!
+                  </div>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono text-neutral-600 dark:text-neutral-400 mb-1">Your Name</label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="John Doe"
+                        className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono text-neutral-600 dark:text-neutral-400 mb-1">Your Email</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="john@company.com"
+                        className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-neutral-600 dark:text-neutral-400 mb-1">Subject</label>
+                    <input
+                      type="text"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      placeholder="Data Analyst Opportunity / Project Inquiry"
+                      className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-neutral-600 dark:text-neutral-400 mb-1">Message</label>
+                    <textarea
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Hi Altaf, I'd like to discuss an opportunity..."
+                      className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-3 px-6 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-lg hover:shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 group"
+                  >
+                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <span>Send Inquiry Message</span>
+                  </button>
+                </form>
               )}
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label htmlFor="contact-name" className="text-xs font-mono uppercase text-neutral-500">Your Name</label>
-                  <input
-                    id="contact-name"
-                    type="text"
-                    required
-                    placeholder="Enter your name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="contact-email" className="text-xs font-mono uppercase text-neutral-500">Your Email</label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    required
-                    placeholder="name@company.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label htmlFor="contact-subject" className="text-xs font-mono uppercase text-neutral-500">Subject</label>
-                <input
-                  id="contact-subject"
-                  type="text"
-                  placeholder="e.g. Data Analyst Role / Project Inquiry"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                />
-              </div>
-
-              <div className="space-y-1.5">
-                <label htmlFor="contact-message" className="text-xs font-mono uppercase text-neutral-500">Message</label>
-                <textarea
-                  id="contact-message"
-                  rows="4"
-                  required
-                  placeholder="Write your message here..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl text-xs font-semibold text-white bg-neutral-900 dark:bg-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <Send className="w-4 h-4" />
-                <span>Send Message</span>
-              </button>
-            </form>
+            </div>
           </div>
 
         </div>
-
       </div>
     </section>
   );

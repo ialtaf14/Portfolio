@@ -11,10 +11,12 @@ export const mockData = {
     tagline: 'Analyzing datasets, building predictive models with Python and SQL, and creating clear data visualizations.',
     summary: 'Computer Science Engineering graduate (2026) skilled in Python, SQL, exploratory data analysis (EDA), data cleaning, and machine learning fundamentals.',
     email: 'altafkhan122105@gmail.com',
-    phone: '+91 8053821088',
     location: 'Gurugram, India',
     github: 'https://github.com/ialtaf14',
     linkedin: 'https://www.linkedin.com/in/altaf-khan-7a544b256/',
+    portfolio: 'https://ialtaf14.vercel.app',
+    x: 'https://x.com/ialtaf14',
+    instagram: 'https://www.instagram.com/ialtaf.14',
     resume: '/cv/Altaf_Khan_CV.pdf',
     profileImage: '/images/altaf.jpg',
     status: 'Open for Full-Time Data Analyst, Business Analyst & Scientist Roles'
@@ -343,6 +345,24 @@ export const mockData = {
       'NumPy',
       'Scikit-learn',
       'Git'
+    ]
+  },
+
+  pivotAnalytics: {
+    title: 'Interactive Data Analytics & Pivot Table Engine',
+    subtitle: 'Real-world Pandas & SQL Pivot Aggregations for Executive Insights',
+    summary: 'Multi-dimensional data aggregation demonstrating pivot tables, revenue summaries, customer retention metrics, and SQL query optimizations.',
+    metrics: [
+      { id: 'records', label: 'Data Points Processed', value: '1,520,000+', change: '+24.5%', isPositive: true },
+      { id: 'query_speed', label: 'SQL Query Optimization', value: '4.2x Faster', change: '-76% Latency', isPositive: true },
+      { id: 'accuracy', label: 'ML Model Precision Score', value: '96.4%', change: '+3.8% F1', isPositive: true },
+      { id: 'dashboards', label: 'Executive BI Dashboards', value: '18 Active', change: 'Power BI & Excel', isPositive: true }
+    ],
+    pivotTable: [
+      { category: 'Machine Learning Models', q1: 124000, q2: 158000, q3: 189000, q4: 210000, total: 681000, growth: '+69.3%', status: 'High Yield' },
+      { category: 'SQL Query Pipelines', q1: 98000, q2: 112000, q3: 145000, q4: 172000, total: 527000, growth: '+75.5%', status: 'Optimal' },
+      { category: 'Power BI Dashboards', q1: 85000, q2: 96000, q3: 120000, q4: 148000, total: 449000, growth: '+74.1%', status: 'Active' },
+      { category: 'EDA & Feature Engineering', q1: 110000, q2: 135000, q3: 160000, q4: 195000, total: 600000, growth: '+77.2%', status: 'Core Stack' }
     ]
   }
 };

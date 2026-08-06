@@ -19,22 +19,18 @@ const RecruiterViewDeck = ({ data }) => {
 Name: Altaf Khan
 Target Roles: Data Analyst | Data Scientist | ML Specialist
 Degree: B.Tech Computer Science & Engineering (Class of 2026)
-University/College: Guru Gobind Singh Indraprastha University (GGSIPU / MECW)
+University: Gurugram University
 Core Skills: Python, SQL, Pandas, NumPy, Scikit-learn, Power BI, Data Cleaning, EDA, ML Feasibility
 Key Highlights:
-• 184+ GitHub Contributions in past 52 weeks
-• 15+ Data Science & ML projects (Featured: RealityML & Nova AI)
+• 4+ Public Projects (Novaflix, NovaRecon, RealityML, Nova-AI)
+• Certified by NPTEL & Cisco Networking Academy
 • Available Immediately for Full-Time & Internship opportunities
 
-Links:
-• Portfolio: ${window.location.origin}
+Links & Contact:
+• Portfolio: https://ialtaf14.vercel.app
 • GitHub: https://github.com/ialtaf14
 • LinkedIn: https://www.linkedin.com/in/altaf-khan-7a544b256/
-• Resume: ${window.location.origin}/cv/Altaf_Khan_CV.pdf
-
-Contact Direct:
 • Email: altafkhan122105@gmail.com
-• Phone/WhatsApp: +91 80538 21088
 ──────────────────────────────────────`;
 
     navigator.clipboard.writeText(pitchText);

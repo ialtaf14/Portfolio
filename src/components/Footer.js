@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUp, Github, Linkedin, Mail, Eye, Activity, ShieldCheck } from 'lucide-react';
+import { ArrowUp, Eye, Activity, ShieldCheck } from 'lucide-react';
+import { GithubLogo, LinkedinLogo, GmailLogo, VercelLogo, XLogo, InstagramLogo } from './ui/BrandLogos';
 
 const Footer = () => {
   const [visitorStats, setVisitorStats] = useState({
@@ -72,35 +73,62 @@ const Footer = () => {
           </div>
 
           {/* Social Links + Scroll Top */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 flex-wrap justify-center">
             <a
               href="https://github.com/ialtaf14"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-colors"
-              aria-label="GitHub Profile"
+              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 hover:border-neutral-700 transition-all hover:scale-110"
+              title="GitHub Profile"
             >
-              <Github className="w-4 h-4" />
+              <GithubLogo className="w-4 h-4" />
             </a>
             <a
               href="https://www.linkedin.com/in/altaf-khan-7a544b256/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-colors"
-              aria-label="LinkedIn Profile"
+              className="p-2.5 rounded-xl bg-[#0A66C2]/20 hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white border border-[#0A66C2]/40 transition-all hover:scale-110"
+              title="LinkedIn Profile"
             >
-              <Linkedin className="w-4 h-4 text-blue-400" />
+              <LinkedinLogo className="w-4 h-4" />
             </a>
             <a
               href="mailto:altafkhan122105@gmail.com"
-              className="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-colors"
-              aria-label="Email Me"
+              className="p-2.5 rounded-xl bg-[#EA4335]/20 hover:bg-[#EA4335] text-[#EA4335] hover:text-white border border-[#EA4335]/40 transition-all hover:scale-110"
+              title="Send Email"
             >
-              <Mail className="w-4 h-4 text-emerald-400" />
+              <GmailLogo className="w-4 h-4" />
+            </a>
+            <a
+              href="https://ialtaf14.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 text-cyan-400 hover:text-white border border-cyan-500/40 transition-all hover:scale-110"
+              title="Vercel Live Portfolio"
+            >
+              <VercelLogo className="w-4 h-4" />
+            </a>
+            <a
+              href="https://x.com/ialtaf14"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 transition-all hover:scale-110"
+              title="X (Twitter)"
+            >
+              <XLogo className="w-4 h-4" />
+            </a>
+            <a
+              href="https://www.instagram.com/ialtaf.14"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-xl bg-pink-500/20 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 text-pink-400 hover:text-white border border-pink-500/40 transition-all hover:scale-110"
+              title="Instagram"
+            >
+              <InstagramLogo className="w-4 h-4" />
             </a>
             <button
               onClick={scrollToTop}
-              className="p-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-colors ml-2"
+              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-all ml-2 hover:scale-110"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />

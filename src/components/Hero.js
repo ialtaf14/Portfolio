@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { ArrowDown, Download, Github, Linkedin, Terminal, Copy, Check } from 'lucide-react';
+import { ArrowDown, Download, Terminal, Copy, Check } from 'lucide-react';
+import { BrandSocialButton, GithubLogo, LinkedinLogo, GmailLogo, VercelLogo } from './ui/BrandLogos';
 import { useRecruiter } from '../contexts/RecruiterContext';
 import RecruiterViewDeck from './ui/RecruiterViewDeck';
 
@@ -212,7 +213,7 @@ const Hero = ({ data }) => {
                 </p>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons with Official Clickable Brand Logos */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -222,62 +223,16 @@ const Hero = ({ data }) => {
                 <a
                   href={data.resume || '/cv/Altaf_Khan_CV.pdf'}
                   download
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-all shadow-lg group"
-                  style={{
-                    background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
-                    boxShadow: '0 4px 16px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.06)',
-                  }}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-all shadow-lg group bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-cyan-500/30 hover:scale-105"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Resume</span>
                 </a>
 
-                <button
-                  onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-neutral-900 dark:text-white transition-colors"
-                  style={{
-                    background: 'rgba(255,255,255,0.65)',
-                    backdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(255,255,255,0.5)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                  }}
-                  title="Copy email address"
-                >
-                  {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-neutral-400" />}
-                  <span>{copiedEmail ? 'Copied!' : 'Copy Email'}</span>
-                </button>
-
-                <a
-                  href={data.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-neutral-900 dark:text-white transition-colors"
-                  style={{
-                    background: 'rgba(255,255,255,0.55)',
-                    backdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(255,255,255,0.45)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-                  }}
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub</span>
-                </a>
-
-                <a
-                  href={data.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-neutral-900 dark:text-white transition-colors"
-                  style={{
-                    background: 'rgba(255,255,255,0.55)',
-                    backdropFilter: 'blur(12px)',
-                    border: '1px solid rgba(255,255,255,0.45)',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-                  }}
-                >
-                  <Linkedin className="w-4 h-4 text-blue-500" />
-                  <span>LinkedIn</span>
-                </a>
+                <BrandSocialButton type="github" url={data.github || "https://github.com/ialtaf14"} label="GitHub" />
+                <BrandSocialButton type="linkedin" url={data.linkedin || "https://www.linkedin.com/in/altaf-khan-7a544b256/"} label="LinkedIn" />
+                <BrandSocialButton type="gmail" url="mailto:altafkhan122105@gmail.com" label="Gmail" />
+                <BrandSocialButton type="portfolio" url="https://ialtaf14.vercel.app" label="Portfolio" />
               </motion.div>
 
               {/* Achievement Stats Bar */}
