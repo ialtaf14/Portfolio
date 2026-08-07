@@ -38,6 +38,13 @@ const LOCAL_REPO_SCREENSHOTS = {
   novarecon: ['/images/RealityML.jpg'],
 };
 
+const CUSTOM_REPO_DESCRIPTIONS = {
+  Portfolio: "Altaf Khan's official interactive Data Analyst portfolio built with React 19, Tailwind CSS, Framer Motion, and GitHub API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
+  portfolio: "Altaf Khan's official interactive Data Analyst portfolio built with React 19, Tailwind CSS, Framer Motion, and GitHub API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
+  ialtaf14: "Official GitHub Profile README for Altaf Khan (ialtaf14) — Data Analyst & Python/SQL developer showcasing core technical skills, machine learning projects, SQL queries, and career achievements.",
+  'ialtaf14/ialtaf14': "Official GitHub Profile README for Altaf Khan (ialtaf14) — Data Analyst & Python/SQL developer showcasing core technical skills, machine learning projects, SQL queries, and career achievements.",
+};
+
 /**
  * Hook: useGitHubRepos
  * Fetches, filters, enriches, and returns public repos for the configured username.
@@ -60,12 +67,9 @@ const useGitHubRepos = () => {
       // 1. Fetch all public repos
       const allRepos = await fetchUserRepos(username, cacheTimeout);
 
-      // 2. Filter: remove archived, excluded, and forks
+      // 2. Filter out excluded repos & forks if needed
       const filtered = allRepos.filter(
-        (r) =>
-          !r.archived &&
-          !r.fork &&
-          !excludeRepos.includes(r.name)
+        (repo) => !excludeRepos.includes(repo.name)
       );
 
       // 3. Sort: featured first, then by stars desc
@@ -115,6 +119,7 @@ const useGitHubRepos = () => {
 
           return {
             ...repo,
+            description: CUSTOM_REPO_DESCRIPTIONS[repo.name] || repo.description || 'Data Analytics & Data Science repository by Altaf Khan.',
             languages: Object.keys(languages || {}),
             languageBytes: languages || {},
             screenshots: screenshots,

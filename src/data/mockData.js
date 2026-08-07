@@ -201,6 +201,26 @@ export const mockData = {
       image: '/images/Nova-AI.jpg',
       featured: true,
       category: 'AI & Data Science'
+    },
+    {
+      id: 'portfolio-ialtaf14',
+      title: 'Portfolio (ialtaf14)',
+      subtitle: 'Data Analyst & ML Developer Interactive Web App',
+      description: "Altaf Khan's official interactive portfolio web application built with React 19, Tailwind CSS, Framer Motion, and GitHub REST API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
+      longDescription: "Designed and engineered an ultra-modern glassmorphic portfolio web application to showcase Data Analytics expertise, Python/SQL machine learning projects, official certifications, and live GitHub repositories. Built with dynamic dark/light themes, AI recruiter deck mode, and instant Command Palette (Ctrl+K).",
+      features: [
+        'React 19 & Tailwind CSS glassmorphism design system',
+        'Live GitHub REST API integration & language analytics',
+        'Interactive Skill Ball Jar & Pivot charts',
+        'AI Recruiter Mode & Command Palette (Ctrl+K)'
+      ],
+      impact: 'Showcases Data Analyst credentials, projects, and live repos in a recruiter-ready interactive web app.',
+      technologies: ['React 19', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'GitHub API'],
+      githubUrl: 'https://github.com/ialtaf14/Portfolio',
+      liveUrl: 'https://ialtaf14.vercel.app',
+      image: '/images/screenshots/01-hero.png',
+      featured: true,
+      category: 'Web & Analytics UI'
     }
   ],
 
