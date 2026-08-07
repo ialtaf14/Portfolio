@@ -321,6 +321,17 @@ export const mockData = {
         qrUrl: '/certificates/Introduction to Data Science QR.pdf',
         credentialId: 'CISCO-IDS-2026',
         description: 'Python data analysis tools, machine learning fundamentals, data ethics, and EDA techniques.'
+      },
+      {
+        id: 'deloitte-da-simulation',
+        name: 'Data Analytics Job Simulation',
+        issuer: 'Deloitte (via Forage)',
+        date: 'Aug 2026',
+        category: 'Data Analytics & Forensics',
+        pdfUrl: '/certificates/Deloitte_Data_Analytics_Job_Simulation.pdf',
+        downloadUrl: '/certificates/Deloitte_Data_Analytics_Job_Simulation.pdf',
+        credentialId: '6a718ef7125ca4556ed2574a',
+        description: 'Practical job simulation completing real-world data analysis, data extraction, and forensic technology tasks at Deloitte.'
       }
     ]
   },
