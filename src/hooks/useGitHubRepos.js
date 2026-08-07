@@ -8,8 +8,10 @@ import {
 } from '../services/githubApi';
 import { GITHUB_CONFIG } from '../config/github';
 
-// Known screenshots mapping for candidate projects
+
+// Known screenshots mapping — uses real GitHub raw URLs from repo READMEs/folders
 const LOCAL_REPO_SCREENSHOTS = {
+  // Portfolio — local screenshots
   Portfolio: [
     '/images/screenshots/01-hero.png',
     '/images/screenshots/02-recruiter-view.png',
@@ -26,17 +28,58 @@ const LOCAL_REPO_SCREENSHOTS = {
     '/images/screenshots/05-certifications.png',
     '/images/screenshots/06-contact.png',
   ],
+
+  // RealityML — no images in README/repo, use local fallback
   RealityML: ['/images/RealityML.jpg'],
   realityml: ['/images/RealityML.jpg'],
+
+  // Nova-AI — no images in README/repo, use local fallback
   'Nova-AI': ['/images/Nova-AI.jpg'],
   'nova-ai': ['/images/Nova-AI.jpg'],
-  nova: ['/images/Nova-AI.jpg'],
-  Novaflix: ['/images/NovaFlix.jpg'],
-  novaflix: ['/images/NovaFlix.jpg'],
-  NovaFlix: ['/images/NovaFlix.jpg'],
-  NovaRecon: ['/images/RealityML.jpg'],
-  novarecon: ['/images/RealityML.jpg'],
+
+  // Novaflix — real screenshots from the repo's screenshots/ folder
+  Novaflix: [
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/discover_page.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/movie_details.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/smart_recommendations.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/messages_page.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/user_profile.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/anime_collection.png',
+  ],
+  novaflix: [
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/discover_page.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/movie_details.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/smart_recommendations.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/messages_page.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/user_profile.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/anime_collection.png',
+  ],
+  NovaFlix: [
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/discover_page.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/movie_details.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/smart_recommendations.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/messages_page.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/user_profile.png',
+    'https://raw.githubusercontent.com/ialtaf14/Novaflix/main/screenshots/anime_collection.png',
+  ],
+
+  // NovaRecon — real screenshots from the repo's docs/screenshots/ folder
+  NovaRecon: [
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/dashboard.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/ip_lookup.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/username_scan.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/threat_alerts.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/settings.jpg',
+  ],
+  novarecon: [
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/dashboard.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/ip_lookup.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/username_scan.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/threat_alerts.jpg',
+    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/settings.jpg',
+  ],
 };
+
 
 const CUSTOM_REPO_DESCRIPTIONS = {
   Portfolio: "Altaf Khan's official interactive Data Analyst portfolio built with React 19, Tailwind CSS, Framer Motion, and GitHub API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
