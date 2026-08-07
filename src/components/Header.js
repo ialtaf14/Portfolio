@@ -16,7 +16,6 @@ const Header = ({ onOpenCommandPalette }) => {
   const navItems = [
     { label: 'Home', href: '#home', id: 'home' },
     { label: 'About', href: '#about', id: 'about' },
-    { label: 'Analytics', href: '#analytics', id: 'analytics' },
     { label: 'Skills', href: '#skills', id: 'skills' },
     { label: 'Projects', href: '#github-projects', id: 'github-projects' },
     { label: 'Education', href: '#education', id: 'education' },
