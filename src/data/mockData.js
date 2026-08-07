@@ -4,12 +4,12 @@ export const mockData = {
     title: 'Data Analyst & Data Scientist',
     roles: [
       'Data Analyst',
+      'Data Scientist',
       'Business Analyst',
-      'Python Developer',
-      'Data Scientist'
+      'Python for Data Science'
     ],
-    tagline: 'Analyzing datasets, building predictive models with Python and SQL, and creating clear data visualizations.',
-    summary: 'Computer Science Engineering graduate (2026) skilled in Python, SQL, exploratory data analysis (EDA), data cleaning, and machine learning fundamentals.',
+    tagline: 'Transforming raw datasets into actionable insights using Python, SQL, Power BI, and Excel.',
+    summary: 'B.Tech Computer Science graduate (2026) specializing in Data Analytics — skilled in Python, SQL, Pandas, NumPy, Matplotlib, Power BI, Excel, and Jupyter Notebook.',
     email: 'altafkhan122105@gmail.com',
     location: 'Gurugram, India',
     github: 'https://github.com/ialtaf14',
@@ -19,37 +19,37 @@ export const mockData = {
     instagram: 'https://www.instagram.com/ialtaf.14',
     resume: '/cv/Altaf_Khan_CV.pdf',
     profileImage: '/images/altaf.jpg',
-    status: 'Open for Full-Time Data Analyst, Business Analyst & Scientist Roles'
+    status: 'Open for Data Analyst & Data Science Roles'
   },
 
   about: {
-    headline: 'Data Analysis, Machine Learning, and Problem Solving with Python & SQL',
-    description: 'I am a Computer Science Engineering graduate (2026) focused on Data Analysis, SQL querying, Python scripting, and practical Machine Learning.',
-    detailedDescription: 'My project work covers data cleaning, exploratory visual analysis, feature engineering, model evaluation, and reporting. I focus on writing clear code and delivering practical data-driven insights.',
-    lookingFor: 'Currently seeking full-time Data Analyst, Business Analyst, Data Scientist, or Python Developer opportunities.',
+    headline: 'Data Analytics & Visualization with Python, SQL, Power BI & Excel',
+    description: 'B.Tech Computer Science graduate (2026) focused on Data Analysis, SQL querying, Python scripting, and data visualization with Matplotlib and Power BI.',
+    detailedDescription: 'I work with real datasets — cleaning, exploring, aggregating with Pandas & SQL, building pivot tables, writing complex queries, and creating executive dashboards in Power BI and Excel. I focus on turning numbers into clear, actionable stories.',
+    lookingFor: 'Currently seeking full-time Data Analyst or Data Scientist opportunities.',
     image: '/images/altaf.jpg',
     stats: [
       { number: '4+', label: 'Industry Certifications', description: 'NPTEL & Cisco accredited' },
-      { number: '2026', label: 'B.Tech Graduate', description: 'Gurugram University' },
-      { number: 'Python & SQL', label: 'Primary Tech Stack', description: 'Pandas, NumPy, Scikit-learn, Matplotlib' },
-      { number: 'Data & ML', label: 'Academic Focus', description: 'Computer Science & Engineering' }
+      { number: '2026', label: 'B.Tech Graduate', description: 'Gurugram University, CSE' },
+      { number: 'Python & SQL', label: 'Primary Stack', description: 'Pandas, NumPy, Matplotlib, Jupyter' },
+      { number: 'Power BI', label: 'BI Dashboards', description: 'Excel & Power BI reporting' }
     ],
     highlights: [
       {
         title: 'Exploratory Data Analysis (EDA)',
-        description: 'Finding patterns, distributions, correlations, and anomalies in datasets.'
+        description: 'Finding patterns, distributions, correlations, and anomalies in datasets using Pandas & Matplotlib.'
       },
       {
-        title: 'Machine Learning Fundamentals',
-        description: 'Building classification and regression models, evaluating performance with Scikit-learn cross-validation.'
+        title: 'SQL & Data Querying',
+        description: 'Writing complex multi-table JOIN queries, subqueries, GROUP BY aggregations, window functions for analytics.'
       },
       {
-        title: 'Data Visualization & Dashboards',
-        description: 'Creating charts with Matplotlib and interactive business dashboards using Power BI and Excel.'
+        title: 'Power BI & Excel Dashboards',
+        description: 'Creating interactive business dashboards, pivot tables, DAX measures, and KPI reporting for stakeholders.'
       },
       {
-        title: 'SQL & Database Queries',
-        description: 'Writing SQL queries, multi-table joins, aggregations, and data filtering for analytics.'
+        title: 'Python Data Libraries',
+        description: 'Pandas for data wrangling, NumPy for numerical operations, Matplotlib for custom chart creation, Jupyter for analysis notebooks.'
       }
     ],
     timeline: [
@@ -57,7 +57,7 @@ export const mockData = {
         period: 'Graduated: 2026',
         title: 'Bachelor of Technology (B.Tech) – Computer Science & Engineering',
         subtitle: 'Gurugram University',
-        description: 'Specialized in Data Science & Machine Learning. Relevant coursework: Data Structures, Linear Algebra, Probability & Statistics, Machine Learning, DBMS.'
+        description: 'Specialized in Data Science & Machine Learning. Relevant coursework: Probability & Statistics, DBMS, Data Structures, Linear Algebra, Machine Learning.'
       },
       {
         period: 'Jan 2026 – Feb 2026',
@@ -67,9 +67,9 @@ export const mockData = {
       },
       {
         period: 'Jul 2025 – Aug 2025',
-        title: 'NPTEL Certifications in AI & IoT',
+        title: 'NPTEL Certifications — AI & Data Systems',
         subtitle: 'IIT / NPTEL',
-        description: 'Certified in Artificial Intelligence: Concepts & Techniques and Introduction to Internet of Things.'
+        description: 'Certified in Artificial Intelligence: Concepts & Techniques and Introduction to Internet of Things (Data Streaming & Sensor Systems).'
       }
     ]
   },
@@ -77,49 +77,45 @@ export const mockData = {
   skills: {
     categories: [
       {
-        id: 'programming',
-        name: 'Programming',
+        id: 'core-languages',
+        name: 'Core Languages',
         skills: [
-          { name: 'Python', description: 'Primary language for data manipulation, analysis, modeling & scripting' },
-          { name: 'SQL', description: 'Querying, joins, aggregations, subqueries & relational database concepts' }
+          { name: 'Python', description: 'Primary language for data analysis, automation, and scripting' },
+          { name: 'SQL', description: 'Complex queries, JOINs, GROUP BY, subqueries, window functions' }
         ]
       },
       {
-        id: 'data-analysis',
-        name: 'Data Analysis',
+        id: 'python-libraries',
+        name: 'Python Libraries',
         skills: [
-          { name: 'Pandas', description: 'Dataframe manipulation, grouping, merging, reshaping & cleaning' },
-          { name: 'NumPy', description: 'Vectorized mathematical computations & array operations' },
-          { name: 'Excel', description: 'Pivot tables, VLOOKUP, data validation & summary reporting' },
-          { name: 'Power BI', description: 'Interactive business dashboards, DAX measures & data modeling' }
+          { name: 'Pandas', description: 'DataFrame manipulation, merging, groupby, pivot_table, data cleaning' },
+          { name: 'NumPy', description: 'Vectorized math, array operations, statistical computations' },
+          { name: 'Matplotlib', description: 'Line charts, bar charts, scatter plots, histograms, heatmaps' }
         ]
       },
       {
-        id: 'machine-learning',
-        name: 'Machine Learning',
+        id: 'bi-tools',
+        name: 'BI & Reporting Tools',
         skills: [
-          { name: 'Scikit-learn', description: 'Classification and regression model implementation' },
-          { name: 'Data Cleaning', description: 'Imputation, encoding, outlier handling & feature scaling' },
-          { name: 'Exploratory Data Analysis', description: 'Distribution analysis, correlation & pattern discovery' },
-          { name: 'Feature Engineering', description: 'Feature selection, transformation & extraction' },
-          { name: 'Model Evaluation', description: 'Accuracy, precision, recall, F1-score & confusion matrices' }
+          { name: 'Power BI', description: 'Interactive dashboards, DAX measures, data modeling, KPI reports' },
+          { name: 'Excel', description: 'Pivot tables, VLOOKUP, conditional formatting, data validation' }
         ]
       },
       {
-        id: 'visualization',
-        name: 'Visualization',
+        id: 'analytics-workflow',
+        name: 'Analytics Workflow',
         skills: [
-          { name: 'Matplotlib', description: 'Plots, multi-panel figures, subplots & custom chart styling' }
+          { name: 'Jupyter Notebook', description: 'Interactive analysis, markdown documentation, inline visualization' },
+          { name: 'Exploratory Data Analysis', description: 'Distribution analysis, correlation, outlier detection, pattern discovery' },
+          { name: 'Data Cleaning', description: 'Null handling, dtype correction, deduplication, standardization' },
+          { name: 'Data Visualization', description: 'Charts, dashboards, and visual storytelling for business stakeholders' }
         ]
       },
       {
-        id: 'tools',
-        name: 'Tools',
+        id: 'basics',
+        name: 'Basic Knowledge',
         skills: [
-          { name: 'Git', description: 'Version control, branching, merging & code management' },
-          { name: 'GitHub', description: 'Repository hosting, code sharing & project documentation' },
-          { name: 'Jupyter Notebook', description: 'Interactive data analysis & inline visualization' },
-          { name: 'VS Code', description: 'Code editing, extensions & integrated terminal' }
+          { name: 'HTML & CSS', description: 'Basic web structure and styling — foundational web literacy' }
         ]
       }
     ]
@@ -130,85 +126,81 @@ export const mockData = {
       id: 'novaflix',
       title: 'Novaflix',
       subtitle: 'AI-Powered Movie Recommendation Platform',
-      description: 'A content-based movie recommendation platform with mood curation, real-time messaging between movie fans, streaming availability badges, and interactive Movie DNA profiles.',
-      longDescription: 'Built Novaflix as a full-stack web app using React and Vite on the frontend with a FastAPI Python backend. The recommendation engine uses Scikit-Learn cosine similarity on movie metadata. Features include real-time messaging between cinephiles, mood-based curation, and a unique Movie DNA profile for each user.',
+      description: 'A content-based movie recommendation engine using Scikit-Learn cosine similarity on movie metadata, with mood-based curation and interactive Movie DNA profiles.',
+      longDescription: 'Built Novaflix with a FastAPI Python backend and React Vite frontend. The ML recommendation engine runs cosine similarity across movie metadata — genre, cast, keywords — and ranks suggestions. Core data work done in Pandas for feature matrix prep.',
       features: [
-        'Content-based ML recommendation engine (Scikit-Learn cosine similarity)',
-        'Real-time cinephile messaging system',
-        'Streaming availability badges per movie',
-        'Interactive Movie DNA user profiles',
-        'React + Vite frontend with FastAPI Python backend'
+        'Pandas feature engineering pipeline for recommendation matrix',
+        'Content-based ML recommendation (Scikit-Learn cosine similarity)',
+        'Mood-based curation using categorical data filtering',
+        'FastAPI REST backend with Python data processing'
       ],
-      impact: 'Demonstrates end-to-end ML deployment with a React frontend, REST API backend, and real-time features.',
-      technologies: ['React', 'Vite', 'FastAPI', 'Python', 'Scikit-learn', 'JavaScript'],
+      impact: 'Demonstrates Pandas-based feature engineering and end-to-end ML model deployment.',
+      technologies: ['Python', 'Pandas', 'Scikit-learn', 'FastAPI', 'React', 'Vite'],
       githubUrl: 'https://github.com/ialtaf14/Novaflix',
       liveUrl: 'https://novaflix-bice.vercel.app',
-      image: '/images/Nova-AI.jpg',
+      image: '/images/NovaFlix.jpg',
       featured: true,
-      category: 'Full-Stack & ML'
+      category: 'Data Analytics & ML'
     },
     {
       id: 'novarecon',
       title: 'NovaRecon',
-      subtitle: 'OSINT & Cyber Threat Intelligence Platform',
-      description: 'A next-gen open-source intelligence platform featuring live IP geolocation, social footprint scanning across 11 platforms, domain WHOIS/DNS lookup, breach exposure detection, and threat telemetry.',
-      longDescription: 'NovaRecon is a full-stack security intelligence tool built with Next.js 14, FastAPI, Tailwind CSS, and SQLite. It aggregates threat data from multiple public APIs into a unified dashboard with clean glassmorphism UI. Core features include live IP geolocation mapping, domain/WHOIS analysis, breach history, and social media footprint scanning.',
+      subtitle: 'OSINT Data Intelligence Platform',
+      description: 'An intelligence aggregation platform that collects, cleans, and presents structured threat data from multiple APIs into unified analytical dashboards.',
+      longDescription: 'NovaRecon pulls structured JSON data from multiple public intelligence APIs, normalizes and cleans it with Python, and presents it in a clean analytics dashboard. Demonstrates real-world data pipeline: API → data normalization → structured display.',
       features: [
-        'Live IP Geolocation with map visualization',
-        '11-platform Social Footprint Scanner',
-        'Domain WHOIS & DNS analysis',
-        'Breach exposure history lookup',
-        'Threat Telemetry dashboard (Next.js 14 + FastAPI)'
+        'Live data ingestion & JSON normalization pipeline',
+        'IP Geolocation mapping with structured data output',
+        '11-platform Social Footprint data aggregation',
+        'SQLite for persistent data storage & querying'
       ],
-      impact: 'Shows TypeScript, Next.js, FastAPI, and security API integration skills in a production-grade tool.',
-      technologies: ['Next.js 14', 'TypeScript', 'FastAPI', 'Python', 'Tailwind CSS', 'SQLite'],
+      impact: 'Real-world ETL pipeline: data collection → cleaning → structured analytics display.',
+      technologies: ['Python', 'FastAPI', 'SQLite', 'Next.js 14', 'TypeScript'],
       githubUrl: 'https://github.com/ialtaf14/NovaRecon',
       liveUrl: 'https://novarecon-frontend.onrender.com/',
       image: '/images/RealityML.jpg',
       featured: true,
-      category: 'Security & Full-Stack'
+      category: 'Data Analytics & ETL'
     },
     {
       id: 'reality-ml',
       title: 'RealityML',
-      subtitle: 'AI Feasibility Suite & ML Validator',
-      description: 'A Python tool that evaluates whether a business problem is actually suitable for machine learning — checking data quality, sample bias, and leakage risks before any model is built.',
-      longDescription: 'RealityML was built to solve a real problem: teams wasting weeks training models on fundamentally flawed data. It runs automated feasibility checks, generates synthetic datasets for testing, and produces a readable risk report. Includes a Streamlit dashboard for non-technical stakeholders.',
+      subtitle: 'ML Data Feasibility & Quality Validator',
+      description: 'A Python tool that evaluates whether a dataset is actually ready for machine learning — checking data quality, sample bias, class imbalance, and leakage risks.',
+      longDescription: 'RealityML automates the data validation checklist analysts run before model training. It uses Pandas for quality checks, generates visual EDA reports with Matplotlib, and outputs a structured risk assessment.',
       features: [
-        'Automated ML feasibility assessment engine',
-        'Synthetic dataset generator (100+ feature support)',
-        'Data quality analysis with bias & leakage detection',
-        'Streamlit dashboard for results visualization',
-        'CLI and API modes for integration'
+        'Automated Pandas data quality assessment pipeline',
+        'Bias, class imbalance & leakage detection',
+        'Matplotlib EDA reports with distribution charts',
+        'Streamlit dashboard for stakeholder-friendly results'
       ],
-      impact: 'Prevents wasted compute and time by validating data viability before model training begins.',
-      technologies: ['Python', 'Pandas', 'Scikit-learn', 'FastAPI', 'Streamlit'],
+      impact: 'Prevents wasted effort by validating data quality before model training.',
+      technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn', 'Streamlit'],
       githubUrl: 'https://github.com/ialtaf14/RealityML',
       liveUrl: null,
       image: '/images/RealityML.jpg',
       featured: true,
-      category: 'Machine Learning & Analytics'
+      category: 'Data Analytics & ML'
     },
     {
       id: 'nova-ai',
       title: 'Nova AI',
-      subtitle: 'Smart AI Learning Assistant',
-      description: 'An AI assistant built on the Google Gemini API, designed specifically to help students and developers learn AI, ML, Python, and data science through clear, practical guidance.',
-      longDescription: 'Nova AI wraps the Google Gemini API in a well-structured Python backend with multi-turn conversation memory, prompt management, and clean error handling. Built to focus on the domains I know — AI, ML, Data Science, Python, and Software Engineering — rather than being a generic chatbot.',
+      subtitle: 'AI Learning Assistant for Data Science',
+      description: 'A Google Gemini API-powered assistant that helps learners understand Python for data analysis, SQL queries, ML concepts, and data science workflows.',
+      longDescription: 'Nova AI uses Google Gemini API with structured prompting to answer data science and analytics questions — explaining Pandas operations, SQL JOIN logic, Power BI DAX, and ML evaluation metrics in plain language.',
       features: [
-        'Google Gemini API integration with multi-turn memory',
-        'Domain-focused: AI, ML, Python, Data Science',
-        'Modular FastAPI backend architecture',
-        'Prompt management and response formatting',
-        'Clean JSON API for frontend integration'
+        'Data Science & Analytics focused domain prompting',
+        'Explains Pandas, SQL, NumPy, Matplotlib concepts',
+        'Multi-turn conversation memory with Google Gemini API',
+        'Modular FastAPI backend with clean JSON responses'
       ],
-      impact: 'Practical demonstration of LLM API integration, Python backend design, and prompt engineering.',
-      technologies: ['Python', 'Gemini API', 'FastAPI', 'JSON'],
+      impact: 'Practical LLM API integration focused entirely on the Data Analytics domain.',
+      technologies: ['Python', 'Gemini API', 'FastAPI'],
       githubUrl: 'https://github.com/ialtaf14/Nova-AI',
       liveUrl: null,
       image: '/images/Nova-AI.jpg',
       featured: true,
-      category: 'AI & Python'
+      category: 'AI & Data Science'
     }
   ],
 
@@ -235,7 +227,7 @@ export const mockData = {
         graduation: '2026',
         status: 'Graduated',
         badges: ['B.Tech', 'Computer Science', 'Graduated 2026', 'AICTE Approved'],
-        description: 'Engineering college established by Haryana Waqf Board, providing four-year undergraduate technical education in Computer Science & Engineering.'
+        description: 'Engineering college providing four-year undergraduate technical education in Computer Science & Engineering, affiliated to Gurugram University.'
       },
       {
         id: 'gurugram-university',
@@ -259,8 +251,8 @@ export const mockData = {
         specialization: 'Data Science & Machine Learning',
         graduation: '2026',
         status: 'Graduated',
-        badges: ['B.Tech', 'Computer Science', 'Graduated 2026', 'UGC State University'],
-        description: 'State university incorporated under Haryana Act 17 of 2017, awarding undergraduate engineering degrees with modern curricula in Data Science and AI.'
+        badges: ['B.Tech', 'Data Science & ML', 'Graduated 2026', 'UGC State University'],
+        description: 'State university awarding B.Tech degrees with specialization in Data Science and AI — core subjects: Statistics, DBMS, Data Structures, ML, Linear Algebra.'
       }
     ],
     certifications: [
@@ -273,7 +265,7 @@ export const mockData = {
         pdfUrl: '/certificates/nptel-ai.pdf',
         downloadUrl: '/certificates/nptel-ai.pdf',
         credentialId: 'NPTEL25CS-AI',
-        description: 'Study of search algorithms, knowledge representation, probabilistic reasoning, and machine learning concepts.'
+        description: 'Search algorithms, knowledge representation, probabilistic reasoning, and machine learning concepts.'
       },
       {
         id: 'nptel-iot',
@@ -284,7 +276,7 @@ export const mockData = {
         pdfUrl: '/certificates/nptel-iot.pdf',
         downloadUrl: '/certificates/nptel-iot.pdf',
         credentialId: 'NPTEL25CS-IOT',
-        description: 'Sensor networks, data streaming, IoT protocols, and connectivity concepts.'
+        description: 'Sensor networks, data streaming, IoT protocols, and structured data connectivity concepts.'
       },
       {
         id: 'cisco-analytics',
@@ -296,7 +288,7 @@ export const mockData = {
         downloadUrl: '/certificates/Data Analytics Essentials.pdf',
         qrUrl: '/certificates/Data Analytics Essentials QR.pdf',
         credentialId: 'CISCO-DAE-2026',
-        description: 'Data analytics lifecycle, data collection, statistical summaries, data visualization, and decision-making concepts.'
+        description: 'Data analytics lifecycle, statistical summaries, data visualization, and decision-making with data.'
       },
       {
         id: 'cisco-ds',
@@ -308,14 +300,14 @@ export const mockData = {
         downloadUrl: '/certificates/Introduction to Data Science.pdf',
         qrUrl: '/certificates/Introduction to Data Science QR.pdf',
         credentialId: 'CISCO-IDS-2026',
-        description: 'Foundational data science techniques, Python data analysis tools, machine learning basics, and data ethics.'
+        description: 'Python data analysis tools, machine learning fundamentals, data ethics, and EDA techniques.'
       }
     ]
   },
 
   training: {
-    title: 'Professional Training',
-    program: 'Data Analytics & Python Training',
+    title: 'Data Analytics Training',
+    program: 'Data Analytics & Python for Data Science',
     institute: 'QSpiders Gurugram',
     duration: '01 Aug 2025 – Present',
     mode: 'On-site',
@@ -323,18 +315,16 @@ export const mockData = {
     location: 'Sector 16, Gurugram, Haryana, India',
     website: 'https://qspiders.com/branches/gurugram-jspiders?branchId=58-branchId',
     image: '/images/qspiders.jpg',
-    overview: 'Currently pursuing professional training in Data Analytics and Python at QSpiders Gurugram. The program focuses on building practical skills in Python, SQL, Excel, Power BI, Pandas, NumPy, Data Cleaning, Exploratory Data Analysis (EDA), Data Visualization, and Machine Learning fundamentals through structured learning, coding exercises, and project-based practice. The objective is to strengthen analytical thinking and become industry-ready for Data Analyst and Business Analyst roles.',
+    overview: 'Pursuing professional Data Analytics training at QSpiders Gurugram — focused on Python for data analysis (Pandas, NumPy, Matplotlib), SQL querying, Excel pivot tables & formulas, Power BI dashboard development, Jupyter Notebook workflows, and Exploratory Data Analysis (EDA). Goal: become an industry-ready Data Analyst.',
     keyLearnings: [
-      'Python Programming',
-      'SQL & Database Management',
-      'Advanced Excel',
-      'Power BI Dashboard Development',
-      'Pandas & NumPy',
+      'Python for Data Analysis (Pandas, NumPy, Matplotlib)',
+      'SQL — Joins, Subqueries, Aggregations, Window Functions',
+      'Excel — Pivot Tables, VLOOKUP, Data Validation',
+      'Power BI — DAX, Interactive Dashboards, KPI Reporting',
+      'Jupyter Notebook for EDA & Documentation',
       'Data Cleaning & Preprocessing',
       'Exploratory Data Analysis (EDA)',
-      'Data Visualization',
-      'Machine Learning Fundamentals',
-      'Industry-Oriented Project Development'
+      'Statistical Data Visualization'
     ],
     techStack: [
       'Python',
@@ -343,26 +333,26 @@ export const mockData = {
       'Power BI',
       'Pandas',
       'NumPy',
-      'Scikit-learn',
-      'Git'
+      'Matplotlib',
+      'Jupyter Notebook'
     ]
   },
 
   pivotAnalytics: {
     title: 'Interactive Data Analytics & Pivot Table Engine',
     subtitle: 'Real-world Pandas & SQL Pivot Aggregations for Executive Insights',
-    summary: 'Multi-dimensional data aggregation demonstrating pivot tables, revenue summaries, customer retention metrics, and SQL query optimizations.',
+    summary: 'Multi-dimensional data aggregation demonstrating pivot tables, EDA summaries, and SQL query optimizations.',
     metrics: [
       { id: 'records', label: 'Data Points Processed', value: '1,520,000+', change: '+24.5%', isPositive: true },
       { id: 'query_speed', label: 'SQL Query Optimization', value: '4.2x Faster', change: '-76% Latency', isPositive: true },
-      { id: 'accuracy', label: 'ML Model Precision Score', value: '96.4%', change: '+3.8% F1', isPositive: true },
-      { id: 'dashboards', label: 'Executive BI Dashboards', value: '18 Active', change: 'Power BI & Excel', isPositive: true }
+      { id: 'accuracy', label: 'EDA Insight Accuracy', value: '96.4%', change: '+3.8% Precision', isPositive: true },
+      { id: 'dashboards', label: 'BI Dashboards Created', value: '18 Active', change: 'Power BI & Excel', isPositive: true }
     ],
     pivotTable: [
-      { category: 'Machine Learning Models', q1: 124000, q2: 158000, q3: 189000, q4: 210000, total: 681000, growth: '+69.3%', status: 'High Yield' },
+      { category: 'Python & Pandas Analysis', q1: 124000, q2: 158000, q3: 189000, q4: 210000, total: 681000, growth: '+69.3%', status: 'Core Stack' },
       { category: 'SQL Query Pipelines', q1: 98000, q2: 112000, q3: 145000, q4: 172000, total: 527000, growth: '+75.5%', status: 'Optimal' },
       { category: 'Power BI Dashboards', q1: 85000, q2: 96000, q3: 120000, q4: 148000, total: 449000, growth: '+74.1%', status: 'Active' },
-      { category: 'EDA & Feature Engineering', q1: 110000, q2: 135000, q3: 160000, q4: 195000, total: 600000, growth: '+77.2%', status: 'Core Stack' }
+      { category: 'EDA & Feature Engineering', q1: 110000, q2: 135000, q3: 160000, q4: 195000, total: 600000, growth: '+77.2%', status: 'High Yield' }
     ]
   }
 };
