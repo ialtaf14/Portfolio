@@ -5,42 +5,35 @@ import { BrandSocialButton, GithubLogo, LinkedinLogo, GmailLogo, VercelLogo } fr
 import { useRecruiter } from '../contexts/RecruiterContext';
 import RecruiterViewDeck from './ui/RecruiterViewDeck';
 
-/* ─── Custom Cursor Component ─────────────────────────────────────────────── */
+/* ─── Custom Cursor Component (Zero Delay Inverted X-Ray Cursor) ───────────── */
 const CustomCursor = () => {
-  const dotRef = useRef(null);
-  const ringRef = useRef(null);
-  const pos = useRef({ x: -100, y: -100 });
-  const ringPos = useRef({ x: -100, y: -100 });
+  const coreRef = useRef(null);
+  const auraRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
-  const raf = useRef(null);
 
   useEffect(() => {
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
+    let reqId = null;
+
     const onMouseMove = (e) => {
       setIsHidden(false);
-      pos.current = { x: e.clientX, y: e.clientY };
-      if (dotRef.current) {
-        dotRef.current.style.left = `${e.clientX}px`;
-        dotRef.current.style.top = `${e.clientY}px`;
-      }
+      const x = e.clientX;
+      const y = e.clientY;
+      if (reqId) cancelAnimationFrame(reqId);
+      reqId = requestAnimationFrame(() => {
+        if (coreRef.current) {
+          coreRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+        }
+        if (auraRef.current) {
+          auraRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+        }
+      });
     };
 
-    const lerp = (a, b, n) => a + (b - a) * n;
-
-    const animateRing = () => {
-      ringPos.current.x = lerp(ringPos.current.x, pos.current.x, 0.18);
-      ringPos.current.y = lerp(ringPos.current.y, pos.current.y, 0.18);
-      if (ringRef.current) {
-        ringRef.current.style.left = `${ringPos.current.x}px`;
-        ringRef.current.style.top = `${ringPos.current.y}px`;
-      }
-      raf.current = requestAnimationFrame(animateRing);
-    };
-
-    // Event Delegation for hover state on ALL interactive elements dynamically
+    // Dynamic Hover Detection across all current and future DOM elements
     const onMouseOver = (e) => {
       const target = e.target;
       if (!target) return;
@@ -63,35 +56,33 @@ const CustomCursor = () => {
     const onMouseLeave = () => setIsHidden(true);
     const onMouseEnter = () => setIsHidden(false);
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseover', onMouseOver);
-    window.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mouseup', onMouseUp);
+    window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('mouseover', onMouseOver, { passive: true });
+    window.addEventListener('mousedown', onMouseDown, { passive: true });
+    window.addEventListener('mouseup', onMouseUp, { passive: true });
     document.addEventListener('mouseleave', onMouseLeave);
     document.addEventListener('mouseenter', onMouseEnter);
 
-    raf.current = requestAnimationFrame(animateRing);
-
     return () => {
+      if (reqId) cancelAnimationFrame(reqId);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseover', onMouseOver);
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
       document.removeEventListener('mouseleave', onMouseLeave);
       document.removeEventListener('mouseenter', onMouseEnter);
-      cancelAnimationFrame(raf.current);
     };
   }, []);
 
   return (
     <>
       <div
-        ref={dotRef}
-        className={`custom-cursor-dot ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
+        ref={coreRef}
+        className={`custom-cursor-core ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       />
       <div
-        ref={ringRef}
-        className={`custom-cursor-ring ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
+        ref={auraRef}
+        className={`custom-cursor-aura ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       />
     </>
   );

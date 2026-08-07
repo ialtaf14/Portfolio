@@ -89,74 +89,71 @@
   }
 }
 
-/* ─── CUSTOM CURSOR (LUXURY AMBER / GLASS AESTHETIC) ────────────────────────── */
+/* ─── CUSTOM CURSOR (ZERO DELAY INVERTED DYNAMIC X-RAY CURSOR) ──────────────── */
 @media (pointer: coarse) {
-  .custom-cursor-dot,
-  .custom-cursor-ring {
+  .custom-cursor-core,
+  .custom-cursor-aura {
     display: none !important;
   }
 }
 
-.custom-cursor-dot {
+.custom-cursor-core {
   position: fixed;
   top: 0;
   left: 0;
-  width: 7px;
-  height: 7px;
-  background: #f59e0b;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease, width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.8), 0 0 20px rgba(245, 158, 11, 0.4);
+  mix-blend-mode: difference;
+  will-change: transform;
+  transition: opacity 0.2s ease, width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.2s ease;
 }
 
-.custom-cursor-ring {
+.custom-cursor-aura {
   position: fixed;
   top: 0;
   left: 0;
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid #ffffff;
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease;
-  backdrop-filter: blur(2px);
+  mix-blend-mode: difference;
+  will-change: transform;
+  transition: opacity 0.2s ease, width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-radius 0.25s ease;
 }
 
-/* Hovering over links / buttons */
-.cursor-hovered .custom-cursor-ring {
-  width: 52px;
-  height: 52px;
-  border-color: rgba(245, 158, 11, 0.75);
-  background: rgba(245, 158, 11, 0.08);
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+/* Hover Spotlight Effect (X-Ray inversion over buttons, cards, text) */
+.cursor-hovered .custom-cursor-aura {
+  width: 58px;
+  height: 58px;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
-.cursor-hovered .custom-cursor-dot {
-  width: 10px;
-  height: 10px;
-  background: #fbbf24;
-  box-shadow: 0 0 14px rgba(251, 191, 36, 0.9), 0 0 28px rgba(245, 158, 11, 0.5);
+.cursor-hovered .custom-cursor-core {
+  width: 6px;
+  height: 6px;
+  opacity: 0.8;
 }
 
-/* Click / MouseDown Feedback */
-.cursor-clicked .custom-cursor-ring {
-  width: 24px;
-  height: 24px;
-  border-color: rgba(245, 158, 11, 0.95);
-  background: rgba(245, 158, 11, 0.2);
+/* Tactile Click / Down State */
+.cursor-clicked .custom-cursor-aura {
+  width: 26px;
+  height: 26px;
+  background-color: #ffffff;
 }
 
-.cursor-clicked .custom-cursor-dot {
-  width: 5px;
-  height: 5px;
+.cursor-clicked .custom-cursor-core {
+  width: 4px;
+  height: 4px;
 }
 
-/* Hidden when mouse leaves window */
+/* Hidden state when leaving browser window */
 .cursor-hidden {
   opacity: 0 !important;
 }
