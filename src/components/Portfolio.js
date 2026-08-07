@@ -10,7 +10,6 @@ import FloatingContactButton from './ui/FloatingContactButton';
 const Hero             = lazy(() => import('./Hero'));
 const About            = lazy(() => import('./About'));
 const Skills           = lazy(() => import('./Skills'));
-const PivotAnalytics   = lazy(() => import('./PivotAnalytics'));
 const GitHubProjects   = lazy(() => import('./GitHubProjects'));
 const GitHubStats      = lazy(() => import('./GitHubStats'));
 const Education        = lazy(() => import('./Education'));
@@ -39,10 +38,6 @@ const Portfolio = ({ onOpenCommandPalette }) => {
 
           <ErrorBoundary>
             <About data={mockData.about} />
-          </ErrorBoundary>
-
-          <ErrorBoundary>
-            <PivotAnalytics data={mockData} />
           </ErrorBoundary>
 
           <ErrorBoundary>
