@@ -198,10 +198,11 @@ const Header = ({ onOpenCommandPalette }) => {
             {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
 
-          {/* Resume Download */}
+          {/* Resume View */}
           <a
             href="/cv/Altaf_Khan_CV.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-white bg-neutral-900 dark:bg-white dark:text-neutral-900 rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <span>Resume</span>
@@ -278,10 +279,11 @@ const Header = ({ onOpenCommandPalette }) => {
             <div className="pt-4 border-t border-neutral-100 dark:border-neutral-800 grid grid-cols-2 gap-3">
               <a
                 href="/cv/Altaf_Khan_CV.pdf"
-                download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-xs font-medium text-white bg-neutral-900 dark:bg-white dark:text-neutral-900"
               >
-                <span>Download CV</span>
+                <span>View CV</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
               <a
