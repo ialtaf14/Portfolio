@@ -84,7 +84,7 @@ const Cursor = () => {
         ref={pointerRef}
         className={`custom-cursor-pointer ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       >
-        <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="mac-neon-outline-2" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
@@ -93,13 +93,13 @@ const Cursor = () => {
             </linearGradient>
 
             <filter id="mac-neon-glow-2" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="rgba(0, 240, 255, 0.95)" />
+              <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="rgba(0, 240, 255, 0.95)" />
             </filter>
           </defs>
 
           <g filter="url(#mac-neon-glow-2)">
             <path
-              d="M0 0L19 14L10.5 15.5L15 24.5L11.5 26L7 17L0 22V0Z"
+              d="M1 1L31 20L17 22.5L24 37L19 39L12 27L1 35V1Z"
               fill="rgba(0, 240, 255, 0.08)"
               stroke="url(#mac-neon-outline-2)"
               strokeWidth="1.5"
@@ -107,9 +107,9 @@ const Cursor = () => {
               strokeLinecap="round"
             />
             <path
-              d="M2.5 3.5L14.5 12.5L9.5 13.5"
+              d="M4 5L23 19L15 20.5"
               stroke="rgba(255, 255, 255, 0.5)"
-              strokeWidth="0.8"
+              strokeWidth="0.9"
               strokeLinecap="round"
               opacity="0.6"
             />
