@@ -94,7 +94,7 @@ const CustomCursor = () => {
         ref={pointerRef}
         className={`custom-cursor-pointer ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       >
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="mac-neon-outline" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
@@ -102,15 +102,15 @@ const CustomCursor = () => {
               <stop offset="100%" stopColor="#00c8ff" />
             </linearGradient>
             <filter id="mac-neon-glow" x="-40%" y="-40%" width="180%" height="180%">
-              <feDropShadow dx="0" dy="0" stdDeviation="1.5" floodColor="rgba(0, 240, 255, 0.95)" />
+              <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="rgba(0, 240, 255, 0.95)" />
             </filter>
           </defs>
           <g filter="url(#mac-neon-glow)">
             <path
-              d="M0.5 0.5L8 5L4.5 5.8L6 9.5L4.5 10L3 6.8L0.5 8.5V0.5Z"
+              d="M0.5 0.5L12 7.5L7 8.5L9.5 14L7 15L4.5 10L0.5 13V0.5Z"
               fill="rgba(0, 240, 255, 0.08)"
               stroke="url(#mac-neon-outline)"
-              strokeWidth="0.8"
+              strokeWidth="0.9"
               strokeLinejoin="round"
               strokeLinecap="round"
             />
