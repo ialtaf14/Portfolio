@@ -27,7 +27,7 @@ const Cursor = () => {
       auraPos.current.x = lerp(auraPos.current.x, pos.current.x, 0.16);
       auraPos.current.y = lerp(auraPos.current.y, pos.current.y, 0.16);
       if (auraRef.current) {
-        auraRef.current.style.transform = `translate3d(${auraPos.current.x - 16}px, ${auraPos.current.y - 16}px, 0)`;
+        auraRef.current.style.transform = `translate3d(${auraPos.current.x - 11}px, ${auraPos.current.y - 11}px, 0)`;
       }
       rafRef.current = requestAnimationFrame(animateAura);
     };
@@ -84,40 +84,34 @@ const Cursor = () => {
         ref={pointerRef}
         className={`custom-cursor-pointer ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       >
-        <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="20" height="26" viewBox="0 0 20 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="ios-glass-body-2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.95)" />
-              <stop offset="50%" stopColor="rgba(0, 220, 255, 0.75)" />
-              <stop offset="100%" stopColor="rgba(59, 130, 246, 0.85)" />
-            </linearGradient>
-
-            <linearGradient id="ios-glass-stroke-2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="mac-neon-outline-2" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="40%" stopColor="#00f0ff" />
-              <stop offset="100%" stopColor="#3b82f6" />
+              <stop offset="50%" stopColor="#00f0ff" />
+              <stop offset="100%" stopColor="#00c8ff" />
             </linearGradient>
 
-            <filter id="ios-glow-filter-2" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="rgba(0, 230, 255, 0.6)" />
+            <filter id="mac-neon-glow-2" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="rgba(0, 240, 255, 0.95)" />
             </filter>
           </defs>
 
-          <g filter="url(#ios-glow-filter-2)">
+          <g filter="url(#mac-neon-glow-2)">
             <path
-              d="M0 0L24 16L14 18L19 30L14.5 32L9.5 20L0 27V0Z"
-              fill="url(#ios-glass-body-2)"
-              stroke="url(#ios-glass-stroke-2)"
-              strokeWidth="1.6"
+              d="M0 0L19 14L10.5 15.5L15 24.5L11.5 26L7 17L0 22V0Z"
+              fill="rgba(0, 240, 255, 0.08)"
+              stroke="url(#mac-neon-outline-2)"
+              strokeWidth="1.5"
               strokeLinejoin="round"
               strokeLinecap="round"
             />
             <path
-              d="M3 4L19 14.5L12 16"
-              stroke="rgba(255, 255, 255, 0.9)"
-              strokeWidth="1"
+              d="M2.5 3.5L14.5 12.5L9.5 13.5"
+              stroke="rgba(255, 255, 255, 0.5)"
+              strokeWidth="0.8"
               strokeLinecap="round"
-              opacity="0.75"
+              opacity="0.6"
             />
           </g>
         </svg>
