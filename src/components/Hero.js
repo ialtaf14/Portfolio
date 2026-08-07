@@ -5,35 +5,40 @@ import { BrandSocialButton, GithubLogo, LinkedinLogo, GmailLogo, VercelLogo } fr
 import { useRecruiter } from '../contexts/RecruiterContext';
 import RecruiterViewDeck from './ui/RecruiterViewDeck';
 
-/* ─── Custom Cursor Component (Zero Delay Inverted X-Ray Cursor) ───────────── */
+/* ─── Custom Cursor Component (iOS 27 VisionOS Frosted Glass Arrow Pointer) ─── */
 const CustomCursor = () => {
-  const coreRef = useRef(null);
+  const pointerRef = useRef(null);
   const auraRef = useRef(null);
+  const pos = useRef({ x: -100, y: -100 });
+  const auraPos = useRef({ x: -100, y: -100 });
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const rafRef = useRef(null);
 
   useEffect(() => {
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
-    let reqId = null;
+    const lerp = (a, b, n) => a + (b - a) * n;
 
     const onMouseMove = (e) => {
       setIsHidden(false);
-      const x = e.clientX;
-      const y = e.clientY;
-      if (reqId) cancelAnimationFrame(reqId);
-      reqId = requestAnimationFrame(() => {
-        if (coreRef.current) {
-          coreRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-        }
-        if (auraRef.current) {
-          auraRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
-        }
-      });
+      pos.current = { x: e.clientX, y: e.clientY };
+      // Instant Pointer Positioning (Zero delay tip tracking)
+      if (pointerRef.current) {
+        pointerRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      }
     };
 
-    // Dynamic Hover Detection across all current and future DOM elements
+    const animateAura = () => {
+      auraPos.current.x = lerp(auraPos.current.x, pos.current.x, 0.16);
+      auraPos.current.y = lerp(auraPos.current.y, pos.current.y, 0.16);
+      if (auraRef.current) {
+        auraRef.current.style.transform = `translate3d(${auraPos.current.x - 16}px, ${auraPos.current.y - 16}px, 0)`;
+      }
+      rafRef.current = requestAnimationFrame(animateAura);
+    };
+
     const onMouseOver = (e) => {
       const target = e.target;
       if (!target) return;
@@ -63,8 +68,10 @@ const CustomCursor = () => {
     document.addEventListener('mouseleave', onMouseLeave);
     document.addEventListener('mouseenter', onMouseEnter);
 
+    rafRef.current = requestAnimationFrame(animateAura);
+
     return () => {
-      if (reqId) cancelAnimationFrame(reqId);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mouseover', onMouseOver);
       window.removeEventListener('mousedown', onMouseDown);
@@ -76,14 +83,57 @@ const CustomCursor = () => {
 
   return (
     <>
-      <div
-        ref={coreRef}
-        className={`custom-cursor-core ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
-      />
+      {/* Trailing Glass Aura Orb */}
       <div
         ref={auraRef}
         className={`custom-cursor-aura ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       />
+
+      {/* iOS 27 VisionOS Glass Arrow Pointer */}
+      <div
+        ref={pointerRef}
+        className={`custom-cursor-pointer ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
+      >
+        <svg width="26" height="32" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ios-glass-body" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(255, 255, 255, 0.95)" />
+              <stop offset="50%" stopColor="rgba(0, 220, 255, 0.75)" />
+              <stop offset="100%" stopColor="rgba(59, 130, 246, 0.85)" />
+            </linearGradient>
+
+            <linearGradient id="ios-glass-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ffffff" />
+              <stop offset="40%" stopColor="#00f0ff" />
+              <stop offset="100%" stopColor="#3b82f6" />
+            </linearGradient>
+
+            <filter id="ios-glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="rgba(0, 230, 255, 0.6)" />
+            </filter>
+          </defs>
+
+          <g filter="url(#ios-glow-filter)">
+            {/* Main Glass Arrow Path with tip at exact (0,0) */}
+            <path
+              d="M0 0L24 16L14 18L19 30L14.5 32L9.5 20L0 27V0Z"
+              fill="url(#ios-glass-body)"
+              stroke="url(#ios-glass-stroke)"
+              strokeWidth="1.6"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+            {/* Internal Highlight Line for 3D Glass Depth */}
+            <path
+              d="M3 4L19 14.5L12 16"
+              stroke="rgba(255, 255, 255, 0.9)"
+              strokeWidth="1"
+              strokeLinecap="round"
+              opacity="0.75"
+            />
+          </g>
+        </svg>
+      </div>
     </>
   );
 };

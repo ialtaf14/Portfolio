@@ -89,68 +89,69 @@
   }
 }
 
-/* ─── CUSTOM CURSOR (ZERO DELAY INVERTED DYNAMIC X-RAY CURSOR) ──────────────── */
+/* ─── CUSTOM CURSOR (iOS 27 VISIONOS FROSTED GLASS ARROW POINTER) ──────────── */
 @media (pointer: coarse) {
-  .custom-cursor-core,
+  .custom-cursor-pointer,
   .custom-cursor-aura {
     display: none !important;
   }
 }
 
-.custom-cursor-core {
+.custom-cursor-pointer {
   position: fixed;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
-  background-color: #ffffff;
-  border-radius: 50%;
+  width: 32px;
+  height: 38px;
   pointer-events: none;
   z-index: 99999;
-  mix-blend-mode: difference;
   will-change: transform;
-  transition: opacity 0.2s ease, width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.2s ease;
+  transform-origin: 2px 2px;
+  transition: opacity 0.25s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+  filter: drop-shadow(0 6px 16px rgba(0, 200, 255, 0.65)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 
 .custom-cursor-aura {
   position: fixed;
   top: 0;
   left: 0;
-  width: 38px;
-  height: 38px;
-  border: 1.5px solid #ffffff;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
-  mix-blend-mode: difference;
   will-change: transform;
-  transition: opacity 0.2s ease, width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-radius 0.25s ease;
+  background: radial-gradient(circle, rgba(0, 225, 255, 0.22) 0%, rgba(59, 130, 246, 0.08) 60%, transparent 100%);
+  border: 1px solid rgba(0, 225, 255, 0.4);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+  transition: opacity 0.25s ease, width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Hover Spotlight Effect (X-Ray inversion over buttons, cards, text) */
+/* Hovering over links / buttons / cards */
+.cursor-hovered .custom-cursor-pointer {
+  transform: scale(1.22) rotate(-14deg);
+  filter: drop-shadow(0 8px 24px rgba(0, 230, 255, 0.9)) drop-shadow(0 0 12px rgba(59, 130, 246, 0.8));
+}
+
 .cursor-hovered .custom-cursor-aura {
-  width: 58px;
-  height: 58px;
-  background-color: #ffffff;
-  border-color: #ffffff;
-}
-
-.cursor-hovered .custom-cursor-core {
-  width: 6px;
-  height: 6px;
-  opacity: 0.8;
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle, rgba(0, 230, 255, 0.35) 0%, rgba(59, 130, 246, 0.18) 70%, transparent 100%);
+  border-color: rgba(0, 240, 255, 0.8);
+  box-shadow: 0 0 30px rgba(0, 220, 255, 0.5);
 }
 
 /* Tactile Click / Down State */
-.cursor-clicked .custom-cursor-aura {
-  width: 26px;
-  height: 26px;
-  background-color: #ffffff;
+.cursor-clicked .custom-cursor-pointer {
+  transform: scale(0.85) rotate(-6deg);
+  filter: drop-shadow(0 2px 8px rgba(0, 230, 255, 0.95));
 }
 
-.cursor-clicked .custom-cursor-core {
-  width: 4px;
-  height: 4px;
+.cursor-clicked .custom-cursor-aura {
+  width: 22px;
+  height: 22px;
+  border-color: rgba(255, 255, 255, 0.9);
 }
 
 /* Hidden state when leaving browser window */
