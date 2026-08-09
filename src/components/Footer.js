@@ -84,7 +84,7 @@ const Footer = () => {
               <GithubLogo className="w-4 h-4" />
             </a>
             <a
-              href="https://www.linkedin.com/in/altaf-khan-7a544b256/"
+              href="https://www.linkedin.com/in/ialtaf14/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2.5 rounded-xl bg-[#0A66C2]/20 hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white border border-[#0A66C2]/40 transition-all hover:scale-110"

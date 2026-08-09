@@ -11,7 +11,7 @@ const KB = {
   email: 'altafkhan122105@gmail.com',
   location: 'Gurugram, Haryana, India',
   github: 'https://github.com/ialtaf14',
-  linkedin: 'https://www.linkedin.com/in/altaf-khan-7a544b256/',
+  linkedin: 'https://www.linkedin.com/in/ialtaf14/',
   photo: '/images/header-profile-final.jpg',
   education: 'B.Tech in Computer Science & Engineering from Gurugram University, graduated in 2026, with a specialization in Data Science & Machine Learning.',
   college: 'Mewat Engineering College (MECW), Nuh, Haryana — affiliated to Gurugram University, AICTE Approved.',

@@ -261,7 +261,7 @@ npx gh-pages -d build
 | Platform | Link |
 |----------|------|
 | 📧 Email | [altafkhan122105@gmail.com](mailto:altafkhan122105@gmail.com) |
-| 💼 LinkedIn | [altaf-khan-7a544b256](https://www.linkedin.com/in/altaf-khan-7a544b256/) |
+| 💼 LinkedIn | [ialtaf14](https://www.linkedin.com/in/ialtaf14/) |
 | 🐙 GitHub | [@ialtaf14](https://github.com/ialtaf14) |
 | 📱 WhatsApp | [+91 80538 21088](https://wa.me/918053821088) |
 | 📍 Location | Gurugram, Haryana, India |

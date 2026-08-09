@@ -128,7 +128,7 @@ const Contact = () => {
                 <div className="text-[11px] font-mono text-neutral-500">Official Clickable Profiles</div>
                 <div className="grid grid-cols-2 gap-2.5">
                   <BrandSocialButton type="github" url="https://github.com/ialtaf14" label="GitHub" />
-                  <BrandSocialButton type="linkedin" url="https://www.linkedin.com/in/altaf-khan-7a544b256/" label="LinkedIn" />
+                  <BrandSocialButton type="linkedin" url="https://www.linkedin.com/in/ialtaf14/" label="LinkedIn" />
                   <BrandSocialButton type="portfolio" url="https://ialtaf14.vercel.app" label="Portfolio" />
                   <BrandSocialButton type="gmail" url={`mailto:${emailAddress}`} label="Gmail" />
                   <BrandSocialButton type="x" url="https://x.com/ialtaf14" label="X (Twitter)" />

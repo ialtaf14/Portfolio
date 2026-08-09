@@ -59,7 +59,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
     // Actions & External
     { id: 'act-resume', title: 'Download Resume (PDF)', category: 'Actions', icon: FileText, action: () => downloadFile('/cv/Altaf_Khan_CV.pdf') },
     { id: 'act-github', title: 'Open GitHub Profile (@ialtaf14)', category: 'Social', icon: Github, action: () => window.open('https://github.com/ialtaf14', '_blank') },
-    { id: 'act-linkedin', title: 'Open LinkedIn Profile', category: 'Social', icon: Linkedin, action: () => window.open('https://www.linkedin.com/in/altaf-khan-7a544b256/', '_blank') },
+    { id: 'act-linkedin', title: 'Open LinkedIn Profile', category: 'Social', icon: Linkedin, action: () => window.open('https://www.linkedin.com/in/ialtaf14/', '_blank') },
     { id: 'act-email', title: 'Send Direct Email', category: 'Contact', icon: Mail, action: () => window.open('mailto:altafkhan122105@gmail.com') }
   ];
 

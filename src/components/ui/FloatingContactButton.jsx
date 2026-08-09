@@ -20,9 +20,9 @@ const CONTACTS = [
   {
     label: 'LinkedIn',
     icon: Linkedin,
-    href: 'https://www.linkedin.com/in/altaf-khan-7a544b256/',
+    href: 'https://www.linkedin.com/in/ialtaf14/',
     color: 'bg-sky-600 hover:bg-sky-700 text-white',
-    desc: 'linkedin.com/in/altaf-khan'
+    desc: 'linkedin.com/in/ialtaf14'
   },
   {
     label: 'GitHub',

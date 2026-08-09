@@ -277,7 +277,7 @@ const Hero = ({ data }) => {
                 </a>
 
                 <BrandSocialButton type="github" url={data.github || "https://github.com/ialtaf14"} label="GitHub" />
-                <BrandSocialButton type="linkedin" url={data.linkedin || "https://www.linkedin.com/in/altaf-khan-7a544b256/"} label="LinkedIn" />
+                <BrandSocialButton type="linkedin" url={data.linkedin || "https://www.linkedin.com/in/ialtaf14/"} label="LinkedIn" />
                 <BrandSocialButton type="gmail" url="mailto:altafkhan122105@gmail.com" label="Gmail" />
                 <BrandSocialButton type="portfolio" url="https://ialtaf14.vercel.app" label="Portfolio" />
               </motion.div>

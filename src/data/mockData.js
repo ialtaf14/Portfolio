@@ -13,7 +13,7 @@ export const mockData = {
     email: 'altafkhan122105@gmail.com',
     location: 'Gurugram, India',
     github: 'https://github.com/ialtaf14',
-    linkedin: 'https://www.linkedin.com/in/altaf-khan-7a544b256/',
+    linkedin: 'https://www.linkedin.com/in/ialtaf14/',
     portfolio: 'https://ialtaf14.vercel.app',
     x: 'https://x.com/ialtaf14',
     instagram: 'https://www.instagram.com/ialtaf.14',

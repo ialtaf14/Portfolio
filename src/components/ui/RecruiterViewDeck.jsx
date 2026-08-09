@@ -29,7 +29,7 @@ Key Highlights:
 Links & Contact:
 • Portfolio: https://ialtaf14.vercel.app
 • GitHub: https://github.com/ialtaf14
-• LinkedIn: https://www.linkedin.com/in/altaf-khan-7a544b256/
+• LinkedIn: https://www.linkedin.com/in/ialtaf14/
 • Email: altafkhan122105@gmail.com
 ──────────────────────────────────────`;
 

@@ -81,7 +81,7 @@ const NotFound = () => {
           <a href="https://github.com/ialtaf14" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 rounded-full text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
             <Github className="w-4 h-4" />
           </a>
-          <a href="https://www.linkedin.com/in/altaf-khan-7a544b256/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 rounded-full text-neutral-400 hover:text-blue-500 transition-colors">
+          <a href="https://www.linkedin.com/in/ialtaf14/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 rounded-full text-neutral-400 hover:text-blue-500 transition-colors">
             <Linkedin className="w-4 h-4" />
           </a>
           <a href="mailto:altafkhan122105@gmail.com" aria-label="Email" className="p-2 rounded-full text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
