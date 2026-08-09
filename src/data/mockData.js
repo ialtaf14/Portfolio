@@ -238,7 +238,9 @@ export const mockData = {
           '/images/mecw.jpg',
           '/images/mecw_official2.jpg',
           '/images/mecw_official1.jpg',
-          '/images/mecw_campus1.jpg'
+          '/images/mecw_banner.jpg',
+          '/images/mecw_aerial.jpg',
+          '/images/mecw_students.jpg'
         ],
         location: 'Nuh, Haryana, India',
         established: '2010',
