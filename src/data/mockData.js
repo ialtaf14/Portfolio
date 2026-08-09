@@ -236,7 +236,7 @@ export const mockData = {
         image: '/images/mecw.jpg',
         images: [
           '/images/mecw.jpg',
-          '/images/mecw_official2.jpg',
+          '/images/mec_logo.jpg',
           '/images/mecw_official1.jpg',
           '/images/mecw_banner.jpg',
           '/images/mecw_aerial.jpg',
@@ -264,7 +264,7 @@ export const mockData = {
           'https://gurugramuniversity.ac.in/img/bg1.jpg',
           'https://gurugramuniversity.ac.in/img/physics.jpeg',
           '/images/gu_btech.png',
-          '/images/gu_ltw.png'
+          '/images/gu_logo.jpg'
         ],
         location: 'Gurugram, Haryana, India',
         established: '2017',
