@@ -185,20 +185,21 @@ export const mockData = {
     {
       id: 'nova-ai',
       title: 'Nova AI',
-      subtitle: 'AI Learning Assistant for Data Science',
-      description: 'A Google Gemini API-powered assistant that helps learners understand Python for data analysis, SQL queries, ML concepts, and data science workflows.',
-      longDescription: 'Nova AI uses Google Gemini API with structured prompting to answer data science and analytics questions — explaining Pandas operations, SQL JOIN logic, Power BI DAX, and ML evaluation metrics in plain language.',
+      subtitle: 'Hybrid Personal AI Assistant with Multimodal Vision & Voice',
+      description: 'An advanced hybrid AI assistant combining local Ollama AI models, Google Live Web Search, Multimodal Vision Q&A, Voice interaction, interactive Google Maps, and an iOS Glassmorphic Web UI.',
+      longDescription: 'Nova AI is an advanced hybrid personal AI assistant created by Altaf Khan. It integrates local Ollama LLMs with Google Live Search, multimodal Vision processing for image Q&A, real-time Voice interaction (speech recognition and Hinglish TTS), embedded Google Maps search, and an interactive multi-model selector (DeepSeek, Gemini, Ollama) wrapped in an ultra-sleek iOS glassmorphic interface.',
       features: [
-        'Data Science & Analytics focused domain prompting',
-        'Explains Pandas, SQL, NumPy, Matplotlib concepts',
-        'Multi-turn conversation memory with Google Gemini API',
-        'Modular FastAPI backend with clean JSON responses'
+        'Multimodal Vision Q&A for instant image analysis & query response',
+        'Voice & Text interaction with real-time Speech Recognition & Hinglish TTS',
+        'Free Google Live Web Search (no API key required) & Google Maps embed',
+        'Multi-model selector supporting Local Ollama, DeepSeek, and Gemini',
+        'Modern iOS Glassmorphic Web UI with code generation & markdown formatting'
       ],
-      impact: 'Practical LLM API integration focused entirely on the Data Analytics domain.',
-      technologies: ['Python', 'Gemini API', 'FastAPI'],
+      impact: 'Advanced hybrid AI assistant integrating local LLMs, cloud APIs, Vision, and Web Search into a unified voice & vision interface.',
+      technologies: ['Python', 'Ollama', 'DeepSeek', 'Gemini API', 'Speech Recognition', 'React', 'Tailwind CSS'],
       githubUrl: 'https://github.com/ialtaf14/Nova-AI',
       liveUrl: null,
-      image: '/images/Nova-AI.jpg',
+      image: 'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_3_welcome.png',
       featured: true,
       category: 'AI & Data Science'
     },

@@ -33,9 +33,23 @@ const LOCAL_REPO_SCREENSHOTS = {
   RealityML: ['/images/RealityML.jpg'],
   realityml: ['/images/RealityML.jpg'],
 
-  // Nova-AI — no images in README/repo, use local fallback
-  'Nova-AI': ['/images/Nova-AI.jpg'],
-  'nova-ai': ['/images/Nova-AI.jpg'],
+  // Nova-AI — screenshots from main/screenshots folder
+  'Nova-AI': [
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_3_welcome.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_1_vision.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_2_chat.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_4_maps.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_5_models.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_6_coding.png',
+  ],
+  'nova-ai': [
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_3_welcome.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_1_vision.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_2_chat.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_4_maps.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_5_models.png',
+    'https://raw.githubusercontent.com/ialtaf14/Nova-AI/main/screenshots/screenshot_6_coding.png',
+  ],
 
   // Novaflix — real screenshots from the repo's screenshots/ folder
   Novaflix: [
@@ -84,6 +98,8 @@ const LOCAL_REPO_SCREENSHOTS = {
 const CUSTOM_REPO_DESCRIPTIONS = {
   Portfolio: "Altaf Khan's official interactive Data Analyst portfolio built with React 19, Tailwind CSS, Framer Motion, and GitHub API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
   portfolio: "Altaf Khan's official interactive Data Analyst portfolio built with React 19, Tailwind CSS, Framer Motion, and GitHub API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
+  'Nova-AI': "Nova AI is an advanced hybrid personal AI assistant combining local Ollama AI models, Google Live Web Search, Multimodal Vision Q&A, Voice interaction, interactive Google Maps, and an iOS Glassmorphic Web UI.",
+  'nova-ai': "Nova AI is an advanced hybrid personal AI assistant combining local Ollama AI models, Google Live Web Search, Multimodal Vision Q&A, Voice interaction, interactive Google Maps, and an iOS Glassmorphic Web UI.",
   ialtaf14: "Official GitHub Profile README for Altaf Khan (ialtaf14) — Data Analyst & Python/SQL developer showcasing core technical skills, machine learning projects, SQL queries, and career achievements.",
   'ialtaf14/ialtaf14': "Official GitHub Profile README for Altaf Khan (ialtaf14) — Data Analyst & Python/SQL developer showcasing core technical skills, machine learning projects, SQL queries, and career achievements.",
 };

@@ -29,9 +29,9 @@ const KB = {
       url: 'https://github.com/ialtaf14/RealityML',
     },
     {
-      name: 'Nova AI',
-      desc: 'An AI-powered assistant built using the Google Gemini API. Supports multi-turn conversations, prompt management, error handling, and a modular Python backend.',
-      tech: 'Python, Gemini API, FastAPI, JSON',
+      name: 'Nova AI – Hybrid Personal AI Assistant',
+      desc: 'An advanced hybrid personal AI assistant combining local Ollama AI models, Google Live Web Search (no API key required), Multimodal Vision Q&A, Voice interaction with Hinglish TTS, interactive Google Maps embed, and an iOS Glassmorphic Web UI.',
+      tech: 'Python, Ollama, DeepSeek, Gemini API, Speech Recognition, React, Tailwind CSS',
       url: 'https://github.com/ialtaf14/Nova-AI',
     },
   ],

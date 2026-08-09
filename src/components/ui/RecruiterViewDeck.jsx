@@ -48,9 +48,9 @@ Links & Contact:
     },
     {
       title: 'Nova AI',
-      category: 'Generative AI Tool',
-      desc: 'Multi-modal AI assistant powered by Gemini API for text, vision, and contextual reasoning.',
-      stack: ['Python', 'Gemini API', 'React', 'Tailwind'],
+      category: 'Hybrid Personal AI Assistant',
+      desc: 'Hybrid AI assistant integrating local Ollama LLMs, DeepSeek, Gemini, Multimodal Vision, Voice, and Live Search in an iOS Glassmorphic UI.',
+      stack: ['Python', 'Ollama', 'DeepSeek', 'Gemini API', 'Speech-to-Text'],
       github: 'https://github.com/ialtaf14/Nova-AI',
     },
     {
