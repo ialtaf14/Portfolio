@@ -47,33 +47,37 @@ const Skills = ({ data }) => {
 
         {/* Category Filter Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
             onClick={() => setSelectedCategoryId('all')}
             className={`px-4 py-2 rounded-full text-xs font-mono font-medium transition-all ${
               selectedCategoryId === 'all'
-                ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm'
-                : 'bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white border border-neutral-200/60 dark:border-neutral-800/60'
+                ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-md shadow-neutral-900/10 dark:shadow-white/10'
+                : 'glass-pill text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
             All Categories ({categories.reduce((acc, cat) => acc + cat.skills.length, 0)})
-          </button>
+          </motion.button>
           {categories.map((cat) => {
             const IconComponent = categoryIcons[cat.id] || Code;
             const isSelected = selectedCategoryId === cat.id;
             return (
-              <button
+              <motion.button
                 key={cat.id}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => setSelectedCategoryId(cat.id)}
                 className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono font-medium transition-all ${
                   isSelected
-                    ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm'
-                    : 'bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white border border-neutral-200/60 dark:border-neutral-800/60'
+                    ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-md shadow-neutral-900/10 dark:shadow-white/10'
+                    : 'glass-pill text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white'
                 }`}
               >
                 <IconComponent className="w-3.5 h-3.5" />
                 <span>{cat.name}</span>
                 <span className="text-[10px] opacity-70">({cat.skills.length})</span>
-              </button>
+              </motion.button>
             );
           })}
         </div>
@@ -81,51 +85,55 @@ const Skills = ({ data }) => {
         {/* Skill Badges Matrix */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filteredCategories.map((category) => {
+            {filteredCategories.map((category, catIdx) => {
               const IconComponent = categoryIcons[category.id] || Code;
               return (
                 <motion.div
                   layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.4, delay: catIdx * 0.08 }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   key={category.id}
-                  className="p-6 rounded-2xl glass-card border border-neutral-200 dark:border-neutral-800 space-y-4 flex flex-col justify-between"
+                  className="p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-4 flex flex-col justify-between"
                 >
                   <div>
                     {/* Category Title */}
-                    <div className="flex items-center gap-3 pb-3 border-b border-neutral-100 dark:border-neutral-800/80">
-                      <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-white">
-                        <IconComponent className="w-4 h-4" />
+                    <div className="flex items-center gap-3 pb-3 border-b border-neutral-200/60 dark:border-neutral-800/80">
+                      <div className="p-2.5 rounded-xl bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-white">
+                        <IconComponent className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
                       </div>
                       <div>
                         <h3 className="text-sm font-bold text-neutral-900 dark:text-white">
                           {category.name}
                         </h3>
-                        <span className="text-[10px] font-mono text-neutral-500">
+                        <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400">
                           {category.skills.length} skills verified
                         </span>
                       </div>
                     </div>
 
                     {/* Skill Items Badge Grid */}
-                    <div className="space-y-3 pt-4">
+                    <div className="space-y-2.5 pt-4">
                       {category.skills.map((skill, idx) => (
-                        <div
+                        <motion.div
                           key={idx}
-                          className="p-3 rounded-xl bg-neutral-50/80 dark:bg-neutral-900/60 border border-neutral-200/50 dark:border-neutral-800/50 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all space-y-1 group"
+                          whileHover={{ x: 3 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                          className="p-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md border border-neutral-200/60 dark:border-white/[0.06] hover:border-cyan-500/40 dark:hover:border-cyan-500/40 transition-all space-y-1 group"
                         >
                           <div className="flex items-center justify-between text-xs font-semibold text-neutral-900 dark:text-neutral-100">
                             <span>{skill.name}</span>
                             <Check className="w-3.5 h-3.5 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                           </div>
                           {skill.description && (
-                            <p className="text-[11px] text-neutral-500 leading-normal">
+                            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 leading-normal">
                               {skill.description}
                             </p>
                           )}
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   </div>

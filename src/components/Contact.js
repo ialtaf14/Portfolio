@@ -60,9 +60,15 @@ const Contact = () => {
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Direct Info Card */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-6"
+          >
             
-            <div className="p-8 rounded-3xl glass-card border border-white/20 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-2xl space-y-6 shadow-xl">
+            <div className="p-8 rounded-3xl glass-panel-ultra glass-shimmer space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
                   Direct Contact &amp; Profiles
@@ -137,11 +143,17 @@ const Contact = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Message Form */}
-          <div className="lg:col-span-7">
-            <div className="p-8 rounded-3xl glass-card border border-white/20 dark:border-white/10 bg-white/70 dark:bg-neutral-900/60 backdrop-blur-2xl shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
+            <div className="p-8 rounded-3xl glass-panel-ultra glass-shimmer">
               <h3 className="text-lg font-bold text-neutral-900 dark:text-white mb-6">
                 Send a Direct Message
               </h3>

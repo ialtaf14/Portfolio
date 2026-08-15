@@ -114,10 +114,16 @@ const EducationCard = ({ edu, index }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
+      whileHover={{ y: -6, transition: { duration: 0.25, ease: 'easeOut' } }}
       transition={{ duration: 0.5, delay: index * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex flex-col rounded-3xl bg-white/70 dark:bg-neutral-900/60 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-blue-500/5 overflow-hidden"
+      className="group relative flex flex-col rounded-3xl glass-panel-ultra glass-shimmer border border-neutral-200/80 dark:border-white/[0.08] hover:border-blue-500/40 dark:hover:border-cyan-500/40 transition-all duration-500 overflow-hidden"
+      style={{
+        boxShadow: isHovered
+          ? '0 20px 50px rgba(0,0,0,0.18), 0 0 30px rgba(0,240,255,0.08)'
+          : undefined,
+      }}
     >
       {/* Top Animated Glow Accent */}
       <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />

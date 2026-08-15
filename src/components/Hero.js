@@ -180,11 +180,14 @@ const Hero = ({ data }) => {
         {/* Ambient Orb Glows */}
         {!isRecruiterMode && (
           <>
-            <div className="absolute top-1/4 left-1/4 w-[480px] h-[380px] rounded-full pointer-events-none animate-orb"
-              style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.1) 0%, transparent 70%)', filter: 'blur(40px)' }}
+            <div className="absolute top-1/4 left-1/6 w-[520px] h-[400px] rounded-full pointer-events-none animate-orb"
+              style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.14) 0%, transparent 70%)', filter: 'blur(50px)' }}
             />
-            <div className="absolute bottom-1/4 right-1/4 w-[420px] h-[340px] rounded-full pointer-events-none animate-orb"
-              style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.1) 0%, transparent 70%)', filter: 'blur(40px)', animationDelay: '4s' }}
+            <div className="absolute bottom-1/4 right-1/6 w-[480px] h-[380px] rounded-full pointer-events-none animate-orb"
+              style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.13) 0%, transparent 70%)', filter: 'blur(50px)', animationDelay: '4s' }}
+            />
+            <div className="absolute top-1/2 right-1/3 w-[350px] h-[350px] rounded-full pointer-events-none animate-pulse-glow"
+              style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', filter: 'blur(60px)', animationDelay: '2s' }}
             />
           </>
         )}
@@ -198,28 +201,23 @@ const Hero = ({ data }) => {
             
             {/* Main Hero Content */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-7 space-y-8 text-center lg:text-left"
             >
               {/* Status Pill */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.92 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-mono text-neutral-600 dark:text-neutral-300"
-                style={{
-                  background: 'rgba(255,255,255,0.7)',
-                  backdropFilter: 'blur(16px)',
-                  border: '1px solid rgba(255,255,255,0.5)',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8)',
-                }}
+                transition={{ delay: 0.1, duration: 0.4 }}
+                whileHover={{ scale: 1.03, translateY: -1 }}
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-mono text-neutral-700 dark:text-neutral-200 glass-pill"
               >
                 <span className="status-ping">
                   <span></span><span></span>
                 </span>
-                <span>Available · Open for Data Analyst & Scientist Roles</span>
+                <span className="font-medium">Available · Open for Data Analyst & Scientist Roles</span>
               </motion.div>
 
               {/* Headline */}

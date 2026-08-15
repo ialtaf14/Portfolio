@@ -92,7 +92,10 @@ const LearningTimeline = () => {
                 >
                   {/* Content Card */}
                   <div className="w-full sm:w-1/2">
-                    <div className="p-6 sm:p-7 rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-300 shadow-sm hover:shadow-xl space-y-4">
+                    <motion.div
+                      whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
+                      className="p-6 sm:p-7 rounded-3xl glass-panel-ultra glass-shimmer space-y-4 transition-all duration-300"
+                    >
                       
                       <div className="flex items-center justify-between gap-2">
                         <span className="px-3 py-1 text-xs font-mono font-bold rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
@@ -127,7 +130,7 @@ const LearningTimeline = () => {
                         ))}
                       </div>
 
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Center Node Icon */}

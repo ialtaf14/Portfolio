@@ -62,19 +62,19 @@ const RepoCard = ({ repo, onOpenDetail }) => {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -6, transition: { duration: 0.25, ease: 'easeOut' } }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.35 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="flex flex-col rounded-2xl glass-card border border-neutral-200 dark:border-neutral-800 transition-all duration-300 shadow-sm overflow-hidden"
+      className="flex flex-col rounded-2xl glass-panel-ultra glass-shimmer transition-all duration-300 overflow-hidden"
       style={{
         boxShadow: hovered
-          ? '0 8px 32px rgba(0,0,0,0.13), 0 1.5px 6px rgba(0,0,0,0.07)'
-          : '0 1px 4px rgba(0,0,0,0.05)',
-        borderColor: hovered ? 'rgba(99,102,241,0.35)' : undefined,
-        transform: hovered ? 'translateY(-4px)' : 'translateY(0px)',
+          ? '0 20px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,240,255,0.2), 0 0 32px rgba(0,240,255,0.08)'
+          : undefined,
       }}
     >
       {/* Card Top Media: Screenshots Carousel or Professional Placeholder */}

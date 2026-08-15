@@ -111,10 +111,11 @@ const GitHubStats = () => {
               </div>
             ) : profile ? (
               <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="p-8 rounded-2xl glass-card border border-neutral-200 dark:border-neutral-800 space-y-5 h-full"
+                whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
+                className="p-8 rounded-2xl glass-panel-ultra glass-shimmer space-y-5 h-full"
               >
                 {/* Avatar + Name */}
                 <div className="flex items-center gap-4">

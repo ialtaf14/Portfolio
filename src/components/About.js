@@ -73,11 +73,12 @@ const About = ({ data }) => {
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-6 rounded-2xl glass-card glass-card-hover border border-neutral-200 dark:border-neutral-800 space-y-2"
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
+              transition={{ delay: idx * 0.1, duration: 0.4 }}
+              className="p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-2"
             >
               <div className="text-2xl font-bold font-mono text-neutral-900 dark:text-white">
                 {stat.number}
@@ -85,7 +86,7 @@ const About = ({ data }) => {
               <div className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 {stat.label}
               </div>
-              <div className="text-[11px] text-neutral-500">
+              <div className="text-[11px] text-neutral-500 dark:text-neutral-400">
                 {stat.description}
               </div>
             </motion.div>
@@ -96,7 +97,13 @@ const About = ({ data }) => {
         <div className="grid lg:grid-cols-12 gap-8 items-start mb-16">
           
           <div className="lg:col-span-7 space-y-6">
-            <div className="p-8 rounded-2xl glass-card border border-neutral-200 dark:border-neutral-800 space-y-4">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="p-8 rounded-2xl glass-panel-ultra glass-shimmer space-y-4"
+            >
               <h3 className="text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-2">
                 <Brain className="w-5 h-5 text-purple-500" />
                 Technical Approach & Project Focus
@@ -111,7 +118,7 @@ const About = ({ data }) => {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Career Objective Box */}
             <div className="p-6 rounded-2xl bg-neutral-900 dark:bg-neutral-900 text-white border border-neutral-800 space-y-3 shadow-lg">

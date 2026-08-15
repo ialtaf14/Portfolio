@@ -30,11 +30,15 @@ const Certifications = ({ data }) => {
           {certificationsList.map((cert, idx) => (
             <motion.div
               key={cert.id || idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="p-6 sm:p-8 rounded-2xl glass-card border border-neutral-200 dark:border-neutral-800 flex flex-col justify-between hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 shadow-sm hover:shadow-md"
+              whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
+              transition={{ delay: idx * 0.1, duration: 0.4 }}
+              className="p-6 sm:p-8 rounded-2xl glass-panel-ultra glass-shimmer flex flex-col justify-between transition-all duration-300 shadow-sm"
+              style={{
+                boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
+              }}
             >
               <div className="space-y-4">
                 {/* Header Badge */}

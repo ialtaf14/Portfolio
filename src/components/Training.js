@@ -137,8 +137,9 @@ const Training = ({ data }) => {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="rounded-3xl glass-card border border-neutral-200/80 dark:border-neutral-800/80 overflow-hidden shadow-xl shadow-black/5 hover:border-amber-500/40 transition-all duration-300"
+          className="rounded-3xl glass-panel-ultra glass-shimmer border border-neutral-200/80 dark:border-white/[0.08] overflow-hidden hover:border-amber-500/40 transition-all duration-300"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12">
 
