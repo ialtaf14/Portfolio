@@ -40,10 +40,10 @@ Links & Contact:
 
   const topProjects = [
     {
-      title: 'RealityML',
-      category: 'Machine Learning Suite',
-      desc: 'Automated ML model evaluation & dataset feasibility suite with real-time accuracy scoring.',
-      stack: ['Python', 'Scikit-Learn', 'Pandas', 'Streamlit'],
+      title: 'NovaReality (RealityML)',
+      category: 'AI Feasibility & Model Readiness Suite',
+      desc: 'End-to-end AI readiness & model feasibility suite with NLP problem scoring, data health auditing, model reality checks, executive PDF reports, and synthetic dataset generator.',
+      stack: ['Python', 'Streamlit', 'FastAPI', 'scikit-learn', 'Altair'],
       github: 'https://github.com/ialtaf14/RealityML',
     },
     {

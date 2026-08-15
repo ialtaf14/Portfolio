@@ -23,9 +23,9 @@ const KB = {
   skills: 'Python, SQL, Pandas, NumPy, Excel, Power BI, Scikit-learn, Matplotlib, Data Cleaning, EDA, Feature Engineering, Model Evaluation, Git, GitHub, Jupyter Notebook, VS Code.',
   projects: [
     {
-      name: 'RealityML – AI Feasibility Suite',
-      desc: 'A Python project that evaluates whether a business problem is suitable for machine learning by analyzing data and potential risks. Features: ML feasibility assessment, synthetic dataset generation, data quality analysis, bias and leakage detection, Streamlit dashboard.',
-      tech: 'Python, Pandas, Scikit-learn, FastAPI, Streamlit',
+      name: 'NovaReality (RealityML) – AI Feasibility & Readiness Suite',
+      desc: 'An end-to-end AI Feasibility & Readiness Assessment Suite that helps teams determine if an ML project is worth building before writing model code. Features: NLP Business Intelligence scoring for 9+ domains, Data Health & Quality Audit, Model Reality Check comparing Baseline vs Linear vs Random Forest, Executive PDF Readiness Reports, and Synthetic Dataset Generator.',
+      tech: 'Python, Streamlit, FastAPI, scikit-learn, Pandas, Altair, ReportLab',
       url: 'https://github.com/ialtaf14/RealityML',
     },
     {

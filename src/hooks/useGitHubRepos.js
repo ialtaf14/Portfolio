@@ -29,9 +29,35 @@ const LOCAL_REPO_SCREENSHOTS = {
     '/images/screenshots/06-contact.png',
   ],
 
-  // RealityML — no images in README/repo, use local fallback
-  RealityML: ['/images/RealityML.jpg'],
-  realityml: ['/images/RealityML.jpg'],
+  // NovaReality / RealityML — real screenshots from main/screenshots folder
+  RealityML: [
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step1_business_intelligence.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step2_data_quality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step3_model_reality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step4_final_report.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step5_dataset_generator.png',
+  ],
+  realityml: [
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step1_business_intelligence.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step2_data_quality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step3_model_reality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step4_final_report.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step5_dataset_generator.png',
+  ],
+  NovaReality: [
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step1_business_intelligence.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step2_data_quality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step3_model_reality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step4_final_report.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step5_dataset_generator.png',
+  ],
+  novareality: [
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step1_business_intelligence.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step2_data_quality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step3_model_reality.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step4_final_report.png',
+    'https://raw.githubusercontent.com/ialtaf14/RealityML/main/screenshots/step5_dataset_generator.png',
+  ],
 
   // Nova-AI — screenshots from main/screenshots folder
   'Nova-AI': [
@@ -90,14 +116,16 @@ const LOCAL_REPO_SCREENSHOTS = {
     'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/ip_lookup.jpg',
     'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/username_scan.jpg',
     'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/threat_alerts.jpg',
-    'https://raw.githubusercontent.com/ialtaf14/NovaRecon/main/docs/screenshots/settings.jpg',
   ],
 };
-
 
 const CUSTOM_REPO_DESCRIPTIONS = {
   Portfolio: "Altaf Khan's official interactive Data Analyst portfolio built with React 19, Tailwind CSS, Framer Motion, and GitHub API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
   portfolio: "Altaf Khan's official interactive Data Analyst portfolio built with React 19, Tailwind CSS, Framer Motion, and GitHub API integration featuring AI recruiter decks, live repo analytics, and skill pivot charts.",
+  RealityML: "NovaReality (RealityML) is an ultra-premium AI feasibility & model readiness suite featuring NLP business intelligence scoring, automated data health auditing, model reality check estimators, executive PDF reports, and synthetic dataset generation.",
+  realityml: "NovaReality (RealityML) is an ultra-premium AI feasibility & model readiness suite featuring NLP business intelligence scoring, automated data health auditing, model reality check estimators, executive PDF reports, and synthetic dataset generation.",
+  NovaReality: "NovaReality (RealityML) is an ultra-premium AI feasibility & model readiness suite featuring NLP business intelligence scoring, automated data health auditing, model reality check estimators, executive PDF reports, and synthetic dataset generation.",
+  novareality: "NovaReality (RealityML) is an ultra-premium AI feasibility & model readiness suite featuring NLP business intelligence scoring, automated data health auditing, model reality check estimators, executive PDF reports, and synthetic dataset generation.",
   'Nova-AI': "Nova AI is an advanced hybrid personal AI assistant combining local Ollama AI models, Google Live Web Search, Multimodal Vision Q&A, Voice interaction, interactive Google Maps, and an iOS Glassmorphic Web UI.",
   'nova-ai': "Nova AI is an advanced hybrid personal AI assistant combining local Ollama AI models, Google Live Web Search, Multimodal Vision Q&A, Voice interaction, interactive Google Maps, and an iOS Glassmorphic Web UI.",
   ialtaf14: "Official GitHub Profile README for Altaf Khan (ialtaf14) — Data Analyst & Python/SQL developer showcasing core technical skills, machine learning projects, SQL queries, and career achievements.",
