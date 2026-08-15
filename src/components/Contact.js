@@ -232,7 +232,7 @@ const Contact = () => {
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
