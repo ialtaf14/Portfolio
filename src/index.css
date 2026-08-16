@@ -647,3 +647,15 @@ a, button, [role="button"] {
 .stagger-children.in-view > *:nth-child(6)  { transition-delay: 400ms; opacity: 1; transform: none; }
 .stagger-children.in-view > *:nth-child(7)  { transition-delay: 480ms; opacity: 1; transform: none; }
 .stagger-children.in-view > *:nth-child(8)  { transition-delay: 560ms; opacity: 1; transform: none; }
+
+/* ─── ACCESSIBILITY: PREFERS-REDUCED-MOTION ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

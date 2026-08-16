@@ -393,8 +393,11 @@ const GitHubProjects = () => {
                 <Filter className="w-3 h-3" /> Filter:
               </span>
               {FILTER_CHIPS.map((chip) => (
-                <button
+                <motion.button
                   key={chip.value}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                   onClick={() => setFilter(chip.value)}
                   className={`px-3 py-1 rounded-full text-xs font-mono font-medium transition-all ${
                     filter === chip.value
@@ -403,7 +406,7 @@ const GitHubProjects = () => {
                   }`}
                 >
                   {chip.label}
-                </button>
+                </motion.button>
               ))}
             </div>
           </div>

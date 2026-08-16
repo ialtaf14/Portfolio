@@ -266,12 +266,14 @@ const Training = ({ data }) => {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {techStack.map((tech, idx) => (
-                      <span
+                      <motion.span
                         key={idx}
-                        className="px-3 py-1 text-xs font-mono font-semibold rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-700 shadow-sm"
+                        whileHover={{ scale: 1.08, y: -2 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                        className="px-3 py-1 text-xs font-mono font-semibold rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 border border-neutral-200 dark:border-neutral-700 shadow-sm cursor-default"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>

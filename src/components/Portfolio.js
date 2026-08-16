@@ -5,6 +5,7 @@ import ErrorBoundary from './ErrorBoundary';
 import { mockData } from '../data/mockData';
 import AIChatbot from './ui/AIChatbot';
 import FloatingContactButton from './ui/FloatingContactButton';
+import ScrollProgress from './ui/ScrollProgress';
 
 // Lazy load sections
 const Hero             = lazy(() => import('./Hero'));
@@ -27,6 +28,7 @@ const SectionLoader = () => (
 const Portfolio = ({ onOpenCommandPalette }) => {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors duration-300">
+      <ScrollProgress />
       <Header onOpenCommandPalette={onOpenCommandPalette} />
 
       <main id="main-content" tabIndex="-1" className="focus:outline-none">

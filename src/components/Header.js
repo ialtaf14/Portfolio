@@ -160,7 +160,10 @@ const Header = ({ onOpenCommandPalette }) => {
         <div className="flex items-center gap-2">
 
           {/* Recruiter Mode ⭐ Button */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             onClick={toggleRecruiterMode}
             aria-label="Toggle Recruiter View Mode"
             title="Recruiter Mode (30-second compact layout)"
@@ -173,10 +176,13 @@ const Header = ({ onOpenCommandPalette }) => {
             <Sparkles className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Recruiter View</span>
             <span className="sm:hidden">⭐</span>
-          </button>
+          </motion.button>
 
           {/* Command Palette Trigger */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             onClick={onOpenCommandPalette}
             aria-label="Open Command Palette (Ctrl+K)"
             className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs font-mono text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -186,19 +192,25 @@ const Header = ({ onOpenCommandPalette }) => {
             <kbd className="px-1.5 py-0.5 text-[9px] font-mono bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded text-neutral-400">
               ⌘K
             </kbd>
-          </button>
+          </motion.button>
 
           {/* Theme Toggle */}
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1, rotate: 15 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             aria-label="Toggle Dark Mode"
             className="p-2 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
+          </motion.button>
 
           {/* Resume View */}
-          <a
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             href="/cv/Altaf_Khan_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -206,16 +218,17 @@ const Header = ({ onOpenCommandPalette }) => {
           >
             <span>Resume</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          </motion.a>
 
           {/* Mobile Menu Toggle Button */}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             className="lg:hidden p-2 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          </motion.button>
         </div>
       </motion.div>
 
