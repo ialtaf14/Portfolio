@@ -74,65 +74,86 @@ const Footer = () => {
 
           {/* Social Links + Scroll Top */}
           <div className="flex items-center gap-2.5 flex-wrap justify-center">
-            <a
+            <motion.a
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               href="https://github.com/ialtaf14"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 hover:border-neutral-700 transition-all hover:scale-110"
+              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 hover:border-neutral-700 transition-colors"
               title="GitHub Profile"
             >
               <GithubLogo className="w-4 h-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               href="https://www.linkedin.com/in/ialtaf14/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-[#0A66C2]/20 hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white border border-[#0A66C2]/40 transition-all hover:scale-110"
+              className="p-2.5 rounded-xl bg-[#0A66C2]/20 hover:bg-[#0A66C2] text-[#0A66C2] hover:text-white border border-[#0A66C2]/40 transition-colors"
               title="LinkedIn Profile"
             >
               <LinkedinLogo className="w-4 h-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               href="mailto:altafkhan122105@gmail.com"
-              className="p-2.5 rounded-xl bg-[#EA4335]/20 hover:bg-[#EA4335] text-[#EA4335] hover:text-white border border-[#EA4335]/40 transition-all hover:scale-110"
+              className="p-2.5 rounded-xl bg-[#EA4335]/20 hover:bg-[#EA4335] text-[#EA4335] hover:text-white border border-[#EA4335]/40 transition-colors"
               title="Send Email"
             >
               <GmailLogo className="w-4 h-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               href="https://ialtaf14.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 text-cyan-400 hover:text-white border border-cyan-500/40 transition-all hover:scale-110"
+              className="p-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500 text-cyan-400 hover:text-white border border-cyan-500/40 transition-colors"
               title="Vercel Live Portfolio"
             >
               <VercelLogo className="w-4 h-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               href="https://x.com/ialtaf14"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 transition-all hover:scale-110"
+              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 transition-colors"
               title="X (Twitter)"
             >
               <XLogo className="w-4 h-4" />
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               href="https://www.instagram.com/ialtaf.14"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-pink-500/20 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 text-pink-400 hover:text-white border border-pink-500/40 transition-all hover:scale-110"
+              className="p-2.5 rounded-xl bg-pink-500/20 hover:bg-gradient-to-r hover:from-purple-600 hover:to-pink-600 text-pink-400 hover:text-white border border-pink-500/40 transition-colors"
               title="Instagram"
             >
               <InstagramLogo className="w-4 h-4" />
-            </a>
-            <button
+            </motion.a>
+            <motion.button
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-all ml-2 hover:scale-110"
+              className="p-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border border-neutral-800 transition-colors ml-2"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />
-            </button>
+            </motion.button>
           </div>
 
         </div>

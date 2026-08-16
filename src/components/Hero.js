@@ -4,6 +4,8 @@ import { ArrowDown, Download, Terminal, Copy, Check } from 'lucide-react';
 import { BrandSocialButton, GithubLogo, LinkedinLogo, GmailLogo, VercelLogo } from './ui/BrandLogos';
 import { useRecruiter } from '../contexts/RecruiterContext';
 import RecruiterViewDeck from './ui/RecruiterViewDeck';
+import FloatingParticles from './ui/FloatingParticles';
+import AnimatedCounter from './ui/AnimatedCounter';
 
 /* ─── Custom Cursor Component (iOS 27 VisionOS Frosted Glass Arrow Pointer) ─── */
 const CustomCursor = () => {
@@ -166,9 +168,10 @@ const Hero = ({ data }) => {
           isRecruiterMode ? 'bg-amber-500/5 dark:bg-amber-950/10 border-b border-amber-500/20' : ''
         }`}
       >
-        {/* Ambient Orb Glows */}
+        {/* Ambient Orb Glows & Floating Particles */}
         {!isRecruiterMode && (
           <>
+            <FloatingParticles />
             <div className="absolute top-1/4 left-1/6 w-[320px] sm:w-[520px] h-[300px] sm:h-[400px] rounded-full pointer-events-none animate-orb opacity-60 sm:opacity-100"
               style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.14) 0%, transparent 70%)', filter: 'blur(50px)' }}
             />
@@ -201,7 +204,7 @@ const Hero = ({ data }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1, duration: 0.4 }}
                 whileHover={{ scale: 1.03, translateY: -1 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono text-neutral-700 dark:text-neutral-200 glass-pill max-w-full truncate"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono text-neutral-700 dark:text-neutral-200 glass-pill max-w-full truncate shadow-sm"
               >
                 <span className="status-ping flex-shrink-0">
                   <span></span><span></span>
@@ -227,7 +230,7 @@ const Hero = ({ data }) => {
                       boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                     }}
                   >
-                    <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
+                    <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0 animate-pulse" />
                     <motion.span
                       key={currentRoleIndex}
                       initial={{ opacity: 0, y: 8 }}
@@ -254,14 +257,16 @@ const Hero = ({ data }) => {
                 transition={{ delay: 0.25 }}
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 pt-1 sm:pt-2"
               >
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.96 }}
                   href={data.resume || '/cv/Altaf_Khan_CV.pdf'}
                   download
-                  className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-all shadow-lg group bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-cyan-500/30 active:scale-95"
+                  className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-all shadow-lg group bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-cyan-500/30"
                 >
-                  <Download className="w-4 h-4" />
+                  <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
                   <span>Download Resume</span>
-                </a>
+                </motion.a>
 
                 <BrandSocialButton type="github" url={data.github || "https://github.com/ialtaf14"} label="GitHub" />
                 <BrandSocialButton type="linkedin" url={data.linkedin || "https://www.linkedin.com/in/ialtaf14/"} label="LinkedIn" />
@@ -269,7 +274,7 @@ const Hero = ({ data }) => {
                 <BrandSocialButton type="portfolio" url="https://ialtaf14.vercel.app" label="Portfolio" />
               </motion.div>
 
-              {/* Achievement Stats Bar */}
+              {/* Achievement Stats Bar with Animated Counter */}
               <div
                 className="pt-5 sm:pt-6 mt-2 border-t border-neutral-200/60 dark:border-neutral-800/60 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center sm:text-left"
               >
@@ -279,8 +284,10 @@ const Hero = ({ data }) => {
                   { num: '4', label: 'NPTEL / Cisco Certs' },
                   { num: '10+', label: 'Data & AI Tools' },
                 ].map((s) => (
-                  <div key={s.label} className="p-2 sm:p-0 rounded-xl bg-neutral-100/50 dark:bg-neutral-900/50 sm:bg-transparent">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-neutral-900 dark:text-white">{s.num}</div>
+                  <div key={s.label} className="p-2 sm:p-0 rounded-xl bg-neutral-100/50 dark:bg-neutral-900/50 sm:bg-transparent transition-all duration-300 hover:scale-105">
+                    <div className="text-lg sm:text-xl font-bold font-mono text-neutral-900 dark:text-white">
+                      <AnimatedCounter value={s.num} />
+                    </div>
                     <div className="text-[10px] sm:text-[11px] text-neutral-500 mt-0.5">{s.label}</div>
                   </div>
                 ))}

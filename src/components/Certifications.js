@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, Download, FileText, CheckCircle, ShieldCheck } from 'lucide-react';
 import CertificateModal from './ui/CertificateModal';
+import MagneticCard from './ui/MagneticCard';
 
 const Certifications = ({ data }) => {
   const certificationsList = (data && data.certifications) || [];
@@ -33,62 +34,66 @@ const Certifications = ({ data }) => {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
-              className="p-6 sm:p-8 rounded-2xl glass-panel-ultra glass-shimmer flex flex-col justify-between transition-all duration-300 shadow-sm"
-              style={{
-                boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
-              }}
             >
-              <div className="space-y-4">
-                {/* Header Badge */}
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-mono font-medium tracking-wide uppercase text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
-                    <ShieldCheck className="w-3 h-3" />
-                    <span>{cert.issuer} Verified</span>
-                  </span>
-                  <span className="text-xs font-mono text-neutral-500">
-                    {cert.date}
-                  </span>
-                </div>
-
-                {/* Title & Description */}
-                <div>
-                  <h3 className="text-lg font-bold text-neutral-900 dark:text-white leading-snug">
-                    {cert.name}
-                  </h3>
-                  <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mt-2">
-                    {cert.description}
-                  </p>
-                </div>
-
-                {/* Credential ID tag */}
-                <div className="flex items-center gap-2 pt-1 text-xs font-mono text-neutral-500">
-                  <span>Credential ID:</span>
-                  <span className="text-neutral-700 dark:text-neutral-300">{cert.credentialId}</span>
-                </div>
-              </div>
-
-              {/* Card Footer Buttons */}
-              <div className="pt-6 mt-6 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
-                <button
-                  onClick={() => setSelectedCert(cert)}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+              <MagneticCard maxTilt={4} className="h-full">
+                <div
+                  className="p-6 sm:p-8 rounded-2xl glass-panel-ultra glass-shimmer flex flex-col justify-between h-full transition-all duration-300 border border-neutral-200/80 dark:border-white/[0.08] hover:border-amber-500/40 shadow-sm"
+                  style={{
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
+                  }}
                 >
-                  <FileText className="w-4 h-4" />
-                  <span>View PDF Certificate</span>
-                </button>
+                  <div className="space-y-4">
+                    {/* Header Badge */}
+                    <div className="flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[10px] font-mono font-medium tracking-wide uppercase text-amber-600 dark:text-amber-400 bg-amber-500/10 border border-amber-500/20">
+                        <ShieldCheck className="w-3 h-3 text-amber-500" />
+                        <span>{cert.issuer} Verified</span>
+                      </span>
+                      <span className="text-xs font-mono text-neutral-500">
+                        {cert.date}
+                      </span>
+                    </div>
 
-                <a
-                  href={cert.downloadUrl}
-                  download
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
-                  aria-label={`Download ${cert.name} PDF`}
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>Download</span>
-                </a>
-              </div>
+                    {/* Title & Description */}
+                    <div>
+                      <h3 className="text-lg font-bold text-neutral-900 dark:text-white leading-snug">
+                        {cert.name}
+                      </h3>
+                      <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed mt-2">
+                        {cert.description}
+                      </p>
+                    </div>
+
+                    {/* Credential ID tag */}
+                    <div className="flex items-center gap-2 pt-1 text-xs font-mono text-neutral-500">
+                      <span>Credential ID:</span>
+                      <span className="text-neutral-700 dark:text-neutral-300">{cert.credentialId}</span>
+                    </div>
+                  </div>
+
+                  {/* Card Footer Buttons */}
+                  <div className="pt-6 mt-6 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between">
+                    <button
+                      onClick={() => setSelectedCert(cert)}
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors group"
+                    >
+                      <FileText className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                      <span>View PDF Certificate</span>
+                    </button>
+
+                    <a
+                      href={cert.downloadUrl}
+                      download
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
+                      aria-label={`Download ${cert.name} PDF`}
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span>Download</span>
+                    </a>
+                  </div>
+                </div>
+              </MagneticCard>
             </motion.div>
           ))}
         </div>

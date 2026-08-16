@@ -82,10 +82,10 @@ const LearningTimeline = () => {
               return (
                 <motion.div
                   key={m.year}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  initial={{ opacity: 0, x: isEven ? 35 : -35, y: 15 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   className={`flex flex-col sm:flex-row items-center gap-8 ${
                     isEven ? 'sm:flex-row-reverse' : ''
                   }`}
@@ -93,8 +93,8 @@ const LearningTimeline = () => {
                   {/* Content Card */}
                   <div className="w-full sm:w-1/2">
                     <motion.div
-                      whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-                      className="p-6 sm:p-7 rounded-3xl glass-panel-ultra glass-shimmer space-y-4 transition-all duration-300"
+                      whileHover={{ y: -5, scale: 1.01, transition: { duration: 0.2, ease: 'easeOut' } }}
+                      className="p-6 sm:p-7 rounded-3xl glass-panel-ultra glass-shimmer space-y-4 transition-all duration-300 border border-neutral-200/80 dark:border-white/[0.08] hover:border-blue-500/40"
                     >
                       
                       <div className="flex items-center justify-between gap-2">
@@ -133,10 +133,14 @@ const LearningTimeline = () => {
                     </motion.div>
                   </div>
 
-                  {/* Center Node Icon */}
-                  <div className="relative flex-shrink-0 z-10 hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-900 border-2 border-blue-500/50 shadow-md">
+                  {/* Center Node Icon with Subtle Orbit Glow */}
+                  <motion.div
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                    className="relative flex-shrink-0 z-10 hidden sm:flex items-center justify-center w-12 h-12 rounded-full bg-white dark:bg-neutral-900 border-2 border-blue-500/60 shadow-lg shadow-blue-500/10"
+                  >
                     <Icon className="w-5 h-5 text-blue-500" />
-                  </div>
+                  </motion.div>
 
                   {/* Spacer for alignment */}
                   <div className="w-full sm:w-1/2 hidden sm:block" />

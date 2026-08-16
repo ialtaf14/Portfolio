@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code, Brain, Cpu, BarChart3, Server, Wrench, Check, Sparkles } from 'lucide-react';
 import { useRecruiter } from '../contexts/RecruiterContext';
+import MagneticCard from './ui/MagneticCard';
 
 const categoryIcons = {
   'programming': Code,
@@ -82,7 +83,7 @@ const Skills = ({ data }) => {
           })}
         </div>
 
-        {/* Skill Badges Matrix */}
+        {/* Skill Badges Matrix with Magnetic 3D tilt */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredCategories.map((category, catIdx) => {
@@ -95,49 +96,50 @@ const Skills = ({ data }) => {
                   viewport={{ once: true }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.4, delay: catIdx * 0.08 }}
-                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   key={category.id}
-                  className="p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-4 flex flex-col justify-between"
                 >
-                  <div>
-                    {/* Category Title */}
-                    <div className="flex items-center gap-3 pb-3 border-b border-neutral-200/60 dark:border-neutral-800/80">
-                      <div className="p-2.5 rounded-xl bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-white">
-                        <IconComponent className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
-                      </div>
+                  <MagneticCard maxTilt={5} className="h-full">
+                    <div className="p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-4 flex flex-col justify-between h-full border border-neutral-200/80 dark:border-white/[0.08] hover:border-cyan-500/40 transition-colors">
                       <div>
-                        <h3 className="text-sm font-bold text-neutral-900 dark:text-white">
-                          {category.name}
-                        </h3>
-                        <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400">
-                          {category.skills.length} skills verified
-                        </span>
+                        {/* Category Title */}
+                        <div className="flex items-center gap-3 pb-3 border-b border-neutral-200/60 dark:border-neutral-800/80">
+                          <div className="p-2.5 rounded-xl bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-white">
+                            <IconComponent className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
+                          </div>
+                          <div>
+                            <h3 className="text-sm font-bold text-neutral-900 dark:text-white">
+                              {category.name}
+                            </h3>
+                            <span className="text-[10px] font-mono text-neutral-500 dark:text-neutral-400">
+                              {category.skills.length} skills verified
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Skill Items Badge Grid */}
+                        <div className="space-y-2.5 pt-4">
+                          {category.skills.map((skill, idx) => (
+                            <motion.div
+                              key={idx}
+                              whileHover={{ x: 4 }}
+                              transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+                              className="p-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md border border-neutral-200/60 dark:border-white/[0.06] hover:border-cyan-500/40 dark:hover:border-cyan-500/40 transition-all space-y-1 group"
+                            >
+                              <div className="flex items-center justify-between text-xs font-semibold text-neutral-900 dark:text-neutral-100">
+                                <span>{skill.name}</span>
+                                <Check className="w-3.5 h-3.5 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                              </div>
+                              {skill.description && (
+                                <p className="text-[11px] text-neutral-500 dark:text-neutral-400 leading-normal">
+                                  {skill.description}
+                                </p>
+                              )}
+                            </motion.div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-
-                    {/* Skill Items Badge Grid */}
-                    <div className="space-y-2.5 pt-4">
-                      {category.skills.map((skill, idx) => (
-                        <motion.div
-                          key={idx}
-                          whileHover={{ x: 3 }}
-                          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-                          className="p-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 backdrop-blur-md border border-neutral-200/60 dark:border-white/[0.06] hover:border-cyan-500/40 dark:hover:border-cyan-500/40 transition-all space-y-1 group"
-                        >
-                          <div className="flex items-center justify-between text-xs font-semibold text-neutral-900 dark:text-neutral-100">
-                            <span>{skill.name}</span>
-                            <Check className="w-3.5 h-3.5 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-                          </div>
-                          {skill.description && (
-                            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 leading-normal">
-                              {skill.description}
-                            </p>
-                          )}
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-
+                  </MagneticCard>
                 </motion.div>
               );
             })}

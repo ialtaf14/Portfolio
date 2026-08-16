@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User, Brain, Target, CheckCircle2, GraduationCap } from 'lucide-react';
+import AnimatedCounter from './ui/AnimatedCounter';
 
 const About = ({ data }) => {
   const stats = data.stats || [
-    { number: '4+', label: 'Verified Certifications', description: 'NPTEL & Cisco' },
-    { number: 'Python & SQL', label: 'Core Technical Stack', description: 'Pandas, Scikit-learn, PostgreSQL' },
-    { number: 'End-to-End', label: 'Data Science Lifecycle', description: 'EDA to Model Deployment' },
-    { number: '100%', label: 'Truthful Engineering', description: 'Authentic project repository' }
+    { number: '4+', label: 'Verified Certifications', description: 'NPTEL & Cisco', isNumber: true },
+    { number: 'Python & SQL', label: 'Core Technical Stack', description: 'Pandas, Scikit-learn, PostgreSQL', isNumber: false },
+    { number: 'End-to-End', label: 'Data Science Lifecycle', description: 'EDA to Model Deployment', isNumber: false },
+    { number: '100%', label: 'Truthful Engineering', description: 'Authentic project repository', isNumber: true }
   ];
 
   const highlights = data.highlights || [
@@ -78,10 +79,14 @@ const About = ({ data }) => {
               viewport={{ once: true }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
-              className="p-4 sm:p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-1.5 sm:space-y-2"
+              className="p-4 sm:p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-1.5 sm:space-y-2 hover:border-blue-500/30 transition-colors"
             >
               <div className="text-xl sm:text-2xl font-bold font-mono text-neutral-900 dark:text-white">
-                {stat.number}
+                {stat.isNumber ? (
+                  <AnimatedCounter value={stat.number} />
+                ) : (
+                  stat.number
+                )}
               </div>
               <div className="text-[11px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 {stat.label}
