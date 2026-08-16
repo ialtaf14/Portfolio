@@ -69,7 +69,7 @@ const About = ({ data }) => {
         </div>
 
         {/* 4 Stats Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16">
           {stats.map((stat, idx) => (
             <motion.div
               key={idx}
@@ -78,15 +78,15 @@ const About = ({ data }) => {
               viewport={{ once: true }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
-              className="p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-2"
+              className="p-4 sm:p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-1.5 sm:space-y-2"
             >
-              <div className="text-2xl font-bold font-mono text-neutral-900 dark:text-white">
+              <div className="text-xl sm:text-2xl font-bold font-mono text-neutral-900 dark:text-white">
                 {stat.number}
               </div>
-              <div className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
+              <div className="text-[11px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
                 {stat.label}
               </div>
-              <div className="text-[11px] text-neutral-500 dark:text-neutral-400">
+              <div className="text-[10px] sm:text-[11px] text-neutral-500 dark:text-neutral-400">
                 {stat.description}
               </div>
             </motion.div>

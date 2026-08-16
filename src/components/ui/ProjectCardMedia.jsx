@@ -44,7 +44,7 @@ const ScreenshotPreview = ({ images, onClose }) => {
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 z-20 p-1.5 rounded-lg bg-black/60 text-white hover:bg-black/80 transition-colors"
+          className="absolute top-3 right-3 z-20 p-2.5 rounded-xl bg-black/60 text-white hover:bg-black/80 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
           aria-label="Close preview"
         >
           <X className="w-4 h-4" />
@@ -75,17 +75,17 @@ const ScreenshotPreview = ({ images, onClose }) => {
             <>
               <button
                 onClick={(e) => go(-1, e)}
-                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-10"
+                className="absolute left-3 top-1/2 -translate-y-1/2 p-3 sm:p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-10 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Previous"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={(e) => go(1, e)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-10"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-3 sm:p-2 rounded-full bg-black/60 text-white hover:bg-black/80 transition-colors z-10 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Next"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-5 h-5" />
               </button>
             </>
           )}

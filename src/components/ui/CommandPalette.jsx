@@ -136,7 +136,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-[9999] flex items-start justify-center pt-16 sm:pt-24 px-4">
+      <div className="fixed inset-0 z-[9999] flex items-start justify-center pt-12 sm:pt-24 px-3 sm:px-4">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -155,7 +155,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
           className="relative w-full max-w-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-2xl overflow-hidden z-10"
         >
           {/* Input Header */}
-          <div className="flex items-center px-4 py-3.5 border-b border-neutral-200 dark:border-neutral-800 gap-3">
+          <div className="flex items-center px-3.5 sm:px-4 py-3 sm:py-3.5 border-b border-neutral-200 dark:border-neutral-800 gap-2.5 sm:gap-3">
             <Search className="w-4 h-4 text-neutral-400 flex-shrink-0" />
             <input
               type="text"
@@ -163,10 +163,10 @@ const CommandPalette = ({ isOpen, onClose }) => {
               placeholder="Type a command or search sections, projects, certs..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full bg-transparent text-sm text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none"
+              className="w-full bg-transparent text-sm sm:text-sm text-neutral-900 dark:text-white placeholder-neutral-400 focus:outline-none"
             />
             <div className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 text-[10px] font-mono font-medium text-neutral-500 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded">
+              <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono font-medium text-neutral-500 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded">
                 ESC
               </kbd>
               <button
@@ -179,7 +179,7 @@ const CommandPalette = ({ isOpen, onClose }) => {
           </div>
 
           {/* Results List */}
-          <div className="max-h-80 overflow-y-auto p-2 space-y-1">
+          <div className="max-h-[min(340px,calc(100dvh-180px))] overflow-y-auto p-2 space-y-1">
             {filteredItems.length > 0 ? (
               filteredItems.map((item, idx) => {
                 const Icon = item.icon;

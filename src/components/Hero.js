@@ -127,6 +127,7 @@ const Hero = ({ data }) => {
 
   const handleMouseMove = (e) => {
     if (isRecruiterMode) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
     mouseX.set((clientX / innerWidth) - 0.5);
@@ -161,20 +162,20 @@ const Hero = ({ data }) => {
       <section
         id="home"
         onMouseMove={handleMouseMove}
-        className={`relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-grid-pattern ${
+        className={`relative min-h-[92vh] flex items-center justify-center pt-24 sm:pt-28 pb-14 sm:pb-16 overflow-hidden bg-grid-pattern ${
           isRecruiterMode ? 'bg-amber-500/5 dark:bg-amber-950/10 border-b border-amber-500/20' : ''
         }`}
       >
         {/* Ambient Orb Glows */}
         {!isRecruiterMode && (
           <>
-            <div className="absolute top-1/4 left-1/6 w-[520px] h-[400px] rounded-full pointer-events-none animate-orb"
+            <div className="absolute top-1/4 left-1/6 w-[320px] sm:w-[520px] h-[300px] sm:h-[400px] rounded-full pointer-events-none animate-orb opacity-60 sm:opacity-100"
               style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.14) 0%, transparent 70%)', filter: 'blur(50px)' }}
             />
-            <div className="absolute bottom-1/4 right-1/6 w-[480px] h-[380px] rounded-full pointer-events-none animate-orb"
+            <div className="absolute bottom-1/4 right-1/6 w-[300px] sm:w-[480px] h-[280px] sm:h-[380px] rounded-full pointer-events-none animate-orb opacity-60 sm:opacity-100"
               style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.13) 0%, transparent 70%)', filter: 'blur(50px)', animationDelay: '4s' }}
             />
-            <div className="absolute top-1/2 right-1/3 w-[350px] h-[350px] rounded-full pointer-events-none animate-pulse-glow"
+            <div className="absolute top-1/2 right-1/3 w-[250px] sm:w-[350px] h-[250px] sm:h-[350px] rounded-full pointer-events-none animate-pulse-glow opacity-50 sm:opacity-100"
               style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', filter: 'blur(60px)', animationDelay: '2s' }}
             />
           </>
@@ -185,14 +186,14 @@ const Hero = ({ data }) => {
           {/* Recruiter 30-Second Executive Summary Deck */}
           <RecruiterViewDeck data={data} />
 
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
             
             {/* Main Hero Content */}
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-7 space-y-8 text-center lg:text-left"
+              className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left"
             >
               {/* Status Pill */}
               <motion.div
@@ -200,25 +201,25 @@ const Hero = ({ data }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1, duration: 0.4 }}
                 whileHover={{ scale: 1.03, translateY: -1 }}
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-mono text-neutral-700 dark:text-neutral-200 glass-pill"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs font-mono text-neutral-700 dark:text-neutral-200 glass-pill max-w-full truncate"
               >
-                <span className="status-ping">
+                <span className="status-ping flex-shrink-0">
                   <span></span><span></span>
                 </span>
-                <span className="font-medium">Available · Open for Data Analyst & Scientist Roles</span>
+                <span className="font-medium truncate">Available · Open for Data Roles</span>
               </motion.div>
 
               {/* Headline */}
-              <div className="space-y-4">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.08]">
+              <div className="space-y-3 sm:space-y-4">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.1]">
                   Hi, I'm{' '}
                   <span className="text-gradient-dark">Altaf Khan</span>
                 </h1>
 
                 {/* Dynamic Role Switcher */}
-                <div className="h-11 flex items-center justify-center lg:justify-start">
+                <div className="min-h-10 flex items-center justify-center lg:justify-start">
                   <div
-                    className="flex items-center gap-2.5 px-4 py-2 rounded-xl text-sm font-mono text-neutral-700 dark:text-neutral-200"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-mono text-neutral-700 dark:text-neutral-200"
                     style={{
                       background: 'rgba(255,255,255,0.6)',
                       backdropFilter: 'blur(12px)',
@@ -226,14 +227,14 @@ const Hero = ({ data }) => {
                       boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                     }}
                   >
-                    <Terminal className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                    <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
                     <motion.span
                       key={currentRoleIndex}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.28, ease: 'easeOut' }}
-                      className="font-medium"
+                      className="font-medium truncate"
                     >
                       {roles[currentRoleIndex]}
                     </motion.span>
@@ -241,7 +242,7 @@ const Hero = ({ data }) => {
                 </div>
 
                 {/* Tagline */}
-                <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed font-normal mx-auto lg:mx-0">
+                <p className="text-sm sm:text-base lg:text-lg text-neutral-600 dark:text-neutral-400 max-w-xl leading-relaxed font-normal mx-auto lg:mx-0">
                   {data.tagline}
                 </p>
               </div>
@@ -251,12 +252,12 @@ const Hero = ({ data }) => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2"
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 pt-1 sm:pt-2"
               >
                 <a
                   href={data.resume || '/cv/Altaf_Khan_CV.pdf'}
                   download
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-all shadow-lg group bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-cyan-500/30 hover:scale-105"
+                  className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-all shadow-lg group bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-cyan-500/30 active:scale-95"
                 >
                   <Download className="w-4 h-4" />
                   <span>Download Resume</span>
@@ -270,7 +271,7 @@ const Hero = ({ data }) => {
 
               {/* Achievement Stats Bar */}
               <div
-                className="pt-6 mt-2 border-t border-neutral-200/60 dark:border-neutral-800/60 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left"
+                className="pt-5 sm:pt-6 mt-2 border-t border-neutral-200/60 dark:border-neutral-800/60 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center sm:text-left"
               >
                 {[
                   { num: '2026', label: 'B.Tech Graduated' },
@@ -278,9 +279,9 @@ const Hero = ({ data }) => {
                   { num: '4', label: 'NPTEL / Cisco Certs' },
                   { num: '10+', label: 'Data & AI Tools' },
                 ].map((s) => (
-                  <div key={s.label}>
-                    <div className="text-xl font-bold font-mono text-neutral-900 dark:text-white">{s.num}</div>
-                    <div className="text-[11px] text-neutral-500 mt-0.5">{s.label}</div>
+                  <div key={s.label} className="p-2 sm:p-0 rounded-xl bg-neutral-100/50 dark:bg-neutral-900/50 sm:bg-transparent">
+                    <div className="text-lg sm:text-xl font-bold font-mono text-neutral-900 dark:text-white">{s.num}</div>
+                    <div className="text-[10px] sm:text-[11px] text-neutral-500 mt-0.5">{s.label}</div>
                   </div>
                 ))}
               </div>

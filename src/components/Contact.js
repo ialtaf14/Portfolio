@@ -153,7 +153,7 @@ const Contact = () => {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="p-8 rounded-3xl glass-panel-ultra glass-shimmer">
+            <div className="p-5 sm:p-8 rounded-3xl glass-panel-ultra glass-shimmer">
               <h3 className="text-lg font-bold text-neutral-900 dark:text-white mb-6">
                 Send a Direct Message
               </h3>
@@ -183,7 +183,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="John Doe"
-                        className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
+                        className="w-full px-4 py-2.5 rounded-xl text-base sm:text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
                       />
                     </div>
                     <div>
@@ -194,7 +194,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@company.com"
-                        className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
+                        className="w-full px-4 py-2.5 rounded-xl text-base sm:text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -206,7 +206,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="Data Analyst Opportunity / Project Inquiry"
-                      className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl text-base sm:text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
                     />
                   </div>
 
@@ -218,7 +218,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Hi Altaf, I'd like to discuss an opportunity..."
-                      className="w-full px-4 py-2.5 rounded-xl text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all resize-none"
+                      className="w-full px-4 py-2.5 rounded-xl text-base sm:text-xs bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 text-neutral-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all resize-none"
                     />
                   </div>
 

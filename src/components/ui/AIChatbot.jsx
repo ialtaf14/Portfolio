@@ -463,8 +463,9 @@ const AIChatbot = () => {
 
   return (
     <>
+
       {/* ── Floating Button ── */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto">
         {/* Tooltip hint */}
         <AnimatePresence>
           {!open && pulse && (
@@ -473,7 +474,7 @@ const AIChatbot = () => {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 10, scale: 0.9 }}
               transition={{ delay: 1.5 }}
-              className="bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-[11px] font-medium px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap pointer-events-none"
+              className="hidden sm:block bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-[11px] font-medium px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap pointer-events-none"
             >
               Ask AI about Altaf ✨
             </motion.div>
@@ -481,92 +482,52 @@ const AIChatbot = () => {
         </AnimatePresence>
 
         <motion.button
-          onClick={() => setOpen(o => !o)}
+          onClick={() => setOpen(prev => !prev)}
           whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.94 }}
-          aria-label={open ? 'Close AI assistant' : 'Open AI assistant'}
-          className="relative w-14 h-14 rounded-full shadow-2xl flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
+          whileTap={{ scale: 0.92 }}
+          aria-label="Open AI Assistant"
+          className="relative w-12 h-12 sm:w-13 sm:h-13 rounded-full flex items-center justify-center shadow-xl shadow-violet-500/25 transition-all text-white focus:outline-none focus:ring-2 focus:ring-violet-500"
           style={{
             background: 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #2563eb 100%)',
           }}
         >
-          {/* Pulse ring */}
-          {pulse && (
-            <span className="absolute inset-0 rounded-full animate-ping bg-violet-400 opacity-30" />
-          )}
-
+          {/* Animated orbiting rings around AI icon */}
+          <div className="absolute inset-0 rounded-full border border-white/30 animate-ping opacity-25 pointer-events-none" />
+          
           <AnimatePresence mode="wait">
             {open ? (
-              <motion.span
+              <motion.div
                 key="close"
                 initial={{ rotate: -90, opacity: 0 }}
                 animate={{ rotate: 0, opacity: 1 }}
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronDown className="w-6 h-6 text-white" />
-              </motion.span>
+                <X className="w-6 h-6" />
+              </motion.div>
             ) : (
-              <motion.span
-                key="ai"
-                initial={{ rotate: 90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
+              <motion.div
+                key="ai-icon"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="flex items-center justify-center"
+                className="relative flex items-center justify-center"
               >
-                {/* Premium AI Orb Logo */}
-                <svg viewBox="0 0 32 32" width="30" height="30" fill="none">
-                  {/* Outer orbit ring spinning */}
-                  <motion.ellipse
-                    cx="16" cy="16" rx="13" ry="5"
-                    stroke="white" strokeWidth="1" opacity="0.35"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                    style={{ transformOrigin: '16px 16px' }}
-                  />
-                  {/* Middle orbit ring counter-spin, tilted */}
-                  <motion.ellipse
-                    cx="16" cy="16" rx="10" ry="4"
-                    stroke="white" strokeWidth="1" opacity="0.45"
+                <svg viewBox="0 0 32 32" width="24" height="24" fill="none">
+                  <motion.ellipse cx="16" cy="16" rx="13" ry="5" stroke="white" strokeWidth="1.3" opacity="0.6"
+                    animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                    style={{ transformOrigin: '16px 16px' }} />
+                  <motion.ellipse cx="16" cy="16" rx="9" ry="4" stroke="white" strokeWidth="1.1" opacity="0.75"
                     transform="rotate(60 16 16)"
-                    animate={{ rotate: [60, 420] }}
-                    transition={{ duration: 2.2, repeat: Infinity, ease: 'linear' }}
-                    style={{ transformOrigin: '16px 16px' }}
-                  />
-                  {/* Inner orbit ring */}
-                  <motion.ellipse
-                    cx="16" cy="16" rx="7" ry="3"
-                    stroke="white" strokeWidth="1" opacity="0.55"
-                    transform="rotate(-45 16 16)"
-                    animate={{ rotate: [-45, 315] }}
-                    transition={{ duration: 1.8, repeat: Infinity, ease: 'linear' }}
-                    style={{ transformOrigin: '16px 16px' }}
-                  />
-                  {/* Glowing core */}
-                  <circle cx="16" cy="16" r="4" fill="white" opacity="0.95" />
-                  <circle cx="16" cy="16" r="2.2" fill="white" opacity="1" />
-                  {/* Orbiting node dots */}
-                  <motion.circle
-                    cx="29" cy="16" r="1.5" fill="white" opacity="0.9"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-                    style={{ transformOrigin: '16px 16px' }}
-                  />
-                  <motion.circle
-                    cx="16" cy="3" r="1.2" fill="white" opacity="0.7"
-                    animate={{ rotate: [60, 420] }}
-                    transition={{ duration: 2.2, repeat: Infinity, ease: 'linear' }}
-                    style={{ transformOrigin: '16px 16px' }}
-                  />
-                  <motion.circle
-                    cx="6" cy="19" r="1" fill="white" opacity="0.6"
-                    animate={{ rotate: [-45, 315] }}
-                    transition={{ duration: 1.8, repeat: Infinity, ease: 'linear' }}
-                    style={{ transformOrigin: '16px 16px' }}
-                  />
+                    animate={{ rotate: [60, 420] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+                    style={{ transformOrigin: '16px 16px' }} />
+                  <circle cx="16" cy="16" r="4" fill="white" />
+                  <motion.circle cx="29" cy="16" r="1.6" fill="white"
+                    animate={{ rotate: 360 }} transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                    style={{ transformOrigin: '16px 16px' }} />
                 </svg>
-              </motion.span>
+              </motion.div>
             )}
           </AnimatePresence>
         </motion.button>
@@ -581,8 +542,8 @@ const AIChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-            className="fixed bottom-24 right-6 z-50 w-80 sm:w-96 flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800"
-            style={{ maxHeight: '520px' }}
+            className="fixed bottom-18 right-3 left-3 sm:left-auto sm:right-6 sm:bottom-24 z-50 sm:w-96 max-w-[calc(100vw-24px)] mx-auto sm:mx-0 flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950"
+            style={{ height: 'min(520px, calc(100dvh - 100px))', maxHeight: '520px' }}
           >
             {/* Header */}
             <div
@@ -645,7 +606,7 @@ const AIChatbot = () => {
             </div>
 
             {/* Suggestions row */}
-            <div className="px-3 py-2 flex gap-1.5 overflow-x-auto flex-shrink-0 bg-white dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-800/80">
+            <div className="px-3 py-2 flex gap-1.5 overflow-x-auto flex-shrink-0 bg-white dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-800/80 no-scrollbar">
               {SUGGESTIONS.map((s) => (
                 <button
                   key={s}
@@ -667,7 +628,7 @@ const AIChatbot = () => {
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 placeholder="Ask anything about Altaf…"
-                className="flex-1 px-3 py-2 rounded-xl text-xs bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                className="flex-1 px-3 py-2 rounded-xl text-sm sm:text-xs bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
               />
               <motion.button
                 type="submit"
