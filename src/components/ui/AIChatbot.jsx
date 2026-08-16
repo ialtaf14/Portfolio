@@ -6,53 +6,83 @@ import { X, Send, Sparkles, RotateCcw, ChevronDown } from 'lucide-react';
 const KB = {
   name: 'Altaf Khan',
   fullName: 'Altaf Khan',
-  title: 'Data Analyst & Data Scientist',
+  title: 'Data Analyst & Aspiring Data Scientist',
   phone: '+91 8053821088',
   email: 'altafkhan122105@gmail.com',
   location: 'Gurugram, Haryana, India',
   github: 'https://github.com/ialtaf14',
   linkedin: 'https://www.linkedin.com/in/ialtaf14/',
+  portfolio: 'https://ialtaf14.vercel.app',
   photo: '/images/header-profile-final.jpg',
-  education: 'B.Tech in Computer Science & Engineering from Gurugram University, graduated in 2026, with a specialization in Data Science & Machine Learning.',
+  education: 'B.Tech in Computer Science & Engineering from Gurugram University (Mewat Engineering College), graduated in 2026, with a specialization in Data Science & Machine Learning (CGPA: 7.59).',
   college: 'Mewat Engineering College (MECW), Nuh, Haryana — affiliated to Gurugram University, AICTE Approved.',
   university: 'Gurugram University, Gurugram, Haryana — UGC State University (Govt. of Haryana), established 2017.',
   degree: 'Bachelor of Technology (B.Tech)',
   branch: 'Computer Science & Engineering (CSE)',
   specialization: 'Data Science & Machine Learning',
   passoutYear: '2026',
-  skills: 'Python, SQL, Pandas, NumPy, Excel, Power BI, Scikit-learn, Matplotlib, Data Cleaning, EDA, Feature Engineering, Model Evaluation, Git, GitHub, Jupyter Notebook, VS Code.',
+  cgpa: '7.59 / 10',
+  skills: 'Python, SQL, Pandas, NumPy, MS Excel (Advanced), Power BI, Scikit-learn, Matplotlib, Data Cleaning, EDA, Feature Engineering, Model Evaluation, FastAPI, Flask, Streamlit, Ollama, Gemini API, OpenRouter, Git, GitHub, Jupyter Notebook, VS Code, Vercel, Render.',
+  training: 'Data Analytics Trainee at QSpiders Gurugram (Aug. 2025 – Aug. 2026). Hands-on in SQL, Advanced Excel, Power BI, and Exploratory Data Analysis on 5+ real-world datasets using Pandas, NumPy & Matplotlib.',
   projects: [
     {
+      name: 'NovaFlix – Movie & Anime Recommendation Engine',
+      category: 'Machine Learning & Full-Stack Recommendation',
+      desc: 'A content-based recommendation engine covering 7,200+ movies and 300+ anime titles using TF-IDF vectorization and cosine similarity across genres, cast, and crew. Delivers personalized recommendations in under 3 seconds via a FastAPI backend paired with a React/Vite frontend integrating live TMDB API metadata, mood-based filtering, and watchlist tracking.',
+      tech: 'Python, Pandas, Scikit-learn, SQL, FastAPI, React, Vite, TMDB API, Vercel, Render',
+      github: 'https://github.com/ialtaf14/NovaFlix',
+      live: 'https://novaflix-client.vercel.app/',
+    },
+    {
       name: 'NovaReality (RealityML) – AI Feasibility & Readiness Suite',
-      desc: 'An end-to-end AI Feasibility & Readiness Assessment Suite that helps teams determine if an ML project is worth building before writing model code. Features: NLP Business Intelligence scoring for 9+ domains, Data Health & Quality Audit, Model Reality Check comparing Baseline vs Linear vs Random Forest, Executive PDF Readiness Reports, and Synthetic Dataset Generator.',
+      category: 'AI Feasibility & Quality Assessment',
+      desc: 'An end-to-end AI Feasibility & Readiness Assessment Suite that helps data science and product teams evaluate ML project viability before writing model code. Features: 5-step pipeline including NLP Business Intelligence scoring for 9+ domains, Data Health & Quality Audit (missingness, duplicates, bias), Model Reality Check comparing Baseline vs Linear vs Random Forest, Executive PDF Readiness Reports with a 3-component formula, and a Synthetic Dataset Generator (Real Estate & Churn).',
       tech: 'Python, Streamlit, FastAPI, scikit-learn, Pandas, Altair, ReportLab',
-      url: 'https://github.com/ialtaf14/RealityML',
+      github: 'https://github.com/ialtaf14/RealityML',
+      live: null,
     },
     {
       name: 'Nova AI – Hybrid Personal AI Assistant',
-      desc: 'An advanced hybrid personal AI assistant combining local Ollama AI models, Google Live Web Search (no API key required), Multimodal Vision Q&A, Voice interaction with Hinglish TTS, interactive Google Maps embed, and an iOS Glassmorphic Web UI.',
-      tech: 'Python, Ollama, DeepSeek, Gemini API, Speech Recognition, React, Tailwind CSS',
-      url: 'https://github.com/ialtaf14/Nova-AI',
+      category: 'Generative AI & Multimodal System',
+      desc: 'A hybrid personal AI assistant routing queries between local LLMs (Ollama / DeepSeek) and cloud APIs (Gemini, OpenRouter). Features: Real-time web retrieval (RAG) without API keys, Multimodal Vision image Q&A, Voice interaction with Hinglish TTS, interactive Google Maps embed, and an iOS Glassmorphic Web UI.',
+      tech: 'Python, Flask, Ollama, DeepSeek, Gemini API, OpenRouter, Speech Recognition, React, Tailwind CSS',
+      github: 'https://github.com/ialtaf14/Nova-AI',
+      live: null,
     },
+    {
+      name: 'NovaRecon – Automated OSINT Threat Intelligence Aggregator',
+      category: 'ETL Pipeline & Cybersecurity Analytics',
+      desc: 'An automated Open-Source Intelligence (OSINT) reconnaissance ETL pipeline. Ingests and normalizes live data from multiple public intelligence APIs, performs IP Geolocation mapping, ASN lookup, threat alerts, and 11-platform social footprint scanning, storing structured records in SQLite with a Next.js 14 dashboard.',
+      tech: 'Python, FastAPI, SQLite, Next.js 14, TypeScript, Render',
+      github: 'https://github.com/ialtaf14/NovaRecon',
+      live: 'https://novarecon-frontend.onrender.com/',
+    },
+    {
+      name: 'Portfolio – Official Interactive Data Analyst Web App',
+      category: 'Frontend & System Design',
+      desc: 'Altaf Khan\'s official interactive Data Analyst portfolio featuring UI/UX Pro Max Glassmorphism design system, Framer Motion animations, Recruiter Executive Summary Deck, live GitHub API analytics, skill pivot physics chart, Command Palette (Ctrl+K), and AI Chatbot.',
+      tech: 'React 19, Tailwind CSS, Framer Motion, craco, Lucide Icons, Vercel',
+      github: 'https://github.com/ialtaf14/Portfolio',
+      live: 'https://ialtaf14.vercel.app',
+    }
   ],
   certifications: [
-    'Artificial Intelligence: Concepts & Techniques – NPTEL / IIT (Jul–Aug 2025)',
-    'Introduction to Internet of Things – NPTEL / IIT (Jul–Aug 2025)',
-    'Data Analytics Essentials – Cisco Networking Academy (Jan–Feb 2026)',
-    'Introduction to Data Science – Cisco Networking Academy (Jan–Feb 2026)',
+    'Cisco Networking Academy: Data Analytics Essentials (Jan. – Feb. 2026)',
+    'Cisco Networking Academy: Introduction to Data Science (Jan. – Feb. 2026)',
+    'NPTEL (IITM): Artificial Intelligence – Concepts & Techniques (Jul. – Aug. 2025)',
+    'NPTEL (IITM): Introduction to Internet of Things (Jul. – Aug. 2025)',
   ],
-  status: 'Currently seeking full-time Data Analyst, Business Analyst, Data Scientist, or Python Developer roles.',
+  status: 'Actively seeking entry-level Data Analyst, Business Analyst, Data Scientist, or Python Developer roles.',
   age: '23 years old (born 6th July 2003)',
   dob: '6th July 2003',
   nationality: 'Indian',
   gender: 'Male',
-  languages: 'Hindi and English',
+  languages: 'Hindi and English (fluent in professional & casual communication)',
   whatsapp: '+91 8053821088',
-  hobbies: 'Watching cinema, listening to music, exploring new datasets and tools, and staying updated with trends in AI and data science.',
-  salary: 'Around ₹20,000 per month (open to discussion based on role and growth opportunities).',
+  hobbies: 'Watching cinema (movies & web series), listening to music, exploring datasets for analysis, and tracking AI & machine learning trends.',
+  salary: 'Around ₹20,000 – ₹25,000 per month (open to discussion based on role, company, and learning curve).',
   workMode: 'Open to both remote and on-site positions across India.',
-  experience: 'Fresher — no prior work experience. All skills are built through academic projects, self-learning, and certified online courses.',
-  portfolio: window.location.origin,
+  experience: 'Fresher with hands-on project experience + 1-Year Data Analytics Training at QSpiders Gurugram (Aug 2025 – Aug 2026).',
 };
 
 // ─── Intent → response engine ──────────────────────────────────────────────────
@@ -62,382 +92,235 @@ function getReply(raw) {
   const q = raw.toLowerCase().trim();
 
   // Help / menu
-  if (match(q, 'help', 'kya kar', 'what can you', 'menu', 'option'))
-    return `Here's what I can answer:\n\n• 📸 Profile photo\n• 📞 Phone, WhatsApp, Email, Location\n• 👤 Name, Age, DOB, Gender, Nationality\n• 🎓 College, University, Branch, Passout Year\n• 🛠️ Skills (Python, SQL, Pandas, etc.)\n• 🚀 Projects (RealityML, Nova AI)\n• 🏆 Certifications\n• 💼 Job availability, salary, work mode\n• 🎯 Hobbies & interests\n• 🔗 GitHub & LinkedIn\n\nJust type your question naturally!`;
+  if (match(q, 'help', 'kya kar', 'what can you', 'menu', 'option', 'commands', 'kya puch')) {
+    return `Here is what you can ask me about Altaf:\n\n• 🎬 **Projects:** NovaFlix, NovaReality, Nova AI, NovaRecon, Portfolio\n• 🛠️ **Skills:** Python, SQL, Pandas, Power BI, Excel, Scikit-learn\n• 📊 **Experience & Training:** QSpiders Gurugram Data Analytics\n• 🎓 **Education & CGPA:** College, University, Passout 2026, CGPA 7.59\n• 🏆 **Certifications:** Cisco & NPTEL credentials\n• 💼 **Hiring & Job Status:** Availability, Salary, Work mode\n• 📞 **Contact:** Phone, WhatsApp, Email, LinkedIn, GitHub\n• 📄 **Resume:** Download latest CV PDF\n• 📸 **Photo:** Show profile picture\n\nAsk any question naturally in English or Hindi!`;
+  }
 
   // Photo / profile picture / image
-  if (match(q, 'photo', 'picture', 'pic', 'image', 'tasveer', 'selfie', 'face', 'look', 'profile photo', 'profile pic', 'show me'))
-    return `Here is Altaf's profile photo 👇\n[PHOTO:${KB.photo}]\n\nYou can also see his full profile in the **Hero section** at the top of this portfolio.`;
+  if (match(q, 'photo', 'picture', 'pic', 'image', 'tasveer', 'selfie', 'face', 'look', 'profile photo', 'profile pic', 'dikhao')) {
+    return `Here is Altaf's profile photo 👇\n[PHOTO:${KB.photo}]\n\nYou can also see his full interactive profile in the **Hero section** at the top!`;
+  }
 
   // Greetings
-  if (match(q, 'hello', 'hi', 'hey', 'helo', 'hii', 'namaste', 'salam', 'sup', 'good morning', 'good evening'))
-    return `Hi there! 👋 I'm **Altaf's AI assistant**.\n\nI can answer questions about his skills, projects, contact info, availability, and more. What would you like to know?`;
+  if (match(q, 'hello', 'hi', 'hey', 'helo', 'hii', 'namaste', 'salam', 'sup', 'good morning', 'good evening', 'kaisa', 'kaise')) {
+    return `Hi there! 👋 I'm **Altaf's AI Assistant**.\n\nI can answer anything about his **skills, projects (NovaFlix, NovaReality, Nova AI, NovaRecon), education (CGPA: 7.59), QSpiders training, certifications, and availability for hire**.\n\nWhat would you like to know?`;
+  }
 
   // Name / full name
-  if (match(q, 'name', 'who is', 'who are', 'kaun', 'naam', 'full name'))
-    return `His full name is **${KB.fullName}**. He is a ${KB.title} — a 2026 B.Tech CSE graduate actively looking for full-time opportunities.`;
+  if (match(q, 'name', 'who is', 'who are', 'kaun hai', 'naam kya', 'full name')) {
+    return `His full name is **${KB.fullName}**.\n\nHe is a **${KB.title}** — a 2026 B.Tech CSE graduate specializing in Data Science & Machine Learning, actively seeking full-time roles.`;
+  }
 
   // Age / DOB
-  if (match(q, 'age', 'old', 'born', 'dob', 'birthday', 'date of birth', 'kitne saal', 'umar', 'janam', 'birth'))
-    return `🎂 Altaf is **${KB.age}**.\nDate of Birth: **${KB.dob}**`;
+  if (match(q, 'age', 'old', 'born', 'dob', 'birthday', 'date of birth', 'kitne saal', 'umar', 'janam', 'birth')) {
+    return `🎂 Altaf is **${KB.age}**.\n• Date of Birth: **${KB.dob}**\n• Nationality: **${KB.nationality}**`;
+  }
 
   // Gender
-  if (match(q, 'gender', 'male', 'female', 'ladka', 'ladki', 'boy', 'girl'))
+  if (match(q, 'gender', 'male', 'female', 'ladka', 'ladki', 'boy', 'girl')) {
     return `Altaf is **Male**.`;
+  }
 
-  // Nationality
-  if (match(q, 'nationality', 'country', 'citizen', 'indian', 'india', 'desh'))
-    return `🇮🇳 Altaf is **Indian**. He is based in **${KB.location}**.`;
+  // Nationality / Country
+  if (match(q, 'nationality', 'country', 'citizen', 'indian', 'india', 'desh')) {
+    return `🇮🇳 Altaf is **Indian**, currently residing in **${KB.location}**.`;
+  }
 
   // Languages spoken
-  if (match(q, 'language', 'speak', 'bol', 'spoken', 'communication', 'boli'))
-    return `🗣️ Altaf speaks **${KB.languages}** fluently — comfortable in both professional and casual communication in either language.`;
+  if (match(q, 'language', 'speak', 'bol', 'spoken', 'communication', 'boli', 'english', 'hindi')) {
+    return `🗣️ Altaf speaks **${KB.languages}** fluently and is comfortable in both professional and casual environments.`;
+  }
+
+  // CGPA / Marks / Percentage
+  if (match(q, 'cgpa', 'marks', 'percentage', 'grade', 'score', 'percent', 'gpa', 'kitna cgpa', 'kitne number')) {
+    return `🎯 Altaf's B.Tech CSE **CGPA is ${KB.cgpa}** from **Mewat Engineering College** (affiliated to **Gurugram University**).\n\nHe graduated in **${KB.passoutYear}** with strong performance in Computer Science, Statistics, and Machine Learning.`;
+  }
 
   // Passout year / graduation year / batch
-  if (match(q, 'passout', 'pass out', 'batch', 'graduated', 'graduation year', 'passing year', 'year of passing', 'konse year'))
-    return `🎓 Altaf's **passout year is ${KB.passoutYear}**.\n\nHe completed his **B.Tech in Computer Science & Engineering** from **Gurugram University** in **${KB.passoutYear}**.`;
+  if (match(q, 'passout', 'pass out', 'batch', 'graduated', 'graduation year', 'passing year', 'year of passing', 'konse year', 'kab pass')) {
+    return `🎓 Altaf's **passout year is ${KB.passoutYear}**.\n\nHe completed his **B.Tech in Computer Science & Engineering** (Specialization: Data Science & Machine Learning) from **Gurugram University** in **May 2026**.`;
+  }
 
   // Degree / qualification
-  if (match(q, 'degree', 'qualification', 'b.tech', 'btech', 'bachelor', 'engineering'))
-    return `🎓 Altaf holds a **${KB.degree}** in **${KB.branch}** (Specialization: ${KB.specialization}) from Gurugram University — graduated **${KB.passoutYear}**.`;
+  if (match(q, 'degree', 'qualification', 'b.tech', 'btech', 'bachelor', 'engineering')) {
+    return `🎓 Altaf holds a **${KB.degree}** in **${KB.branch}** (Specialization: ${KB.specialization}) with a **CGPA of ${KB.cgpa}** — graduated **${KB.passoutYear}**.`;
+  }
 
-  // Branch / subject / field of study
-  if (match(q, 'branch', 'cse', 'computer science', 'field', 'stream', 'subject', 'major'))
-    return `💻 Altaf's branch is **${KB.branch}** with a specialization in **${KB.specialization}**.\n\nHe studied at **Mewat Engineering College** (Nuh, Haryana), affiliated to **Gurugram University**.`;
+  // Branch / Stream / Specialization
+  if (match(q, 'branch', 'cse', 'computer science', 'field', 'stream', 'subject', 'major', 'specializ')) {
+    return `💻 Altaf's branch is **${KB.branch}** with specialization in **${KB.specialization}**.\n\nKey coursework: Data Structures, DBMS, Linear Algebra, Probability & Statistics, Machine Learning, and Data Mining.`;
+  }
 
   // College name
-  if (match(q, 'college', 'mecw', 'mewat', 'institute', 'school', 'institution'))
-    return `🏫 Altaf's college is **Mewat Engineering College (MECW)**, Nuh, Haryana.\n${KB.college}\n\nOfficial website: https://www.mecw.ac.in/`;
+  if (match(q, 'college', 'mecw', 'mewat', 'institute', 'school', 'institution', 'college kahan')) {
+    return `🏫 Altaf studied at **Mewat Engineering College (MECW)**, Nuh, Haryana.\n• Affiliation: **Gurugram University**\n• Approval: **AICTE Approved**\n• Degree: B.Tech CSE (2022–2026)\n• Official website: https://www.mecw.ac.in/`;
+  }
 
   // University name
-  if (match(q, 'university', 'gurugram university', 'varsity', 'affiliat'))
-    return `🏛️ Altaf's university is **Gurugram University**, Gurugram, Haryana.\n${KB.university}\n\nOfficial website: https://gurugramuniversity.ac.in/`;
+  if (match(q, 'university', 'gurugram university', 'varsity', 'affiliat')) {
+    return `🏛️ Altaf's university is **Gurugram University**, Gurugram, Haryana.\n• Type: UGC State Govt. University (Govt. of Haryana)\n• Established: 2017\n• Official website: https://gurugramuniversity.ac.in/`;
+  }
 
-  // Phone / mobile / contact number
-  if (match(q, 'phone', 'mobile', 'number', 'call', 'contact number', 'mob', 'phon', 'no.'))
-    return `📞 Altaf's phone number is **${KB.phone}**.\n\nYou can click the phone number in the Contact section of this portfolio to open your dialer directly.`;
+  // QSpiders Training / Experience
+  if (match(q, 'qspiders', 'training', 'internship', 'trainee', 'qspider', 'experience', 'work experience', 'kahan kaam kiya')) {
+    return `📊 **Professional Training Experience:**\n\n🏢 **Company:** QSpiders Gurugram\n💼 **Role:** Data Analytics Trainee\n📅 **Duration:** Aug. 2025 – Aug. 2026 (1 Year)\n📍 **Location:** Sector 16, Gurugram, Haryana\n\n**What Altaf did & learned:**\n• Hands-on SQL (complex queries, joins, aggregations, subqueries, window functions)\n• Advanced Excel (pivot tables, VLOOKUP, data validation, summary models)\n• Power BI (interactive business dashboards, DAX measures, KPI tracking)\n• Exploratory Data Analysis (EDA) on **5+ real-world datasets** using Pandas, NumPy & Matplotlib.`;
+  }
 
-  // WhatsApp
-  if (match(q, 'whatsapp', 'whats app', 'wa', 'chat'))
-    return `💬 Altaf is available on **WhatsApp** at **${KB.whatsapp}** — same as his phone number. Feel free to message him!`;
+  // ─── SPECIFIC PROJECT QUESTIONS ───
 
-  // Email
-  if (match(q, 'email', 'mail', 'gmail', 'ईमेल'))
-    return `📧 Altaf's email address is **${KB.email}**.\n\nYou can also use the contact form on this portfolio page to reach him directly.`;
+  // 1. NovaFlix
+  if (match(q, 'novaflix', 'nova flix', 'movie', 'anime', 'recommendation', 'movie project', 'netflix')) {
+    return `🎬 **NovaFlix – Movie & Anime Recommendation Engine**\n\n**What is it? (Kya hai):**\nNovaFlix is an intelligent content-based recommendation platform covering **7,200+ movies** and **300+ anime titles**.\n\n**How it works & Features (Kaam kya karta hai):**\n• **Recommendation Algorithm:** Uses TF-IDF Vectorization and Cosine Similarity to compute similarity scores across genres, cast, crew, and plot keywords.\n• **Sub-3s Response:** Delivers personalized recommendations in under 3 seconds.\n• **Live TMDB Integration:** Fetches real-time movie posters, backdrops, ratings, and trailers directly via TMDB API.\n• **Mood-Based Filtering:** Allows users to find movies based on their current mood, genres, and watchlists.\n• **Architecture:** FastAPI backend (deployed on Render) + React/Vite frontend (deployed on Vercel).\n\n🔗 **Live App:** https://novaflix-client.vercel.app/\n💻 **GitHub:** https://github.com/ialtaf14/NovaFlix`;
+  }
 
-  // Location / city
-  if (match(q, 'location', 'city', 'address', 'where', 'place', 'kahan', 'live', 'located', 'state', 'gurgaon', 'gurugram', 'haryana'))
-    return `📍 Altaf is based in **${KB.location}**.\n\nClick the location in the Contact section to open Google Maps.`;
+  // 2. NovaReality / RealityML
+  if (match(q, 'novareality', 'realityml', 'reality ml', 'reality', 'feasibility', 'risk assessment', 'synthetic data')) {
+    return `🧠 **NovaReality (RealityML) – AI Feasibility & Readiness Suite**\n\n**What is it? (Kya hai):**\nAn end-to-end AI Feasibility & Readiness Assessment Suite that helps data scientists and product managers determine if an ML project is viable *before* writing model training code.\n\n**How it works & 5-Step Pipeline (Kaam kya karta hai):**\n1. **Business Intelligence Engine:** NLP-based feasibility scoring for business problems across 9+ industry domains (Healthcare, Banking, HR, Logistics, SaaS, Retail, etc.).\n2. **Data Health & Risk Audit:** Automated scanning for missing values, duplicates, sample bias, and data leakage risks.\n3. **Model Reality Check:** Compares Baseline Dummy vs Logistic/Linear Regression vs Random Forest to confirm if ML genuinely outperforms simple rules.\n4. **Executive PDF Report:** Generates a downloadable executive readiness scorecard using a 3-component formula (*35% Business + 35% Data Quality + 30% Model Signal*).\n5. **Synthetic Dataset Generator:** Generates logically consistent datasets (Real Estate Pricing & Customer Churn) from 100 to 5,000 rows.\n\n🛠️ **Tech:** Python, Streamlit, FastAPI, scikit-learn, Pandas, Altair, ReportLab\n💻 **GitHub:** https://github.com/ialtaf14/RealityML`;
+  }
 
-  // Contact (all channels)
-  if (match(q, 'contact', 'reach', 'touch', 'connect', 'sampark'))
-    return `📬 **All contact details:**\n\n📞 Phone: **${KB.phone}**\n💬 WhatsApp: **${KB.whatsapp}**\n📧 Email: **${KB.email}**\n📍 Location: ${KB.location}\n🔗 LinkedIn: ${KB.linkedin}\n💻 GitHub: ${KB.github}`;
+  // 3. Nova AI
+  if (match(q, 'nova ai', 'nova-ai', 'assistant', 'ollama', 'gemini', 'voice', 'vision', 'rag', 'deepseek')) {
+    return `🤖 **Nova AI – Hybrid Personal AI Assistant**\n\n**What is it? (Kya hai):**\nAn advanced hybrid personal AI assistant combining local offline LLMs and cloud APIs in an iOS Glassmorphic web interface.\n\n**How it works & Features (Kaam kya karta hai):**\n• **Hybrid Intelligent Routing:** Routes user queries intelligently between local offline LLMs (Ollama / DeepSeek) and cloud APIs (Gemini, OpenRouter).\n• **Real-Time Live Web Search (RAG):** Grounds answers in live web search context without requiring paid search API keys.\n• **Multimodal Vision Q&A:** Allows uploading and analyzing images, charts, and documents.\n• **Voice & Speech:** Real-time speech recognition and Hinglish natural Text-to-Speech (TTS).\n• **Google Maps Embed:** Interactive location finding inside chat.\n\n🛠️ **Tech:** Python, Flask, Ollama, DeepSeek, Gemini API, OpenRouter, Speech Recognition, React, Tailwind CSS\n💻 **GitHub:** https://github.com/ialtaf14/Nova-AI`;
+  }
 
-  // GitHub
-  if (match(q, 'github', 'git hub', 'repository', 'repo'))
-    return `💻 GitHub: **${KB.github}**\n\nPublic repositories: **RealityML** and **Nova AI**`;
+  // 4. NovaRecon
+  if (match(q, 'novarecon', 'nova recon', 'osint', 'cyber', 'threat', 'recon', 'etl pipeline')) {
+    return `🛡️ **NovaRecon – Automated OSINT Threat Intelligence Aggregator**\n\n**What is it? (Kya hai):**\nAn automated Open-Source Intelligence (OSINT) and threat reconnaissance ETL pipeline.\n\n**How it works & Features (Kaam kya karta hai):**\n• Ingests live data from multiple public intelligence APIs, normalizes and cleans it in Python/FastAPI.\n• Performs IP Geolocation mapping, ASN routing lookup, and 11-platform social media footprint scanning.\n• Stores records in SQLite and renders analytics in a Next.js 14 & TypeScript dashboard.\n\n🔗 **Live App:** https://novarecon-frontend.onrender.com/\n💻 **GitHub:** https://github.com/ialtaf14/NovaRecon`;
+  }
 
-  // Git (version control)
-  if (match(q, 'git ', 'version control', 'branching', 'commit'))
-    return `🔀 Altaf uses **Git** for version control — branching, merging, commits, and code history. Hosted on GitHub: ${KB.github}`;
+  // All Projects General List
+  if (match(q, 'project', 'projects', 'build', 'made', 'created', 'banaya', 'kitne project', 'sare project', 'all project', 'portfolio projects')) {
+    return `🚀 **Altaf's Major Projects:**\n\n1. 🎬 **NovaFlix** — Movie & Anime Recommendation Engine (7,200+ movies, TF-IDF, Cosine Similarity, FastAPI, React/Vite) [Live Demo available]\n2. 🧠 **NovaReality (RealityML)** — AI Feasibility & Readiness Suite (NLP scoring, data health audit, baseline vs ML check, executive PDF)\n3. 🤖 **Nova AI** — Hybrid Personal AI Assistant (Ollama, DeepSeek, Gemini API, Voice TTS, Vision, RAG search)\n4. 🛡️ **NovaRecon** — Automated OSINT Intelligence Aggregator (FastAPI, SQLite, Next.js 14, IP & social footprint)\n5. 🌐 **Data Analytics Portfolio** — React 19, Tailwind CSS, Framer Motion, Glassmorphism UI\n\nAsk me about any specific project (e.g. *"Tell me about NovaFlix"* or *"NovaReality kya hai"*)!`;
+  }
 
-  // LinkedIn
-  if (match(q, 'linkedin', 'linked in', 'profile'))
-    return `🔗 LinkedIn: **${KB.linkedin}**`;
-
-  // Portfolio
-  if (match(q, 'portfolio', 'website', 'site', 'this site', 'link'))
-    return `🌐 You are currently viewing Altaf's **official portfolio website**!\n\nIt showcases his projects, certifications, education, skills, and contact information.`;
-
-  // Education / B.Tech / college / university combined
-  if (match(q, 'education', 'study', 'padhai', 'padha', 'academic'))
-    return `🎓 **${KB.education}**\n\n🏫 College: Mewat Engineering College (MECW), Nuh, Haryana\n🏛️ University: Gurugram University, Gurugram\n📅 Passout Year: **${KB.passoutYear}**\n\nKey coursework: Machine Learning, Data Mining & Warehousing, Linear Algebra, Probability & Statistics, DBMS, Data Structures.`;
+  // ─── SKILLS BREAKDOWN ───
 
   // Skills (general)
-  if (match(q, 'skill', 'technology', 'tech', 'stack', 'tool', 'kya aata', 'what do you know', 'expertise'))
-    return `🛠️ **Altaf's full skill set:**\n\n${KB.skills}\n\nPrimary language: **Python** | Analytics: **SQL, Pandas, Power BI**`;
+  if (match(q, 'skill', 'technology', 'tech', 'stack', 'tool', 'kya aata', 'what do you know', 'expertise', 'capabilities')) {
+    return `🛠️ **Altaf's Technical Skill Set:**\n\n• **Languages:** Python (Pandas, NumPy, Matplotlib, Scikit-learn), SQL\n• **BI & Analytics:** Power BI (DAX, Dashboards), MS Excel (Advanced, Pivot Tables, VLOOKUP)\n• **Frameworks & APIs:** FastAPI, Flask, Streamlit, Ollama, Gemini API, OpenRouter\n• **Tools & Platforms:** Git, GitHub, Jupyter Notebook, VS Code, Vercel, Render\n• **Core Capabilities:** Exploratory Data Analysis (EDA), Data Cleaning, Feature Engineering, Model Evaluation (F1, Precision, Recall), Database Design & Querying.`;
+  }
 
   // Python
-  if (match(q, 'python'))
-    return `🐍 **Python** is Altaf's primary language.\n\n• Data analysis & cleaning\n• EDA (Exploratory Data Analysis)\n• Machine learning model building\n• Scripting & automation\n• Backend development (FastAPI)`;
+  if (match(q, 'python')) {
+    return `🐍 **Python** is Altaf's primary language.\n\nUsed for:\n• Data analysis, cleaning & ETL (Pandas, NumPy)\n• Exploratory Data Analysis & visual reporting (Matplotlib)\n• Machine Learning models (Scikit-learn)\n• Web APIs & Microservices (FastAPI, Flask, Streamlit)\n• AI & LLM integration (Ollama, Gemini API)`;
+  }
 
-  // SQL
-  if (match(q, 'sql', 'database', 'query', 'queries', 'dbms', 'joins', 'aggregat'))
-    return `🗃️ Altaf is proficient in **SQL** — complex queries, multi-table joins, aggregations, subqueries, GROUP BY, and relational database analytics.`;
+  // SQL / Database
+  if (match(q, 'sql', 'database', 'query', 'queries', 'dbms', 'joins', 'aggregat', 'postgresql', 'mysql', 'sqlite')) {
+    return `🗃️ Altaf has strong **SQL** proficiency:\n\n• Complex multi-table JOIN queries (INNER, LEFT, RIGHT, FULL)\n• Subqueries and nested query logic\n• GROUP BY, HAVING, and aggregation functions\n• Window functions and analytical partitioning\n• Relational database modeling and data normalization`;
+  }
 
-  // Pandas
-  if (match(q, 'pandas', 'dataframe', 'data frame'))
-    return `🐼 **Pandas** — DataFrame manipulation, grouping, merging, data cleaning, CSV/Excel file handling.`;
+  // Pandas / NumPy
+  if (match(q, 'pandas', 'numpy', 'dataframe', 'data frame', 'array', 'vector')) {
+    return `🐼 **Pandas & NumPy:**\n\n• **Pandas:** DataFrame wrangling, grouping, reshaping, cleaning missing values, handling CSV/Excel files\n• **NumPy:** Vectorized mathematical operations, array transformations, statistical calculations`;
+  }
 
-  // NumPy
-  if (match(q, 'numpy', 'num py', 'array', 'vector'))
-    return `🔢 **NumPy** — vectorized math, array operations, numerical transformations for data science.`;
+  // Power BI / Excel / Dashboards
+  if (match(q, 'power bi', 'powerbi', 'excel', 'dashboard', 'pivot', 'business intelligence', 'bi tool')) {
+    return `📊 **Business Intelligence & Reporting:**\n\n• **Power BI:** Interactive executive dashboards, DAX measures, relational data modeling, KPI tracking\n• **Advanced Excel:** Pivot tables, VLOOKUP/XLOOKUP, conditional formatting, data validation models\n• Trained at **QSpiders Gurugram** on corporate reporting standards`;
+  }
 
-  // Matplotlib / visualization
-  if (match(q, 'matplotlib', 'plot', 'chart', 'graph', 'seaborn', 'visual'))
-    return `📈 **Matplotlib** — line plots, bar charts, histograms, scatter plots, custom chart styling for analysis reports.`;
+  // Scikit-learn / ML Models
+  if (match(q, 'scikit', 'sklearn', 'classifier', 'regression', 'classification', 'machine learning', 'ml model')) {
+    return `🤖 **Machine Learning (Scikit-learn):**\n\n• Supervised Learning: Classification & Regression algorithms (Linear, Logistic, Random Forest, Decision Trees)\n• Model Evaluation: Confusion Matrix, Accuracy, Precision, Recall, F1-Score, ROC-AUC\n• Hyperparameter tuning & Cross-Validation\n• Used extensively in **NovaReality** and **NovaFlix**`;
+  }
 
-  // Power BI / Excel
-  if (match(q, 'power bi', 'powerbi', 'excel', 'dashboard', 'pivot', 'business intelligence'))
-    return `📊 **Power BI** — interactive dashboards, DAX, data modeling\n**Excel** — pivot tables, VLOOKUP, data validation, reporting`;
+  // EDA / Data Cleaning
+  if (match(q, 'eda', 'data clean', 'cleaning', 'missing', 'imputation', 'null', 'outlier', 'preprocessing', 'exploratory')) {
+    return `🔍 **EDA & Data Cleaning:**\n\n• Outlier detection (IQR, Z-Score) and treatment\n• Missing value analysis & imputation strategies\n• Correlation matrices, skewness, and distribution plots\n• Categorical encoding (One-Hot, Label Encoding) & feature scaling\n• Applied across **5+ datasets** during QSpiders training`;
+  }
 
-  // Scikit-learn
-  if (match(q, 'scikit', 'sklearn', 'classifier', 'regression', 'classification'))
-    return `🤖 **Scikit-learn** — classification & regression models, cross-validation, hyperparameter tuning, model evaluation (Accuracy, F1, Precision, Recall, Confusion Matrix).`;
+  // ─── CONTACT, HIRING & AVAILABILITY ───
 
-  // EDA
-  if (match(q, 'eda', 'exploratory', 'exploration', 'data exploration'))
-    return `🔍 **EDA** is one of Altaf's core strengths — finding patterns, detecting outliers, distributions, correlations, and insights using Python (Pandas + Matplotlib).`;
-
-  // Data Cleaning
-  if (match(q, 'data clean', 'cleaning', 'missing', 'imputation', 'null', 'outlier', 'preprocessing'))
-    return `🧹 **Data Cleaning** — missing values, outlier treatment, encoding, feature scaling, removing duplicates.`;
-
-  // Feature Engineering
-  if (match(q, 'feature engineering', 'feature selection', 'feature extraction'))
-    return `⚙️ **Feature Engineering** — selecting, transforming, and creating new features to improve ML model performance.`;
-
-  // Streamlit
-  if (match(q, 'streamlit', 'dashboard app', 'web app'))
-    return `🎛️ **Streamlit** — Altaf used it to build an interactive ML feasibility dashboard for RealityML.`;
-
-  // Jupyter Notebook
-  if (match(q, 'jupyter', 'notebook', 'ipynb'))
-    return `📓 **Jupyter Notebook** — used for interactive data analysis, inline visualizations, and step-by-step Python documentation.`;
-
-  // Machine learning / AI (general)
-  if (match(q, 'machine learning', ' ml ', 'artificial intelligence', 'model', 'deep learning'))
-    return `🧠 Altaf's **Machine Learning** skills:\n\n• Scikit-learn (classification & regression)\n• Data Cleaning & Feature Engineering\n• Model Evaluation (Accuracy, F1, Precision, Recall)\n• EDA\n\nProjects: **RealityML** & **Nova AI**`;
-
-  // Projects (general)
-  if (match(q, 'project', 'build', 'made', 'created', 'banaya', 'kitne project', 'how many project'))
-    return `🚀 **Altaf's projects (2 public):**\n\n1. **${KB.projects[0].name}**\n${KB.projects[0].desc}\n*Tech: ${KB.projects[0].tech}*\n\n2. **${KB.projects[1].name}**\n${KB.projects[1].desc}\n*Tech: ${KB.projects[1].tech}*\n\nGitHub: ${KB.github}`;
-
-  // RealityML
-  if (match(q, 'realityml', 'reality ml', 'reality', 'feasibility'))
-    return `🤖 **RealityML – AI Feasibility Suite**\n\n${KB.projects[0].desc}\n\n**Tech:** ${KB.projects[0].tech}\n**GitHub:** ${KB.projects[0].url}`;
-
-  // Nova AI
-  if (match(q, 'nova', 'nova ai', 'gemini', 'gemini api'))
-    return `✨ **Nova AI**\n\n${KB.projects[1].desc}\n\n**Tech:** ${KB.projects[1].tech}\n**GitHub:** ${KB.projects[1].url}`;
-
-  // Certifications
-  if (match(q, 'certificate', 'certification', 'course', 'nptel', 'cisco', 'certified', 'credential'))
-    return `🏆 **Altaf's Certifications (4):**\n\n${KB.certifications.map((c, i) => `${i + 1}. ${c}`).join('\n')}\n\nDownload available in the Certifications section of this portfolio.`;
-
-  // Experience / fresher
-  if (match(q, 'experience', 'work experience', 'internship', 'worked', 'job history', 'fresher'))
-    return `💼 Altaf is a **fresher** — no prior full-time work experience.\n\nSkills built through:\n• Academic projects (B.Tech)\n• Self-learning & practice\n• 4 industry certifications (NPTEL & Cisco)\n\n${KB.status}`;
-
-  // Hobbies
-  if (match(q, 'hobby', 'hobbies', 'interest', 'free time', 'passion', 'like to do', 'leisure', 'fun', 'pastime'))
-    return `🎯 Altaf's hobbies:\n\n🎬 **Watching Cinema** — movies & web series fan\n🎵 **Listening to Music** — keeps him focused\n📊 **Exploring Datasets** — real-world data for fun\n🤖 **Following AI Trends** — stays updated on data science & AI`;
-
-  // Salary
-  if (match(q, 'salary', 'ctc', 'pay', 'package', 'compensation', 'expect', 'stipend', 'kitna', 'paisa'))
-    return `💰 Salary expectation: **~₹20,000/month**\n\nOpen to discussion based on role, company, and growth opportunities.`;
-
-  // Work mode
-  if (match(q, 'remote', 'onsite', 'work from home', 'wfh', 'hybrid', 'office', 'work mode', 'flexible'))
-    return `🌐 Altaf is **open to both remote and on-site roles** — no preference, fully flexible.\n\n${KB.workMode}`;
-
-  // Job / hire / availability
-  if (match(q, 'hire', 'available', 'availability', 'looking', 'full-time', 'fulltime', 'role', 'position', 'naukri', 'kaam', 'job', 'opportunity', 'recruit', 'onboard'))
-    return `🟢 **${KB.status}**\n\nCan join immediately.\n💰 Salary: ~₹20,000/month\n🌐 Work mode: Remote or On-site\n📞 ${KB.phone}\n📧 ${KB.email}`;
-
-  // Freelance
-  if (match(q, 'freelance', 'freelancer', 'contract', 'part time', 'part-time', 'gig'))
-    return `Altaf is primarily looking for **full-time employment**. Open to discussing freelance/contract work based on scope.\n\n📧 ${KB.email} | 📞 ${KB.phone}`;
-
-  // Resume / CV
-  if (match(q, 'resume', 'cv', 'download', 'pdf'))
-    return `📄 Click the **"Download Resume"** button in the **Hero section** at the top of this portfolio to download Altaf's resume.`;
-
-  // About / summary
-  if (match(q, 'about', 'tell me', 'introduce', 'summary', 'bio', 'background', 'batao', 'describe'))
-    return `👨‍💻 **About Altaf Khan:**\n\n[PHOTO:${KB.photo}]\n\n**Age:** 23 years | **DOB:** 6th July 2003\n**Degree:** B.Tech CSE | **Passout:** 2026\n**College:** Mewat Engineering College\n**University:** Gurugram University\n\n${KB.status}\n\n📞 ${KB.phone} | 📧 ${KB.email}`;
-
-  // Thanks / goodbye
-  if (match(q, 'thank', 'thanks', 'bye', 'goodbye', 'shukriya', 'dhanyawad', 'ok thanks', 'got it'))
-    return `You're welcome! 😊 Feel free to come back anytime.\n\n📞 **${KB.phone}**\n📧 **${KB.email}**`;
-
-  // Default fallback
-  return `I didn't quite catch that — but here's what I can help with:\n\n• 📸 Photo, 📞 Phone, 💬 WhatsApp, 📧 Email\n• 👤 Name, Age, DOB, Gender, Nationality\n• 🎓 College, University, Branch, Passout Year\n• 🛠️ Skills (Python, SQL, Pandas, Power BI…)\n• 🚀 Projects | 🏆 Certifications\n• 💼 Job status, Salary, Work mode\n• 🎯 Hobbies | 🔗 GitHub & LinkedIn\n\nTry: *"Show me his photo"* or *"What is his passout year?"*`;
-
-  // Greetings
-  if (match(q, 'hello', 'hi', 'hey', 'helo', 'hii', 'namaste', 'salam', 'sup', 'good morning', 'good evening'))
-    return `Hi there! 👋 I'm **Altaf's AI assistant**.\n\nI can answer questions about his skills, projects, contact info, availability, and more. What would you like to know?`;
-
-  // Name
-  if (match(q, 'name', 'who is', 'who are', 'kaun', 'naam'))
-    return `His name is **${KB.name}**. He is a ${KB.title} — a 2026 B.Tech CSE graduate actively looking for full-time opportunities.`;
-
-  // Age / DOB
-  if (match(q, 'age', 'old', 'born', 'dob', 'birthday', 'date of birth', 'kitne saal', 'umar'))
-    return `🎂 Altaf is **${KB.age}**.\n\nDate of Birth: **${KB.dob}**`;
-
-  // Languages spoken
-  if (match(q, 'language', 'speak', 'bol', 'spoken', 'communication', 'boli', 'english', 'hindi'))
-    return `🗣️ Altaf speaks **${KB.languages}** fluently — comfortable in both professional and casual communication in either language.`;
-
-  // Phone / mobile / contact number
-  if (match(q, 'phone', 'mobile', 'number', 'call', 'contact number', 'mob', 'phon', 'no.'))
-    return `📞 Altaf's phone number is **${KB.phone}**.\n\nYou can also click the phone number in the Contact section of this portfolio to open your dialer directly.`;
+  // Phone / mobile
+  if (match(q, 'phone', 'mobile', 'number', 'call', 'contact number', 'mob', 'phon', 'no.')) {
+    return `📞 Altaf's phone number is **${KB.phone}**.\n\nYou can click the phone number in the Contact section to dial directly.`;
+  }
 
   // WhatsApp
-  if (match(q, 'whatsapp', 'whats app', 'wa', 'chat'))
-    return `💬 Altaf is available on **WhatsApp** at **${KB.whatsapp}** — same as his phone number.\n\nFeel free to message him directly!`;
+  if (match(q, 'whatsapp', 'whats app', 'wa', 'chat')) {
+    return `💬 Altaf is available on **WhatsApp** at **${KB.whatsapp}**.\n\nFeel free to send a message directly!`;
+  }
 
   // Email
-  if (match(q, 'email', 'mail', 'gmail', 'ईमेल'))
-    return `📧 Altaf's email address is **${KB.email}**.\n\nYou can also use the contact form on this portfolio page to send him a message directly.`;
+  if (match(q, 'email', 'mail', 'gmail', 'ईमेल')) {
+    return `📧 Altaf's email address is **${KB.email}**.\n\nYou can also use the contact form on this portfolio to send a message.`;
+  }
 
-  // Location / address / city
-  if (match(q, 'location', 'city', 'address', 'where', 'place', 'kahan', 'live', 'located', 'state', 'gurgaon', 'gurugram', 'haryana'))
-    return `📍 Altaf is based in **${KB.location}**.\n\nClick the location in the Contact section to open it directly in Google Maps.`;
+  // Location / address
+  if (match(q, 'location', 'city', 'address', 'where', 'place', 'kahan', 'live', 'located', 'state', 'gurgaon', 'gurugram', 'haryana')) {
+    return `📍 Altaf is based in **${KB.location}**.\n\nOpen to relocation and remote opportunities across India.`;
+  }
 
-  // Contact (general)
-  if (match(q, 'contact', 'reach', 'touch', 'connect', 'sampark'))
-    return `📬 Here are all the ways to contact Altaf:\n\n📞 Phone: **${KB.phone}**\n💬 WhatsApp: **${KB.whatsapp}**\n📧 Email: **${KB.email}**\n🔗 LinkedIn: ${KB.linkedin}\n💻 GitHub: ${KB.github}`;
+  // Contact (all channels)
+  if (match(q, 'contact', 'reach', 'touch', 'connect', 'sampark', 'kaise contact')) {
+    return `📬 **All Contact Details:**\n\n📞 Phone: **${KB.phone}**\n💬 WhatsApp: **${KB.whatsapp}**\n📧 Email: **${KB.email}**\n📍 Location: ${KB.location}\n🔗 LinkedIn: ${KB.linkedin}\n💻 GitHub: ${KB.github}`;
+  }
 
   // GitHub
-  if (match(q, 'github', 'git hub', 'repository', 'repo'))
-    return `💻 Altaf's GitHub profile:\n**${KB.github}**\n\nHe has public repositories including **RealityML** and **Nova AI**.`;
-
-  // Git (version control)
-  if (match(q, 'git ', 'version control', 'branching', 'commit'))
-    return `🔀 Altaf uses **Git** for version control — branching, merging, committing, and managing code history. His code is hosted on **GitHub** at ${KB.github}.`;
+  if (match(q, 'github', 'git hub', 'repository', 'repo')) {
+    return `💻 Altaf's GitHub profile:\n**${KB.github}**\n\nFeatured repos: **NovaFlix, NovaReality, Nova-AI, NovaRecon, and Portfolio**.`;
+  }
 
   // LinkedIn
-  if (match(q, 'linkedin', 'linked in', 'profile'))
+  if (match(q, 'linkedin', 'linked in', 'profile')) {
     return `🔗 Connect with Altaf on LinkedIn:\n**${KB.linkedin}**`;
-
-  // Education / degree / college / university
-  if (match(q, 'education', 'degree', 'college', 'university', 'study', 'graduation', 'btech', 'b.tech', 'padhai', 'padha', 'gurugram university'))
-    return `🎓 **${KB.education}**\n\nKey coursework: Machine Learning, Data Mining & Warehousing, Linear Algebra, Probability & Statistics, DBMS, and Data Structures.`;
-
-  // Skills / tech stack / tools (general)
-  if (match(q, 'skill', 'technology', 'tech', 'stack', 'tool', 'kya aata', 'kya aataa', 'what do you know', 'expertise'))
-    return `🛠️ **Altaf's full skill set:**\n\n${KB.skills}\n\nHis primary language is **Python**, and he works extensively with **SQL** and the Python data science ecosystem.`;
-
-  // Python
-  if (match(q, 'python'))
-    return `🐍 **Python** is Altaf's primary programming language.\n\nHe uses it for:\n• Data analysis & cleaning\n• Exploratory Data Analysis (EDA)\n• Machine learning model building\n• Scripting and automation\n• Backend development (FastAPI)`;
-
-  // SQL / database
-  if (match(q, 'sql', 'database', 'query', 'queries', 'dbms', 'joins', 'aggregat'))
-    return `🗃️ Altaf is proficient in **SQL** — writing complex queries, multi-table joins, aggregations, subqueries, GROUP BY, and relational database concepts used in analytics.`;
-
-  // Pandas
-  if (match(q, 'pandas', 'dataframe', 'data frame'))
-    return `🐼 Altaf uses **Pandas** extensively for:\n• DataFrame manipulation\n• Grouping, merging & reshaping data\n• Data cleaning and transformation\n• Working with CSV, Excel files`;
-
-  // NumPy
-  if (match(q, 'numpy', 'num py', 'array', 'vector'))
-    return `🔢 **NumPy** is part of Altaf's data science toolkit — used for vectorized mathematical computations, array operations, and numerical transformations during analysis.`;
-
-  // Matplotlib / visualization
-  if (match(q, 'matplotlib', 'plot', 'chart', 'graph', 'seaborn', 'visual'))
-    return `📈 Altaf uses **Matplotlib** for creating data visualizations — line plots, bar charts, histograms, scatter plots, multi-panel subplots, and custom chart styling for reports.`;
-
-  // Power BI / Excel / dashboard
-  if (match(q, 'power bi', 'powerbi', 'excel', 'dashboard', 'pivot', 'bi tool', 'business intelligence'))
-    return `📊 Altaf works with:\n• **Power BI** — interactive dashboards, DAX measures, data modeling\n• **Excel** — pivot tables, VLOOKUP, data validation, summary reporting\n\nBoth are used for business reporting and decision-making analytics.`;
-
-  // Scikit-learn / ML models
-  if (match(q, 'scikit', 'sklearn', 'classifier', 'regression', 'classification'))
-    return `🤖 Altaf uses **Scikit-learn** to build and evaluate machine learning models:\n• Classification & regression algorithms\n• Cross-validation & hyperparameter tuning\n• Model Evaluation: Accuracy, Precision, Recall, F1-score, Confusion Matrix`;
-
-  // EDA
-  if (match(q, 'eda', 'exploratory', 'exploration', 'data exploration'))
-    return `🔍 **Exploratory Data Analysis (EDA)** is one of Altaf's core strengths — finding patterns, detecting outliers, analyzing distributions, checking correlations, and generating insights from raw data using Python (Pandas + Matplotlib).`;
-
-  // Data Cleaning
-  if (match(q, 'data clean', 'cleaning', 'missing', 'imputation', 'null', 'outlier', 'preprocessing'))
-    return `🧹 Altaf is skilled in **Data Cleaning**:\n• Handling missing values & null entries\n• Outlier detection & treatment\n• Encoding categorical variables\n• Feature scaling and normalization\n• Removing duplicates and inconsistencies`;
-
-  // Feature Engineering
-  if (match(q, 'feature engineering', 'feature selection', 'feature extraction'))
-    return `⚙️ Altaf practices **Feature Engineering** — selecting, transforming, and creating new features to improve machine learning model performance.`;
-
-  // Streamlit
-  if (match(q, 'streamlit', 'dashboard app', 'web app'))
-    return `🎛️ Altaf has used **Streamlit** to build an interactive dashboard for **RealityML** — his ML feasibility assessment project. Streamlit allows Python developers to create web-based data apps quickly without needing frontend skills.`;
-
-  // Jupyter Notebook
-  if (match(q, 'jupyter', 'notebook', 'ipynb'))
-    return `📓 Altaf regularly uses **Jupyter Notebook** for interactive data analysis, writing Python code with inline visualizations, and documenting analysis steps clearly.`;
-
-  // Machine learning / ML / AI (general)
-  if (match(q, 'machine learning', ' ml ', 'artificial intelligence', 'model', 'deep learning'))
-    return `🧠 Altaf has a solid foundation in **Machine Learning**:\n\n• Scikit-learn for classification & regression\n• Data Cleaning, Feature Engineering\n• Model Evaluation (Accuracy, F1, Precision, Recall)\n• EDA for pattern discovery\n\nProjects: **RealityML** (ML feasibility tool) & **Nova AI** (Gemini API assistant)`;
-
-  // Projects (general)
-  if (match(q, 'project', 'build', 'made', 'created', 'banaya', 'kitne project', 'how many project'))
-    return `🚀 **Altaf's key projects (2 public):**\n\n1. **${KB.projects[0].name}**\n${KB.projects[0].desc}\n*Tech: ${KB.projects[0].tech}*\n\n2. **${KB.projects[1].name}**\n${KB.projects[1].desc}\n*Tech: ${KB.projects[1].tech}*\n\nAll code is available on his GitHub: ${KB.github}`;
-
-  // RealityML
-  if (match(q, 'realityml', 'reality ml', 'reality', 'feasibility'))
-    return `🤖 **RealityML – AI Feasibility Suite**\n\n${KB.projects[0].desc}\n\n**Tech Stack:** ${KB.projects[0].tech}\n**GitHub:** ${KB.projects[0].url}`;
-
-  // Nova AI
-  if (match(q, 'nova', 'nova ai', 'gemini', 'gemini api'))
-    return `✨ **Nova AI**\n\n${KB.projects[1].desc}\n\n**Tech Stack:** ${KB.projects[1].tech}\n**GitHub:** ${KB.projects[1].url}`;
-
-  // Certifications
-  if (match(q, 'certificate', 'certification', 'course', 'nptel', 'cisco', 'certified', 'credential'))
-    return `🏆 **Altaf's Certifications (4):**\n\n${KB.certifications.map((c, i) => `${i + 1}. ${c}`).join('\n')}\n\nAll certificates are available for download in the Certifications section of this portfolio.`;
-
-  // Experience
-  if (match(q, 'experience', 'work experience', 'internship', 'worked', 'job history', 'fresher'))
-    return `💼 Altaf is a **fresher** — he has no prior full-time work experience.\n\nAll his skills come from:\n• Academic projects during B.Tech\n• Self-learning and practice\n• 4 industry certifications (NPTEL & Cisco)\n\n${KB.status}`;
-
-  // Hobbies / Interests
-  if (match(q, 'hobby', 'hobbies', 'interest', 'free time', 'passion', 'like to do', 'leisure', 'fun', 'pastime'))
-    return `🎯 Outside of work, Altaf enjoys:\n\n🎬 **Watching Cinema** — a big movie & web series fan\n🎵 **Listening to Music** — helps him stay focused\n📊 **Exploring Datasets** — analyzing real-world data for fun\n🤖 **Following AI Trends** — staying up-to-date with the latest in data science & AI`;
-
-  // Salary / CTC / expectation
-  if (match(q, 'salary', 'ctc', 'pay', 'package', 'compensation', 'expect', 'stipend', 'kitna', 'paisa'))
-    return `💰 Altaf's **salary expectation is approximately ₹20,000/month**.\n\nHe is open to discussion based on the role, company, and growth opportunities offered.`;
-
-  // Work mode / remote / onsite
-  if (match(q, 'remote', 'onsite', 'work from home', 'wfh', 'hybrid', 'office', 'location preference', 'work mode', 'flexible'))
-    return `🌐 Altaf is **open to both remote and on-site roles** — he has no preference and is flexible based on the company's requirement.\n\n${KB.workMode}`;
-
-  // Job / hire / availability / opportunity
-  if (match(q, 'hire', 'available', 'availability', 'looking', 'full-time', 'fulltime', 'role', 'position', 'naukri', 'kaam', 'job', 'opportunity', 'recruit', 'onboard'))
-    return `🟢 **${KB.status}**\n\nHe is currently free and can join immediately.\n\n💰 Salary expectation: ~₹20,000/month\n🌐 Work mode: Remote or On-site\n\n📞 ${KB.phone}\n📧 ${KB.email}`;
-
-  // Freelance
-  if (match(q, 'freelance', 'freelancer', 'contract', 'part time', 'part-time', 'gig'))
-    return `Altaf is primarily looking for **full-time employment** right now. He is open to discussing freelance or contract-based opportunities depending on the scope of work.\n\nFeel free to reach out at **${KB.email}** or **${KB.phone}**.`;
+  }
 
   // Resume / CV
-  if (match(q, 'resume', 'cv', 'download', 'pdf'))
-    return `📄 You can download Altaf's resume using the **"Download Resume"** button in the Hero section at the top of this portfolio page.`;
+  if (match(q, 'resume', 'cv', 'download', 'pdf', 'biodata', 'curriculum')) {
+    return `📄 You can download Altaf's updated **CV / Resume PDF** ([Altaf_Khan_CV.pdf](/cv/Altaf_Khan_CV.pdf)) using the **"Download Resume"** button in the Hero section or Header navigation!`;
+  }
+
+  // Certifications
+  if (match(q, 'certificate', 'certification', 'course', 'nptel', 'cisco', 'certified', 'credential')) {
+    return `🏆 **Altaf's Verified Certifications (4):**\n\n${KB.certifications.map((c, i) => `${i + 1}. ${c}`).join('\n')}\n\nOfficial PDF certificates are viewable and downloadable in the **Certifications section** of this portfolio.`;
+  }
+
+  // Job / Hire / Availability
+  if (match(q, 'hire', 'available', 'availability', 'looking', 'full-time', 'fulltime', 'role', 'position', 'naukri', 'kaam', 'job', 'opportunity', 'recruit', 'onboard', 'kab join', 'join')) {
+    return `🟢 **${KB.status}**\n\n• **Joining:** Immediate Joiner\n• **Preferred Roles:** Data Analyst, Business Analyst, Data Scientist, Python Developer\n• **Salary Expectation:** ~₹20,000 – ₹25,000/month (negotiable)\n• **Work Mode:** Remote or On-site across India\n• **Contact:** ${KB.phone} | ${KB.email}`;
+  }
+
+  // Salary / CTC
+  if (match(q, 'salary', 'ctc', 'pay', 'package', 'compensation', 'expect', 'stipend', 'kitna', 'paisa')) {
+    return `💰 Altaf's salary expectation is **approximately ₹20,000 – ₹25,000/month**.\n\nHe is open to discussion based on role responsibilities, company growth, and learning opportunities.`;
+  }
+
+  // Work mode / remote / onsite
+  if (match(q, 'remote', 'onsite', 'work from home', 'wfh', 'hybrid', 'office', 'work mode', 'flexible')) {
+    return `🌐 Altaf is **open to both remote and on-site roles** across India — fully flexible.`;
+  }
+
+  // Hobbies / Interests
+  if (match(q, 'hobby', 'hobbies', 'interest', 'free time', 'passion', 'like to do', 'leisure', 'fun', 'pastime')) {
+    return `🎯 Altaf's hobbies & interests:\n\n🎬 **Cinema & Web Series** — exploring storytelling and direction\n🎵 **Music** — keeps him focused while coding\n📊 **Exploring Datasets** — finding patterns in real-world data\n🤖 **AI Trends** — experimenting with local LLMs and generative AI`;
+  }
 
   // About / summary / introduction
-  if (match(q, 'about', 'tell me', 'introduce', 'summary', 'bio', 'background', 'batao', 'describe'))
-    return `👨‍💻 **About Altaf Khan:**\n\nAltaf is a **23-year-old** 2026 B.Tech CSE graduate from Gurugram University, specializing in Data Science & Machine Learning.\n\nHe is skilled in Python, SQL, Pandas, NumPy, Scikit-learn, Power BI, and more. He has built 2 public projects and holds 4 certifications from NPTEL and Cisco.\n\n${KB.status}\n\n📞 ${KB.phone} | 📧 ${KB.email}`;
+  if (match(q, 'about', 'tell me', 'introduce', 'summary', 'bio', 'background', 'batao', 'describe', 'kya karta')) {
+    return `👨‍💻 **About Altaf Khan:**\n\n[PHOTO:${KB.photo}]\n\n• **Role:** ${KB.title}\n• **Education:** B.Tech CSE (Passout 2026, CGPA: ${KB.cgpa})\n• **College & Univ:** Mewat Engineering College / Gurugram University\n• **Training:** Data Analytics Trainee at QSpiders Gurugram (1 Year)\n• **Core Skills:** Python, SQL, Pandas, Power BI, Scikit-learn, Excel\n• **Projects:** NovaFlix, NovaReality, Nova AI, NovaRecon\n• **Status:** Available for immediate hire!\n\n📞 ${KB.phone} | 📧 ${KB.email}`;
+  }
 
   // Thanks / goodbye
-  if (match(q, 'thank', 'thanks', 'bye', 'goodbye', 'shukriya', 'dhanyawad', 'ok thanks', 'got it'))
-    return `You're welcome! 😊 Feel free to come back anytime with more questions.\n\nYou can reach Altaf directly at:\n📞 **${KB.phone}**\n📧 **${KB.email}**`;
+  if (match(q, 'thank', 'thanks', 'bye', 'goodbye', 'shukriya', 'dhanyawad', 'ok thanks', 'got it', 'theek')) {
+    return `You're welcome! 😊 Feel free to ask anytime or reach out to Altaf directly:\n\n📞 **${KB.phone}**\n📧 **${KB.email}**\n🔗 **${KB.linkedin}**`;
+  }
 
-  // Default fallback
-  return `I didn't quite catch that — but here's what I can help with:\n\n• 📞 Phone, WhatsApp, Email, Location\n• 👤 Name, Age, Languages spoken\n• 🛠️ Skills (Python, SQL, Pandas, Power BI…)\n• 🚀 Projects (RealityML, Nova AI)\n• 🎓 Education & Certifications\n• 💼 Job availability, salary & work mode\n• 🎯 Hobbies & interests\n• 🔗 GitHub & LinkedIn\n\nTry: *"What is the phone number?"* or *"Tell me about his projects"*`;
+  // Default fallback with helpful question suggestions
+  return `I didn't quite catch that — but here's what I can answer:\n\n• 🎬 *"Tell me about NovaFlix"* or *"NovaFlix kya hai"* \n• 🧠 *"Tell me about NovaReality"* or *"Nova AI"* \n• 🎓 *"What is his CGPA and College?"*\n• 📊 *"Tell me about his QSpiders training"*\n• 🛠️ *"What are his Python & SQL skills?"*\n• 💼 *"Is he available for hire?"* | 💰 *"Salary expectation?"*\n• 📄 *"Download his CV"* | 📞 *"Phone number"*\n\nTry asking one of these!`;
 }
 
 // ─── Suggested quick questions ─────────────────────────────────────────────────
 const SUGGESTIONS = [
-  'Show me his photo',
-  'What is the phone number?',
-  'What are his skills?',
-  'What is his passout year?',
-  'Is he available for hire?',
-  'Tell me about RealityML',
-  'What is his age?',
-  'Salary expectation?',
+  'Tell me about NovaFlix 🎬',
+  'Tell me about NovaReality 🧠',
+  'Tell me about Nova AI 🤖',
+  'What is his CGPA & College? 🎓',
+  'What are his core skills? 🛠️',
+  'QSpiders Training details 📊',
+  'Is he available for hire? 💼',
+  'Download his CV 📄',
 ];
 
 // ─── Message bubble ─────────────────────────────────────────────────────────────
