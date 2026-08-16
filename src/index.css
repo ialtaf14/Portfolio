@@ -101,55 +101,53 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 18px;
   pointer-events: none;
   z-index: 99999;
   will-change: transform;
   transform-origin: 0px 0px;
-  transition: opacity 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
-  filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.95)) drop-shadow(0 0 14px rgba(0, 240, 255, 0.5));
+  transition: opacity 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
 }
 
 .custom-cursor-aura {
   position: fixed;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
   will-change: transform;
-  background: transparent;
+  background: rgba(0, 240, 255, 0.12);
   border: 1px solid rgba(0, 240, 255, 0.35);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 8px rgba(0, 240, 255, 0.25);
-  transition: opacity 0.25s ease, width 0.25s cubic-bezier(0.16, 1, 0.3, 1), height 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(2px);
+  transition: opacity 0.2s ease, width 0.2s cubic-bezier(0.16, 1, 0.3, 1), height 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
 }
 
 /* Hovering over links / buttons / cards */
 .cursor-hovered .custom-cursor-pointer {
-  transform: scale(1.18) rotate(-10deg);
-  filter: drop-shadow(0 0 10px rgba(0, 255, 240, 1)) drop-shadow(0 0 20px rgba(0, 200, 255, 0.8));
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.7)) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
 }
 
 .cursor-hovered .custom-cursor-aura {
-  width: 30px;
-  height: 30px;
-  border-color: rgba(0, 240, 255, 0.75);
-  box-shadow: 0 0 14px rgba(0, 240, 255, 0.45);
+  width: 16px;
+  height: 16px;
+  border-color: rgba(0, 240, 255, 0.65);
+  background: rgba(0, 240, 255, 0.08);
 }
 
 /* Tactile Click / Down State */
 .cursor-clicked .custom-cursor-pointer {
-  transform: scale(0.85) rotate(-4deg);
-  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 1));
+  transform: scale(0.92);
 }
 
 .cursor-clicked .custom-cursor-aura {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-color: rgba(255, 255, 255, 0.9);
 }
 

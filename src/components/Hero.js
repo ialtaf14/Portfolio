@@ -89,32 +89,20 @@ const CustomCursor = () => {
         className={`custom-cursor-aura ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       />
 
-      {/* macOS Proportioned Neon Glass Arrow Pointer */}
+      {/* Crisp Compact Pointer */}
       <div
         ref={pointerRef}
         className={`custom-cursor-pointer ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       >
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="mac-neon-outline" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="50%" stopColor="#00f0ff" />
-              <stop offset="100%" stopColor="#00c8ff" />
-            </linearGradient>
-            <filter id="mac-neon-glow" x="-40%" y="-40%" width="180%" height="180%">
-              <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="rgba(0, 240, 255, 0.95)" />
-            </filter>
-          </defs>
-          <g filter="url(#mac-neon-glow)">
-            <path
-              d="M0.5 0.5L12 7.5L7 8.5L9.5 14L7 15L4.5 10L0.5 13V0.5Z"
-              fill="rgba(0, 240, 255, 0.08)"
-              stroke="url(#mac-neon-outline)"
-              strokeWidth="0.9"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            />
-          </g>
+        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.75 0.75L0.75 15.25L4.25 11.75L7.25 17.25L9.25 16.25L6.25 10.75L11.75 10.75L0.75 0.75Z"
+            fill="#09090b"
+            stroke="#ffffff"
+            strokeWidth="1.15"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
         </svg>
       </div>
     </>
