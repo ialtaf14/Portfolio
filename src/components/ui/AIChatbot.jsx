@@ -465,7 +465,7 @@ const AIChatbot = () => {
     <>
 
       {/* ── Floating Button ── */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto">
+      <div className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 ${open ? 'hidden sm:flex' : 'flex'} flex-col items-end gap-3 pointer-events-auto`}>
         {/* Tooltip hint */}
         <AnimatePresence>
           {!open && pulse && (
@@ -533,21 +533,37 @@ const AIChatbot = () => {
         </motion.button>
       </div>
 
+      {/* ── Mobile Backdrop (Phone screens only) ── */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99998] sm:hidden"
+          />
+        )}
+      </AnimatePresence>
+
       {/* ── Chat Panel ── */}
       <AnimatePresence>
         {open && (
           <motion.div
             key="chatpanel"
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-            className="fixed bottom-18 right-3 left-3 sm:left-auto sm:right-6 sm:bottom-24 z-50 sm:w-96 max-w-[calc(100vw-24px)] mx-auto sm:mx-0 flex flex-col rounded-2xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950"
-            style={{ height: 'min(520px, calc(100dvh - 100px))', maxHeight: '520px' }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+            className="fixed inset-x-2 sm:inset-x-auto sm:right-6 bottom-2 sm:bottom-24 z-[99999] sm:w-96 max-w-full sm:max-w-md mx-auto sm:mx-0 flex flex-col rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950"
+            style={{
+              height: 'min(540px, calc(100dvh - 20px))',
+              maxHeight: 'calc(100dvh - 20px)',
+            }}
           >
             {/* Header */}
             <div
-              className="flex items-center justify-between px-4 py-3 flex-shrink-0"
+              className="flex items-center justify-between px-4 py-3 sm:py-3.5 flex-shrink-0"
               style={{
                 background: 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #2563eb 100%)',
               }}
@@ -593,13 +609,13 @@ const AIChatbot = () => {
                   title="Close"
                   className="p-1.5 rounded-lg hover:bg-white/15 text-white/70 hover:text-white transition-colors"
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <X className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-white dark:bg-neutral-950" style={{ minHeight: 0 }}>
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 bg-white dark:bg-neutral-950 overscroll-contain" style={{ minHeight: 0 }}>
               {messages.map(msg => <Bubble key={msg.id} msg={msg} />)}
               {typing && <TypingDots />}
               <div ref={bottomRef} />
@@ -627,20 +643,25 @@ const AIChatbot = () => {
                 ref={inputRef}
                 value={input}
                 onChange={e => setInput(e.target.value)}
+                onFocus={() => {
+                  setTimeout(() => {
+                    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  }, 300);
+                }}
                 placeholder="Ask anything about Altaf…"
-                className="flex-1 px-3 py-2 rounded-xl text-sm sm:text-xs bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
+                className="flex-1 px-3.5 py-2.5 rounded-xl text-base sm:text-xs bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all"
               />
               <motion.button
                 type="submit"
                 disabled={!input.trim() || typing}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-8 h-8 flex-shrink-0 rounded-xl flex items-center justify-center text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                className="w-9 h-9 sm:w-8 sm:h-8 flex-shrink-0 rounded-xl flex items-center justify-center text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                 style={{
                   background: 'linear-gradient(135deg, #7c3aed, #2563eb)',
                 }}
               >
-                <Send className="w-3.5 h-3.5" />
+                <Send className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
               </motion.button>
             </form>
           </motion.div>
