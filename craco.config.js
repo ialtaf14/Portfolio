@@ -12,6 +12,9 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
     },
     configure: (webpackConfig) => {
+      if (webpackConfig.output) {
+        webpackConfig.output.publicPath = '/';
+      }
       
       // Disable hot reload completely if environment variable is set
       if (config.disableHotReload) {
