@@ -11,6 +11,7 @@ const Cursor = () => {
   const rafRef = useRef(null);
 
   useEffect(() => {
+    // Disable on touch / coarse pointer devices (mobiles/tablets)
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
     const lerp = (a, b, n) => a + (b - a) * n;
@@ -18,16 +19,17 @@ const Cursor = () => {
     const onMouseMove = (e) => {
       setIsHidden(false);
       pos.current = { x: e.clientX, y: e.clientY };
+      // Instant pointer positioning (zero lag)
       if (pointerRef.current) {
         pointerRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       }
     };
 
     const animateAura = () => {
-      auraPos.current.x = lerp(auraPos.current.x, pos.current.x, 0.16);
-      auraPos.current.y = lerp(auraPos.current.y, pos.current.y, 0.16);
+      auraPos.current.x = lerp(auraPos.current.x, pos.current.x, 0.18);
+      auraPos.current.y = lerp(auraPos.current.y, pos.current.y, 0.18);
       if (auraRef.current) {
-        auraRef.current.style.transform = `translate3d(${auraPos.current.x - 11}px, ${auraPos.current.y - 11}px, 0)`;
+        auraRef.current.style.transform = `translate3d(${auraPos.current.x - 16}px, ${auraPos.current.y - 16}px, 0)`;
       }
       rafRef.current = requestAnimationFrame(animateAura);
     };
@@ -45,6 +47,7 @@ const Cursor = () => {
         target.closest('a') ||
         target.closest('[role="button"]') ||
         target.closest('.glass-card') ||
+        target.closest('.glass-pill') ||
         (target.classList && target.classList.contains('cursor-pointer'));
       setIsHovered(!!isInteractive);
     };
@@ -76,35 +79,28 @@ const Cursor = () => {
 
   return (
     <>
+      {/* Trailing Glass Aura Orb */}
       <div
         ref={auraRef}
         className={`custom-cursor-aura ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
+        aria-hidden="true"
       />
+
+      {/* Crisp Compact Pointer (VisionOS Glass Arrow) */}
       <div
         ref={pointerRef}
         className={`custom-cursor-pointer ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
+        aria-hidden="true"
       >
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="mac-neon-outline-2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ffffff" />
-              <stop offset="50%" stopColor="#00f0ff" />
-              <stop offset="100%" stopColor="#00c8ff" />
-            </linearGradient>
-            <filter id="mac-neon-glow-2" x="-40%" y="-40%" width="180%" height="180%">
-              <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="rgba(0, 240, 255, 0.95)" />
-            </filter>
-          </defs>
-          <g filter="url(#mac-neon-glow-2)">
-            <path
-              d="M0.5 0.5L12 7.5L7 8.5L9.5 14L7 15L4.5 10L0.5 13V0.5Z"
-              fill="rgba(0, 240, 255, 0.08)"
-              stroke="url(#mac-neon-outline-2)"
-              strokeWidth="0.9"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-            />
-          </g>
+        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.75 0.75L0.75 15.25L4.25 11.75L7.25 17.25L9.25 16.25L6.25 10.75L11.75 10.75L0.75 0.75Z"
+            fill="#09090b"
+            stroke="#ffffff"
+            strokeWidth="1.15"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+          />
         </svg>
       </div>
     </>

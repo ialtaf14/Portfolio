@@ -4,6 +4,7 @@ import ScrollProgress from './components/ui/ScrollProgress';
 import SkipLink from './components/ui/SkipLink';
 import CommandPalette from './components/ui/CommandPalette';
 import ErrorBoundary from './components/ErrorBoundary';
+import Cursor from './components/ui/Cursor';
 
 import { ThemeProvider } from './contexts/ThemeContext';
 import { RecruiterProvider } from './contexts/RecruiterContext';
@@ -51,6 +52,7 @@ function App() {
     <ThemeProvider>
       <RecruiterProvider>
         <BrowserRouter>
+          <Cursor />
           <SkipLink />
           <ScrollProgress />
           <CommandPalette isOpen={isPaletteOpen} onClose={() => setIsPaletteOpen(false)} />
