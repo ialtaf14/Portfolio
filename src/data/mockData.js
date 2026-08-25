@@ -533,23 +533,5 @@ export const mockData = {
       platform: 'Peer Feedback & GitHub Activity',
       highlight: 'Serious data engineering capability'
     }
-  ],
-
-  pivotAnalytics: {
-    title: 'Interactive Data Analytics & Pivot Table Engine',
-    subtitle: 'Real-world Pandas & SQL Pivot Aggregations for Executive Insights',
-    summary: 'Multi-dimensional data aggregation demonstrating pivot tables, EDA summaries, and SQL query optimizations.',
-    metrics: [
-      { id: 'records', label: 'Data Points Processed', value: '1,520,000+', change: '+24.5%', isPositive: true },
-      { id: 'query_speed', label: 'SQL Query Optimization', value: '4.2x Faster', change: '-76% Latency', isPositive: true },
-      { id: 'accuracy', label: 'EDA Insight Accuracy', value: '96.4%', change: '+3.8% Precision', isPositive: true },
-      { id: 'dashboards', label: 'BI Dashboards Created', value: '18 Active', change: 'Power BI & Excel', isPositive: true }
-    ],
-    pivotTable: [
-      { category: 'Python & Pandas Analysis', q1: 124000, q2: 158000, q3: 189000, q4: 210000, total: 681000, growth: '+69.3%', status: 'Core Stack' },
-      { category: 'SQL Query Pipelines', q1: 98000, q2: 112000, q3: 145000, q4: 172000, total: 527000, growth: '+75.5%', status: 'Optimal' },
-      { category: 'Power BI Dashboards', q1: 85000, q2: 96000, q3: 120000, q4: 148000, total: 449000, growth: '+74.1%', status: 'Active' },
-      { category: 'EDA & Feature Engineering', q1: 110000, q2: 135000, q3: 160000, q4: 195000, total: 600000, growth: '+77.2%', status: 'High Yield' }
-    ]
-  }
+  ]
 };

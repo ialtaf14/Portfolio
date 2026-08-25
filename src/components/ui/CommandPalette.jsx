@@ -20,7 +20,6 @@ const CommandPalette = ({ isOpen, onClose }) => {
     { id: 'nav-skills', title: 'Go to Technical Skills', category: 'Navigation', icon: Cpu, action: () => scrollTo('#skills') },
     { id: 'nav-projects', title: 'Go to Featured Projects', category: 'Navigation', icon: FolderGit2, action: () => scrollTo('#projects') },
     { id: 'nav-github', title: 'Go to Live GitHub Repos', category: 'Navigation', icon: Github, action: () => scrollTo('#github-projects') },
-    { id: 'nav-analytics', title: 'Go to Data Analytics Dashboard', category: 'Navigation', icon: Cpu, action: () => scrollTo('#analytics') },
     { id: 'nav-edu', title: 'Go to Education', category: 'Navigation', icon: GraduationCap, action: () => scrollTo('#education') },
     { id: 'nav-training', title: 'Go to Professional Training (QSpiders)', category: 'Navigation', icon: Award, action: () => scrollTo('#training') },
     { id: 'nav-experience', title: 'Go to Practical Experience (Deloitte, Projects)', category: 'Navigation', icon: Award, action: () => scrollTo('#experience') },

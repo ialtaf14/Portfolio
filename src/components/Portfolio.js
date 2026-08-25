@@ -14,7 +14,6 @@ const About               = lazy(() => import('./About'));
 const Skills              = lazy(() => import('./Skills'));
 const GitHubProjects      = lazy(() => import('./GitHubProjects'));
 const GitHubStats         = lazy(() => import('./GitHubStats'));
-const PivotAnalytics      = lazy(() => import('./PivotAnalytics'));
 const Education           = lazy(() => import('./Education'));
 const Training            = lazy(() => import('./Training'));
 const PracticalExperience = lazy(() => import('./PracticalExperience'));
@@ -60,11 +59,6 @@ const Portfolio = ({ onOpenCommandPalette }) => {
 
           <ErrorBoundary>
             <GitHubStats />
-          </ErrorBoundary>
-
-          {/* Data Analytics Pivot Dashboard */}
-          <ErrorBoundary>
-            <PivotAnalytics data={mockData} />
           </ErrorBoundary>
 
           <ErrorBoundary>
