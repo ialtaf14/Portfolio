@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send, Check, Copy } from 'lucide-react';
+import { Mail, MapPin, Send, Check, Copy, Globe } from 'lucide-react';
 import { BrandSocialButton, GithubLogo, LinkedinLogo, GmailLogo, VercelLogo, XLogo, InstagramLogo } from './ui/BrandLogos';
+import Contact3DCanvas from './ui/Contact3DCanvas';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
@@ -41,6 +42,14 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-24 relative bg-white dark:bg-neutral-950 overflow-hidden">
+      {/* 3D depth ambient background glow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[300px] rounded-full opacity-20 blur-3xl"
+          style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.3) 0%, transparent 70%)' }} />
+        <div className="absolute top-0 right-1/4 w-[400px] h-[250px] rounded-full opacity-20 blur-3xl"
+          style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.3) 0%, transparent 70%)' }} />
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
         
         {/* Section Header */}
@@ -65,10 +74,13 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-5 space-y-5"
           >
             
-            <div className="p-8 rounded-3xl glass-panel-ultra glass-shimmer space-y-6">
+            {/* 3D Wireframe Globe — Interactive */}
+            <Contact3DCanvas />
+
+            <div className="p-7 rounded-3xl glass-panel-ultra glass-shimmer space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-neutral-900 dark:text-white">
                   Direct Contact &amp; Profiles
@@ -78,7 +90,7 @@ const Contact = () => {
                 </p>
               </div>
 
-              {/* Email Card (Clickable Gmail Mailto & Copy) */}
+              {/* Email Card */}
               <div className="p-4 rounded-2xl bg-neutral-100/70 dark:bg-neutral-900/80 border border-neutral-200/60 dark:border-neutral-800/60 flex items-center justify-between">
                 <a
                   href={`mailto:${emailAddress}`}
@@ -105,7 +117,7 @@ const Contact = () => {
                 </button>
               </div>
 
-              {/* Location — opens Google Maps on click */}
+              {/* Location */}
               <motion.a
                 href="https://www.google.com/maps/search/Gurugram,+Haryana,+India"
                 target="_blank"

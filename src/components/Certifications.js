@@ -36,10 +36,11 @@ const Certifications = ({ data }) => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
             >
-              <MagneticCard maxTilt={4} className="h-full">
+              <MagneticCard maxTilt={8} glare={true} className="h-full">
                 <div
-                  className="p-6 sm:p-8 rounded-2xl glass-panel-ultra glass-shimmer flex flex-col justify-between h-full transition-all duration-300 border border-neutral-200/80 dark:border-white/[0.08] hover:border-amber-500/40 shadow-sm"
+                  className="p-6 sm:p-8 rounded-2xl glass-panel-ultra glass-shimmer flex flex-col justify-between h-full transition-all duration-300 border border-neutral-200/80 dark:border-white/[0.08] hover:border-amber-500/40 shadow-sm relative overflow-hidden"
                   style={{
+                    transformStyle: 'preserve-3d',
                     boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
                   }}
                 >

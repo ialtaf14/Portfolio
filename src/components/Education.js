@@ -10,6 +10,7 @@ import {
   Award,
   Sparkles
 } from 'lucide-react';
+import MagneticCard from './ui/MagneticCard';
 
 // ─── Auto Slide Campus Image Carousel ───────────────────────────────────────────
 const AutoCampusCarousel = ({ images = [], fallbackImage, name, startDelay = 0 }) => {
@@ -110,21 +111,23 @@ const EducationCard = ({ edu, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      whileHover={{ y: -6, transition: { duration: 0.25, ease: 'easeOut' } }}
-      transition={{ duration: 0.5, delay: index * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex flex-col rounded-3xl glass-panel-ultra glass-shimmer border border-neutral-200/80 dark:border-white/[0.08] hover:border-blue-500/40 dark:hover:border-cyan-500/40 transition-all duration-500 overflow-hidden"
-      style={{
-        boxShadow: isHovered
-          ? '0 20px 50px rgba(0,0,0,0.18), 0 0 30px rgba(0,240,255,0.08)'
-          : undefined,
-      }}
-    >
+    <MagneticCard maxTilt={6} glare={true} className="h-full flex">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        whileHover={{ y: -5, transition: { duration: 0.25, ease: 'easeOut' } }}
+        transition={{ duration: 0.5, delay: index * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="group relative flex flex-col rounded-3xl glass-panel-ultra glass-shimmer border border-neutral-200/80 dark:border-white/[0.08] hover:border-blue-500/40 dark:hover:border-cyan-500/40 transition-all duration-500 overflow-hidden w-full"
+        style={{
+          transformStyle: 'preserve-3d',
+          boxShadow: isHovered
+            ? '0 24px 60px rgba(0,0,0,0.2), 0 0 35px rgba(0,240,255,0.1)'
+            : '0 4px 20px rgba(0,0,0,0.06)',
+        }}
+      >
       {/* Top Animated Glow Accent */}
       <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30" />
 
@@ -248,6 +251,7 @@ const EducationCard = ({ edu, index }) => {
 
       </div>
     </motion.div>
+    </MagneticCard>
   );
 };
 

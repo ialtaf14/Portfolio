@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { User, Brain, Target, CheckCircle2, GraduationCap } from 'lucide-react';
 import AnimatedCounter from './ui/AnimatedCounter';
+import MagneticCard from './ui/MagneticCard';
 
 const About = ({ data }) => {
   const stats = data.stats || [
@@ -77,23 +78,29 @@ const About = ({ data }) => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
-              className="p-4 sm:p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-1.5 sm:space-y-2 hover:border-blue-500/30 transition-colors"
+              className="h-full"
             >
-              <div className="text-xl sm:text-2xl font-bold font-mono text-neutral-900 dark:text-white">
-                {stat.isNumber ? (
-                  <AnimatedCounter value={stat.number} />
-                ) : (
-                  stat.number
-                )}
-              </div>
-              <div className="text-[11px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                {stat.label}
-              </div>
-              <div className="text-[10px] sm:text-[11px] text-neutral-500 dark:text-neutral-400">
-                {stat.description}
-              </div>
+              <MagneticCard maxTilt={10} glare={true} className="h-full">
+                <div
+                  className="p-4 sm:p-6 rounded-2xl glass-panel-ultra glass-shimmer space-y-1.5 sm:space-y-2 hover:border-blue-500/30 transition-colors h-full flex flex-col justify-between"
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  <div className="text-xl sm:text-2xl font-bold font-mono text-neutral-900 dark:text-white">
+                    {stat.isNumber ? (
+                      <AnimatedCounter value={stat.number} />
+                    ) : (
+                      stat.number
+                    )}
+                  </div>
+                  <div className="text-[11px] sm:text-xs font-semibold text-neutral-800 dark:text-neutral-200">
+                    {stat.label}
+                  </div>
+                  <div className="text-[10px] sm:text-[11px] text-neutral-500 dark:text-neutral-400">
+                    {stat.description}
+                  </div>
+                </div>
+              </MagneticCard>
             </motion.div>
           ))}
         </div>
@@ -102,28 +109,31 @@ const About = ({ data }) => {
         <div className="grid lg:grid-cols-12 gap-8 items-start mb-16">
           
           <div className="lg:col-span-7 space-y-6">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="p-8 rounded-2xl glass-panel-ultra glass-shimmer space-y-4"
-            >
-              <h3 className="text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-2">
-                <Brain className="w-5 h-5 text-purple-500" />
-                Technical Approach & Project Focus
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
-                {data.detailedDescription}
-              </p>
-              <div className="pt-2 flex flex-wrap gap-2">
-                {['Pandas & NumPy', 'Scikit-learn', 'Power BI', 'SQL Queries', 'Matplotlib', 'Jupyter Notebook'].map((tag, i) => (
-                  <span key={i} className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+            <MagneticCard maxTilt={5} glare={true}>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="p-8 rounded-2xl glass-panel-ultra glass-shimmer space-y-4"
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                <h3 className="text-lg font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+                  <Brain className="w-5 h-5 text-purple-500" />
+                  Technical Approach & Project Focus
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                  {data.detailedDescription}
+                </p>
+                <div className="pt-2 flex flex-wrap gap-2">
+                  {['Pandas & NumPy', 'Scikit-learn', 'Power BI', 'SQL Queries', 'Matplotlib', 'Jupyter Notebook'].map((tag, i) => (
+                    <span key={i} className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            </MagneticCard>
 
             {/* Career Objective Box */}
             <div className="p-6 rounded-2xl bg-neutral-900 dark:bg-neutral-900 text-white border border-neutral-800 space-y-3 shadow-lg">

@@ -4,6 +4,7 @@ import {
   Award, MapPin, Calendar, CheckCircle2, Sparkles,
   Building2, Code2, ArrowUpRight, Heart
 } from 'lucide-react';
+import MagneticCard from './ui/MagneticCard';
 
 // ─── Interests data ──────────────────────────────────────────────────────────
 const INTERESTS = [
@@ -133,14 +134,16 @@ const Training = ({ data }) => {
         </div>
 
         {/* ── Training Card ─────────────────────────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="rounded-3xl glass-panel-ultra glass-shimmer border border-neutral-200/80 dark:border-white/[0.08] overflow-hidden hover:border-amber-500/40 transition-all duration-300"
-        >
+        <MagneticCard maxTilt={5} glare={true} className="w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="rounded-3xl glass-panel-ultra glass-shimmer border border-neutral-200/80 dark:border-white/[0.08] overflow-hidden hover:border-amber-500/40 transition-all duration-300 w-full"
+            style={{ transformStyle: 'preserve-3d' }}
+          >
           <div className="grid grid-cols-1 lg:grid-cols-12">
 
             {/* ── Left column ──────────────────────────────────────────── */}
@@ -282,6 +285,7 @@ const Training = ({ data }) => {
 
           </div>
         </motion.div>
+        </MagneticCard>
 
       </div>
     </section>

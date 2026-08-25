@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import ErrorBoundary from './ErrorBoundary';
@@ -6,25 +6,38 @@ import { mockData } from '../data/mockData';
 import AIChatbot from './ui/AIChatbot';
 import FloatingContactButton from './ui/FloatingContactButton';
 import ScrollProgress from './ui/ScrollProgress';
+import Background3DCanvas from './ui/Background3DCanvas';
 
-import Hero from './Hero';
-import About from './About';
-import Skills from './Skills';
-import GitHubProjects from './GitHubProjects';
-import GitHubStats from './GitHubStats';
-import Education from './Education';
-import Training from './Training';
-import LearningTimeline from './LearningTimeline';
-import Certifications from './Certifications';
-import Contact from './Contact';
+// Lazy load sections
+const Hero             = lazy(() => import('./Hero'));
+const About            = lazy(() => import('./About'));
+const Skills           = lazy(() => import('./Skills'));
+const GitHubProjects   = lazy(() => import('./GitHubProjects'));
+const GitHubStats      = lazy(() => import('./GitHubStats'));
+const Education        = lazy(() => import('./Education'));
+const Training         = lazy(() => import('./Training'));
+const LearningTimeline = lazy(() => import('./LearningTimeline'));
+const Certifications   = lazy(() => import('./Certifications'));
+const Contact          = lazy(() => import('./Contact'));
+
+const SectionLoader = () => (
+  <div className="py-20 flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-neutral-300 dark:border-neutral-700 border-t-neutral-900 dark:border-t-white rounded-full animate-spin" />
+  </div>
+);
 
 const Portfolio = ({ onOpenCommandPalette }) => {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors duration-300">
+      {/* Fixed 3D Particle Background Canvas */}
+      <ErrorBoundary>
+        <Background3DCanvas />
+      </ErrorBoundary>
       <ScrollProgress />
       <Header onOpenCommandPalette={onOpenCommandPalette} />
 
       <main id="main-content" tabIndex="-1" className="focus:outline-none">
+        <Suspense fallback={<SectionLoader />}>
           
           <ErrorBoundary>
             <Hero data={mockData.personal} />
@@ -66,6 +79,7 @@ const Portfolio = ({ onOpenCommandPalette }) => {
             <Contact />
           </ErrorBoundary>
 
+        </Suspense>
       </main>
 
       <Footer />

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import MagneticCard from './ui/MagneticCard';
 import {
   Github, Star, GitFork, Clock, ExternalLink, Tag, AlertCircle,
   RefreshCw, Pin, Code, Layers, Search, Filter
@@ -60,23 +61,25 @@ const RepoCard = ({ repo, onOpenDetail }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      whileHover={{ y: -6, transition: { duration: 0.25, ease: 'easeOut' } }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.35 }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="flex flex-col rounded-2xl glass-panel-ultra glass-shimmer transition-all duration-300 overflow-hidden"
-      style={{
-        boxShadow: hovered
-          ? '0 20px 48px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,240,255,0.2), 0 0 32px rgba(0,240,255,0.08)'
-          : undefined,
-      }}
-    >
+    <MagneticCard maxTilt={8} glare={true} className="h-full flex">
+      <motion.div
+        layout
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        whileHover={{ y: -5, transition: { duration: 0.25, ease: 'easeOut' } }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.35 }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        className="flex flex-col rounded-2xl glass-panel-ultra glass-shimmer transition-all duration-300 overflow-hidden w-full"
+        style={{
+          transformStyle: 'preserve-3d',
+          boxShadow: hovered
+            ? '0 24px 56px rgba(0,0,0,0.22), 0 0 0 1px rgba(0,240,255,0.25), 0 0 40px rgba(0,240,255,0.1)'
+            : '0 4px 20px rgba(0,0,0,0.06)',
+        }}
+      >
       {/* Card Top Media: Screenshots Carousel or Professional Placeholder */}
       <ProjectCardMedia
         images={repo.screenshots}
@@ -225,6 +228,7 @@ const RepoCard = ({ repo, onOpenDetail }) => {
         </div>
       </div>
     </motion.div>
+    </MagneticCard>
   );
 };
 

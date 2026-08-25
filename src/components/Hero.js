@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { ArrowDown, Download, Terminal, Copy, Check } from 'lucide-react';
+import { ArrowDown, Download, Terminal, Copy, Check, Box, User, Sparkles } from 'lucide-react';
 import { BrandSocialButton, GithubLogo, LinkedinLogo, GmailLogo, VercelLogo } from './ui/BrandLogos';
 import { useRecruiter } from '../contexts/RecruiterContext';
 import RecruiterViewDeck from './ui/RecruiterViewDeck';
 import FloatingParticles from './ui/FloatingParticles';
 import AnimatedCounter from './ui/AnimatedCounter';
+import Hero3DCanvas from './ui/Hero3DCanvas';
+import MagneticCard from './ui/MagneticCard';
 
 /* ─── Custom Cursor Component (iOS 27 VisionOS Frosted Glass Arrow Pointer) ─── */
 const CustomCursor = () => {
@@ -26,7 +28,6 @@ const CustomCursor = () => {
     const onMouseMove = (e) => {
       setIsHidden(false);
       pos.current = { x: e.clientX, y: e.clientY };
-      // Instant Pointer Positioning (Zero delay tip tracking)
       if (pointerRef.current) {
         pointerRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       }
@@ -85,13 +86,10 @@ const CustomCursor = () => {
 
   return (
     <>
-      {/* Trailing Glass Aura Orb */}
       <div
         ref={auraRef}
         className={`custom-cursor-aura ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
       />
-
-      {/* Crisp Compact Pointer */}
       <div
         ref={pointerRef}
         className={`custom-cursor-pointer ${isHovered ? 'cursor-hovered' : ''} ${isClicked ? 'cursor-clicked' : ''} ${isHidden ? 'cursor-hidden' : ''}`}
@@ -115,13 +113,7 @@ const CustomCursor = () => {
 const Hero = ({ data }) => {
   const { isRecruiterMode } = useRecruiter();
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [copiedEmail, setCopiedEmail] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('altafkhan122105@gmail.com');
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
-  };
+  const [heroMode, setHeroMode] = useState('3d'); // '3d' | 'photo'
 
   // Parallax mouse effect
   const mouseX = useMotionValue(0);
@@ -136,8 +128,8 @@ const Hero = ({ data }) => {
     mouseY.set((clientY / innerHeight) - 0.5);
   };
 
-  const imageX = useTransform(mouseX, [-0.5, 0.5], [-10, 10]);
-  const imageY = useTransform(mouseY, [-0.5, 0.5], [-10, 10]);
+  const imageX = useTransform(mouseX, [-0.5, 0.5], [-12, 12]);
+  const imageY = useTransform(mouseY, [-0.5, 0.5], [-12, 12]);
 
   const roles = data.roles || [
     'Data Analyst',
@@ -164,7 +156,7 @@ const Hero = ({ data }) => {
       <section
         id="home"
         onMouseMove={handleMouseMove}
-        className={`relative min-h-[92vh] flex items-center justify-center pt-24 sm:pt-28 pb-14 sm:pb-16 overflow-hidden bg-grid-pattern ${
+        className={`relative min-h-[94vh] flex items-center justify-center pt-24 sm:pt-28 pb-14 sm:pb-16 overflow-hidden bg-grid-pattern ${
           isRecruiterMode ? 'bg-amber-500/5 dark:bg-amber-950/10 border-b border-amber-500/20' : ''
         }`}
       >
@@ -173,13 +165,13 @@ const Hero = ({ data }) => {
           <>
             <FloatingParticles />
             <div className="absolute top-1/4 left-1/6 w-[320px] sm:w-[520px] h-[300px] sm:h-[400px] rounded-full pointer-events-none animate-orb opacity-60 sm:opacity-100"
-              style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.14) 0%, transparent 70%)', filter: 'blur(50px)' }}
+              style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.18) 0%, transparent 70%)', filter: 'blur(50px)' }}
             />
             <div className="absolute bottom-1/4 right-1/6 w-[300px] sm:w-[480px] h-[280px] sm:h-[380px] rounded-full pointer-events-none animate-orb opacity-60 sm:opacity-100"
-              style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.13) 0%, transparent 70%)', filter: 'blur(50px)', animationDelay: '4s' }}
+              style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.16) 0%, transparent 70%)', filter: 'blur(50px)', animationDelay: '4s' }}
             />
             <div className="absolute top-1/2 right-1/3 w-[250px] sm:w-[350px] h-[250px] sm:h-[350px] rounded-full pointer-events-none animate-pulse-glow opacity-50 sm:opacity-100"
-              style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)', filter: 'blur(60px)', animationDelay: '2s' }}
+              style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)', filter: 'blur(60px)', animationDelay: '2s' }}
             />
           </>
         )}
@@ -258,8 +250,8 @@ const Hero = ({ data }) => {
                 className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 pt-1 sm:pt-2"
               >
                 <motion.a
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
+                  whileHover={{ scale: 1.05, translateY: -2 }}
+                  whileTap={{ scale: 0.95 }}
                   href={data.resume || '/cv/Altaf_Khan_CV.pdf'}
                   download
                   className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs font-semibold text-white transition-all shadow-lg group bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-cyan-500/30"
@@ -294,72 +286,111 @@ const Hero = ({ data }) => {
               </div>
             </motion.div>
 
-            {/* Profile Photo — Glass Card */}
+            {/* Right Side — Interactive 3D Hologram & Portrait Switcher */}
             <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
               style={{ x: imageX, y: imageY }}
-              className="lg:col-span-5 flex justify-center"
+              className="lg:col-span-5 flex flex-col items-center justify-center space-y-3"
             >
-              <div className="relative w-full max-w-[310px]">
-                {/* Outer glow ring */}
-                <div
-                  className="absolute -inset-3 rounded-[30px] pointer-events-none animate-pulse-glow"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(0,240,255,0.15) 0%, rgba(112,0,255,0.12) 100%)',
-                    filter: 'blur(18px)',
-                  }}
-                />
-
-                {/* Glass Frame */}
-                <div
-                  className="relative rounded-[26px] p-[3px] photo-shimmer"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(0,240,255,0.4) 0%, rgba(112,0,255,0.3) 50%, rgba(59,130,246,0.35) 100%)',
-                    boxShadow: '0 32px 80px rgba(0,0,0,0.28), 0 0 0 1px rgba(0,240,255,0.12)',
-                  }}
+              {/* 3D Mode Toggle Switch */}
+              <div className="inline-flex items-center gap-1 p-1 rounded-full bg-neutral-100/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 backdrop-blur-md shadow-sm z-20">
+                <button
+                  onClick={() => setHeroMode('3d')}
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium transition-all ${
+                    heroMode === '3d'
+                      ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md'
+                      : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                  }`}
                 >
-                  <div className="rounded-[24px] overflow-hidden bg-neutral-950 relative">
-                    <img
-                      src={data.profileImage || '/images/altaf.jpg'}
-                      alt="Altaf Khan"
-                      className="w-full aspect-[4/5] object-cover object-top transition-all duration-700 hover:scale-[1.03]"
-                      style={{ filter: 'contrast(1.05) brightness(1.02)' }}
+                  <Box className="w-3.5 h-3.5" />
+                  <span>3D Core</span>
+                </button>
+
+                <button
+                  onClick={() => setHeroMode('photo')}
+                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium transition-all ${
+                    heroMode === 'photo'
+                      ? 'bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-md'
+                      : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                  }`}
+                >
+                  <User className="w-3.5 h-3.5" />
+                  <span>3D Portrait</span>
+                </button>
+              </div>
+
+              {/* 3D Scene View */}
+              {heroMode === '3d' ? (
+                <div className="w-full max-w-[360px] sm:max-w-[400px]">
+                  <Hero3DCanvas />
+                </div>
+              ) : (
+                /* Profile Photo — Multi-layer 3D Glass Card */
+                <MagneticCard maxTilt={14} className="w-full max-w-[310px]">
+                  <div className="relative w-full">
+                    {/* Outer glow ring */}
+                    <div
+                      className="absolute -inset-3 rounded-[30px] pointer-events-none animate-pulse-glow"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(0,240,255,0.2) 0%, rgba(112,0,255,0.18) 100%)',
+                        filter: 'blur(20px)',
+                      }}
                     />
 
-                    {/* Subtle gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
-
-                    {/* Floating Info Badge */}
+                    {/* Glass Frame */}
                     <div
-                      className="absolute bottom-4 left-3 right-3 p-3 rounded-[14px] space-y-0.5"
+                      className="relative rounded-[26px] p-[3px] photo-shimmer"
                       style={{
-                        background: 'rgba(0,0,0,0.6)',
-                        backdropFilter: 'blur(16px)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.07)',
+                        background: 'linear-gradient(135deg, rgba(0,240,255,0.45) 0%, rgba(112,0,255,0.35) 50%, rgba(59,130,246,0.4) 100%)',
+                        boxShadow: '0 32px 80px rgba(0,0,0,0.28), 0 0 0 1px rgba(0,240,255,0.12)',
+                        transformStyle: 'preserve-3d',
                       }}
                     >
-                      <div className="flex items-center justify-between text-xs font-mono font-medium text-white">
-                        <span>Gurugram University</span>
-                        <span style={{ color: '#10b981' }}>Graduated 2026</span>
-                      </div>
-                      <div className="text-[11px] text-neutral-400 truncate">
-                        Data Science & Machine Learning
+                      <div className="rounded-[24px] overflow-hidden bg-neutral-950 relative">
+                        <img
+                          src={data.profileImage || '/images/altaf.jpg'}
+                          alt="Altaf Khan"
+                          className="w-full aspect-[4/5] object-cover object-top transition-all duration-700 hover:scale-[1.04]"
+                          style={{ filter: 'contrast(1.05) brightness(1.02)' }}
+                        />
+
+                        {/* Subtle gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent pointer-events-none" />
+
+                        {/* Floating 3D Info Badge with Depth Lift */}
+                        <div
+                          className="absolute bottom-4 left-3 right-3 p-3 rounded-[14px] space-y-0.5 transition-transform duration-300"
+                          style={{
+                            background: 'rgba(0,0,0,0.68)',
+                            backdropFilter: 'blur(18px)',
+                            border: '1px solid rgba(255,255,255,0.12)',
+                            boxShadow: '0 10px 30px rgba(0,0,0,0.4)',
+                            transform: 'translateZ(35px)',
+                          }}
+                        >
+                          <div className="flex items-center justify-between text-xs font-mono font-medium text-white">
+                            <span>Gurugram University</span>
+                            <span style={{ color: '#10b981' }}>Graduated 2026</span>
+                          </div>
+                          <div className="text-[11px] text-neutral-400 truncate">
+                            Data Science & Machine Learning
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-                {/* Corner accent blobs */}
-                <div className="absolute -top-5 -right-5 w-20 h-20 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.2) 0%, transparent 70%)', filter: 'blur(12px)' }}
-                />
-                <div className="absolute -bottom-5 -left-5 w-20 h-20 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.2) 0%, transparent 70%)', filter: 'blur(12px)' }}
-                />
-              </div>
+                    {/* Corner accent blobs */}
+                    <div className="absolute -top-5 -right-5 w-20 h-20 rounded-full pointer-events-none"
+                      style={{ background: 'radial-gradient(circle, rgba(0,240,255,0.25) 0%, transparent 70%)', filter: 'blur(14px)' }}
+                    />
+                    <div className="absolute -bottom-5 -left-5 w-20 h-20 rounded-full pointer-events-none"
+                      style={{ background: 'radial-gradient(circle, rgba(112,0,255,0.25) 0%, transparent 70%)', filter: 'blur(14px)' }}
+                    />
+                  </div>
+                </MagneticCard>
+              )}
             </motion.div>
 
           </div>
