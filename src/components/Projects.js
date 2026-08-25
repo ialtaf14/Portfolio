@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FolderGit2, Github, ExternalLink, Zap, CheckCircle2, Layers } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FolderGit2, Github, ExternalLink, Zap, CheckCircle2, Layers, ChevronDown, ChevronUp, FlaskConical, Database, Settings, Lightbulb, Target } from 'lucide-react';
 import ProjectModal from './ui/ProjectModal';
 
 const Projects = ({ data }) => {
   const projectsList = Array.isArray(data) ? data : (data?.projects || []);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [openCaseStudy, setOpenCaseStudy] = useState(null);
 
   return (
     <section id="projects" className="py-24 relative bg-neutral-50/50 dark:bg-neutral-950/50 border-t border-neutral-200/60 dark:border-neutral-800/60">
@@ -79,6 +80,85 @@ const Projects = ({ data }) => {
                       </span>
                     ))}
                   </div>
+
+                  {/* Case Study Toggle */}
+                  {project.caseStudy && (
+                    <div>
+                      <button
+                        onClick={() => setOpenCaseStudy(openCaseStudy === (project.id || idx) ? null : (project.id || idx))}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-teal-600 dark:text-teal-400 bg-teal-500/10 border border-teal-500/25 hover:bg-teal-500/20 transition-colors mt-1"
+                      >
+                        {openCaseStudy === (project.id || idx)
+                          ? <ChevronUp className="w-3.5 h-3.5" />
+                          : <ChevronDown className="w-3.5 h-3.5" />
+                        }
+                        <span>View Case Study</span>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {openCaseStudy === (project.id || idx) && (
+                          <motion.div
+                            key="case-study"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                            style={{ overflow: 'hidden' }}
+                          >
+                            <div className="bg-neutral-950/80 border border-neutral-700/60 rounded-2xl p-6 mt-4 space-y-4 text-sm">
+                              {/* Row 1: Problem */}
+                              <div className="flex gap-3">
+                                <FlaskConical className="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5" />
+                                <div>
+                                  <span className="font-semibold text-neutral-200">Problem</span>
+                                  <p className="text-neutral-400 mt-0.5 text-xs leading-relaxed">{project.caseStudy.problem}</p>
+                                </div>
+                              </div>
+                              {/* Row 2: Dataset */}
+                              <div className="flex gap-3">
+                                <Database className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+                                <div>
+                                  <span className="font-semibold text-neutral-200">Dataset</span>
+                                  <p className="text-neutral-400 mt-0.5 text-xs leading-relaxed">{project.caseStudy.dataset}</p>
+                                </div>
+                              </div>
+                              {/* Row 3: Approach */}
+                              <div className="flex gap-3">
+                                <Settings className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                                <div>
+                                  <span className="font-semibold text-neutral-200">Approach</span>
+                                  <p className="text-neutral-400 mt-0.5 text-xs leading-relaxed">{project.caseStudy.approach}</p>
+                                </div>
+                              </div>
+                              {/* Row 4: Key Insights */}
+                              <div className="flex gap-3">
+                                <Lightbulb className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
+                                <div>
+                                  <span className="font-semibold text-neutral-200">Key Insights</span>
+                                  <ul className="mt-1 space-y-1">
+                                    {project.caseStudy.insights.map((insight, i) => (
+                                      <li key={i} className="flex items-start gap-1.5 text-xs text-neutral-400">
+                                        <span className="text-yellow-500 flex-shrink-0">•</span>
+                                        <span>{insight}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                              {/* Row 5: Impact */}
+                              <div className="flex gap-3">
+                                <Target className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                                <div>
+                                  <span className="font-semibold text-neutral-200">Impact</span>
+                                  <p className="mt-1 text-xs text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 rounded-lg px-3 py-2 leading-relaxed">{project.caseStudy.impact}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )}
                 </div>
               </div>
 

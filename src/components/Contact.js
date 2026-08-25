@@ -7,6 +7,8 @@ import Contact3DCanvas from './ui/Contact3DCanvas';
 const Contact = () => {
   const [copied, setCopied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,22 +24,43 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const mailtoSubject = encodeURIComponent(formData.subject || `Inquiry from ${formData.name}`);
-    const mailtoBody = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    
-    window.open(`mailto:${emailAddress}?subject=${mailtoSubject}&body=${mailtoBody}`, '_blank');
+    setLoading(true);
+    setError(null);
 
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 5000);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'YOUR_ACCESS_KEY_PLACEHOLDER',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || `Portfolio Contact - ${formData.name}`,
+          message: formData.message,
+          from_name: 'Portfolio Contact Form',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', subject: '', message: '' });
+        }, 5000);
+      } else {
+        setError(result.message || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Network error — please check your connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -179,9 +202,9 @@ const Contact = () => {
                   <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto text-emerald-500">
                     <Check className="w-5 h-5" />
                   </div>
-                  <div className="text-base font-bold">Message Drafted &amp; Mailto Triggered!</div>
+                  <div className="text-base font-bold">Message Sent Successfully!</div>
                   <div className="text-xs text-neutral-600 dark:text-neutral-400">
-                    Your default email client opened with the pre-filled inquiry. Thanks for reaching out!
+                    Your message was delivered via Web3Forms. I'll get back to you soon!
                   </div>
                 </motion.div>
               ) : (
@@ -236,11 +259,43 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full py-3 px-6 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-lg hover:shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 group"
+                    disabled={loading}
+                    className="w-full py-3 px-6 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:shadow-lg hover:shadow-cyan-500/25 transition-all flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    <span>Send Inquiry Message</span>
+                    {loading ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                        </svg>
+                        <span>Sending...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </button>
+
+                  {/* Error Alert */}
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-start justify-between gap-3 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs"
+                    >
+                      <span>{error}</span>
+                      <button
+                        type="button"
+                        onClick={() => setError(null)}
+                        className="flex-shrink-0 hover:text-red-800 dark:hover:text-red-200 transition-colors font-bold"
+                        aria-label="Dismiss error"
+                      >
+                        ✕
+                      </button>
+                    </motion.div>
+                  )}
                 </form>
               )}
             </div>

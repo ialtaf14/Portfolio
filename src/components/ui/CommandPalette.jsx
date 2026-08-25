@@ -20,9 +20,12 @@ const CommandPalette = ({ isOpen, onClose }) => {
     { id: 'nav-skills', title: 'Go to Technical Skills', category: 'Navigation', icon: Cpu, action: () => scrollTo('#skills') },
     { id: 'nav-projects', title: 'Go to Featured Projects', category: 'Navigation', icon: FolderGit2, action: () => scrollTo('#projects') },
     { id: 'nav-github', title: 'Go to Live GitHub Repos', category: 'Navigation', icon: Github, action: () => scrollTo('#github-projects') },
+    { id: 'nav-analytics', title: 'Go to Data Analytics Dashboard', category: 'Navigation', icon: Cpu, action: () => scrollTo('#analytics') },
     { id: 'nav-edu', title: 'Go to Education', category: 'Navigation', icon: GraduationCap, action: () => scrollTo('#education') },
     { id: 'nav-training', title: 'Go to Professional Training (QSpiders)', category: 'Navigation', icon: Award, action: () => scrollTo('#training') },
+    { id: 'nav-experience', title: 'Go to Practical Experience (Deloitte, Projects)', category: 'Navigation', icon: Award, action: () => scrollTo('#experience') },
     { id: 'nav-cert', title: 'Go to Certifications', category: 'Navigation', icon: Award, action: () => scrollTo('#certifications') },
+    { id: 'nav-testimonials', title: 'Go to Testimonials & Social Proof', category: 'Navigation', icon: User, action: () => scrollTo('#testimonials') },
     { id: 'nav-contact', title: 'Go to Contact Form', category: 'Navigation', icon: Mail, action: () => scrollTo('#contact') },
 
     // Featured Projects direct links

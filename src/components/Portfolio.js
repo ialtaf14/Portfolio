@@ -9,16 +9,19 @@ import ScrollProgress from './ui/ScrollProgress';
 import Background3DCanvas from './ui/Background3DCanvas';
 
 // Lazy load sections
-const Hero             = lazy(() => import('./Hero'));
-const About            = lazy(() => import('./About'));
-const Skills           = lazy(() => import('./Skills'));
-const GitHubProjects   = lazy(() => import('./GitHubProjects'));
-const GitHubStats      = lazy(() => import('./GitHubStats'));
-const Education        = lazy(() => import('./Education'));
-const Training         = lazy(() => import('./Training'));
-const LearningTimeline = lazy(() => import('./LearningTimeline'));
-const Certifications   = lazy(() => import('./Certifications'));
-const Contact          = lazy(() => import('./Contact'));
+const Hero                = lazy(() => import('./Hero'));
+const About               = lazy(() => import('./About'));
+const Skills              = lazy(() => import('./Skills'));
+const GitHubProjects      = lazy(() => import('./GitHubProjects'));
+const GitHubStats         = lazy(() => import('./GitHubStats'));
+const PivotAnalytics      = lazy(() => import('./PivotAnalytics'));
+const Education           = lazy(() => import('./Education'));
+const Training            = lazy(() => import('./Training'));
+const PracticalExperience = lazy(() => import('./PracticalExperience'));
+const LearningTimeline    = lazy(() => import('./LearningTimeline'));
+const Certifications      = lazy(() => import('./Certifications'));
+const Testimonials        = lazy(() => import('./Testimonials'));
+const Contact             = lazy(() => import('./Contact'));
 
 const SectionLoader = () => (
   <div className="py-20 flex items-center justify-center">
@@ -38,7 +41,7 @@ const Portfolio = ({ onOpenCommandPalette }) => {
 
       <main id="main-content" tabIndex="-1" className="focus:outline-none">
         <Suspense fallback={<SectionLoader />}>
-          
+
           <ErrorBoundary>
             <Hero data={mockData.personal} />
           </ErrorBoundary>
@@ -59,6 +62,11 @@ const Portfolio = ({ onOpenCommandPalette }) => {
             <GitHubStats />
           </ErrorBoundary>
 
+          {/* Data Analytics Pivot Dashboard */}
+          <ErrorBoundary>
+            <PivotAnalytics data={mockData} />
+          </ErrorBoundary>
+
           <ErrorBoundary>
             <Education data={mockData.education} />
           </ErrorBoundary>
@@ -67,12 +75,22 @@ const Portfolio = ({ onOpenCommandPalette }) => {
             <Training data={mockData.training} />
           </ErrorBoundary>
 
+          {/* Practical Experience: Deloitte, QSpiders, Projects */}
+          <ErrorBoundary>
+            <PracticalExperience data={mockData.practicalExperience} />
+          </ErrorBoundary>
+
           <ErrorBoundary>
             <LearningTimeline />
           </ErrorBoundary>
 
           <ErrorBoundary>
             <Certifications data={mockData.education} />
+          </ErrorBoundary>
+
+          {/* Social Proof & Testimonials */}
+          <ErrorBoundary>
+            <Testimonials data={mockData.testimonials} />
           </ErrorBoundary>
 
           <ErrorBoundary>

@@ -18,8 +18,9 @@ const Header = ({ onOpenCommandPalette }) => {
     { label: 'About', href: '#about', id: 'about' },
     { label: 'Skills', href: '#skills', id: 'skills' },
     { label: 'Projects', href: '#github-projects', id: 'github-projects' },
+    { label: 'Analytics', href: '#analytics', id: 'analytics' },
     { label: 'Education', href: '#education', id: 'education' },
-    { label: 'Training', href: '#training', id: 'training' },
+    { label: 'Experience', href: '#experience', id: 'experience' },
     { label: 'Contact', href: '#contact', id: 'contact' }
   ];
 
