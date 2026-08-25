@@ -8,8 +8,8 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { RecruiterProvider } from './contexts/RecruiterContext';
 
-const Portfolio = lazy(() => import('./components/Portfolio'));
-const NotFound  = lazy(() => import('./components/NotFound'));
+import Portfolio from './components/Portfolio';
+import NotFound from './components/NotFound';
 
 function App() {
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
