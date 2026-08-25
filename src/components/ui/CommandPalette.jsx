@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, X, Sun, Moon, Monitor, FileText, Github,
@@ -127,6 +127,22 @@ const CommandPalette = ({ isOpen, onClose }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, filteredItems, selectedIndex, handleSelect, onClose]);
 
+  const listRef = useRef(null);
+  const itemRefs = useRef([]);
+
+  // Auto-scroll selected item into view when navigating via arrow keys
+  useEffect(() => {
+    if (!isOpen) return;
+    const selectedEl = itemRefs.current[selectedIndex];
+    if (selectedEl) {
+      selectedEl.scrollIntoView({
+        block: 'nearest',
+        inline: 'nearest',
+        behavior: 'smooth',
+      });
+    }
+  }, [selectedIndex, isOpen]);
+
   // Reset index when query changes
   useEffect(() => {
     setSelectedIndex(0);
@@ -179,7 +195,10 @@ const CommandPalette = ({ isOpen, onClose }) => {
           </div>
 
           {/* Results List */}
-          <div className="max-h-[min(340px,calc(100dvh-180px))] overflow-y-auto p-2 space-y-1">
+          <div
+            ref={listRef}
+            className="max-h-[min(340px,calc(100dvh-180px))] overflow-y-auto p-2 space-y-1 scroll-smooth"
+          >
             {filteredItems.length > 0 ? (
               filteredItems.map((item, idx) => {
                 const Icon = item.icon;
@@ -187,6 +206,9 @@ const CommandPalette = ({ isOpen, onClose }) => {
                 return (
                   <button
                     key={item.id}
+                    ref={(el) => {
+                      itemRefs.current[idx] = el;
+                    }}
                     onClick={() => handleSelect(item)}
                     onMouseEnter={() => setSelectedIndex(idx)}
                     className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-colors ${
